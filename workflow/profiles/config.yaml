@@ -1,0 +1,10 @@
+cores: 4 #Specifies the maximum number of CPU cores to be used by Snakemake for running the workflow.
+latency-wait: 30 #
+keep-going: False #Determines whether Snakemake should continue with independent jobs if one job fails
+rerun-incomplete: True # Snakemake will rerun any jobs that were started but not successfully finished in previous runs.
+restart-times: 0 # Specifies how many times to restart a job if it fails. 0 means jobs will not be restarted after failure.
+max-status-checks-per-second: 0.001 
+use-conda: True
+conda-frontend: mamba
+nolock: False
+
