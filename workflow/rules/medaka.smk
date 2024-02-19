@@ -12,10 +12,12 @@ rule medaka:
   params: 
     model=lambda wildcards: config["models"][wildcards.sample],
     num_threads=4,
+    medaka_env=config["tools"]["medaka_env"]
   log: 
     "logs/medaka_{sample}_log/medaka_{sample}.log"
   shell:
     """
+    . {params.medaka_env}
     ulimit -n 8000
     medaka_haploid_variant -r {input.ref} -i {input.concat} -m {params.model} -t {params.num_threads} -o {output.dir} 2> {log}
     """

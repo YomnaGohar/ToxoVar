@@ -1,7 +1,7 @@
 
 rule Graph:
     input:
-     expand("../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_sequence_to_graph_alignment_newGA.gam", sample=config["samples"])
+     expand("../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_filter.vcf", sample=config["samples"])
 rule assign_id_SV:
     input:
         "../analysis/Sniffles/{sample}/sniffles_{sample}_with_reference_valid_corrected.newHead.sorted.vcf"
@@ -82,8 +82,68 @@ rule graphAligner:
      reads=lambda wildcards: config["samples"][wildcards.sample]
     output:
      alignment="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_sequence_to_graph_alignment_newGA.gam"
+    conda:
+     config["conda_env"]["GraphAligner"]
     shell:
      """
      GraphAligner -g {input.graph} -f {input.reads} -t 8 -a {output.alignment} -x vg --precise-clipping 0.75
      """
+
+rule vg_filter_gam_Q30:
+  input: 
+    alignment="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_sequence_to_graph_alignment_newGA.gam"
+  output:
+    filtered_alignment="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_sequence_to_graph_alignment_MQ30.gam"
+  params: 
+    vg=config["tools"]["vg"]
+  shell:
+    """
+    {params.vg} filter -q 30 {input.alignment} > {output.filtered_alignment}
+    """
+
+rule vg_pack:
+  input:
+    graph="../analysis/Graph/graph_construction/merged_graph.xg",
+    alignment="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_sequence_to_graph_alignment_MQ30.gam"
+  output:
+    pack="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_sequence_to_graph_MQ30_BQ20.pack"
+  params: 
+    vg=config["tools"]["vg"]
+  shell:
+    """
+    {params.vg} pack -x {input.graph} -g {input.alignment} -Q 20 -o {output.pack}
+    """
+
+rule vg_call:
+  input:
+    graph="../analysis/Graph/graph_construction/merged_graph.xg",
+    pack="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_sequence_to_graph_MQ30_BQ20.pack",
+    vcf= "../analysis/Graph/merge_concat_medaka_sniffles/merge_medaka_sniffles.vcf.gz"
+  output:
+    calls="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20.vcf"
+  params: 
+    vg=config["tools"]["vg"]
+  shell:
+    """
+    {params.vg} call {input.graph} -k {input.pack} -v {input.vcf} -d 1 > {output.calls}
+    """
+
+rule add_vartype_VG_calls:
+  input: 
+    "../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20.vcf"
+  output:
+    "../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype.vcf"
+  params:
+    snpEff_path=config["tools"]["snpEff_path"]
+  shell:
+    "java -jar {params.snpEff_path} varType {input} > {output}" 
+
+rule filter_vg_calls:
+  input:
+    vcf="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype.vcf"
+  output:
+    filter_vcf="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_filter.vcf",
+    graph_calling_stats="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_graph_calling_stats.txt"
+  shell:
+    "python scripts/snake_cl_filter_count_VG_variants_GTVCF.py {input.vcf} {output.filter_vcf} {output.graph_calling_stats}"
 
