@@ -16,6 +16,8 @@ The goal is to provide a comprehensive framework for understanding the genetic d
     Sniffles 2.2:  This will be automatically installed by the Snakemake pipeline.
     Ensemble_vep:  This needs to be installed by the user. 
     SnpEff:        This needs to be installed by the user.
+    GraphAligner:  This will be automatically installed by the Snakemake pipeline.
+    
 Here's a proofread and refined version of the "Usage" section for better clarity and correctness:
 
 ---
