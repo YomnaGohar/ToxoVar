@@ -95,16 +95,16 @@ def get_filter_table(vcf_dict, stats_outfile):
                    total[2]-filtering_dict["INS"][1],
                    total[3]-filtering_dict["sDEL"][1], 
                    total[4]-filtering_dict["DEL"][1], 
-                   total[4]-filtering_dict["MIXED"][1]]
+                   total[5]-filtering_dict["MIXED"][1]]
     
     #variants filtered out because they dont "PASS" vg internal filtering
-    passed=[variant_calls[0]-filtering_dict["SNP"][2], variant_calls[1]-filtering_dict["sINS"][2], variant_calls[2]-filtering_dict["INS"][2],variant_calls[3]-filtering_dict["sDEL"][2], variant_calls[4]-filtering_dict["DEL"][2], variant_calls[4]-filtering_dict["MIXED"][2]]
+    passed=[variant_calls[0]-filtering_dict["SNP"][2], variant_calls[1]-filtering_dict["sINS"][2], variant_calls[2]-filtering_dict["INS"][2],variant_calls[3]-filtering_dict["sDEL"][2], variant_calls[4]-filtering_dict["DEL"][2], variant_calls[5]-filtering_dict["MIXED"][2]]
     
     #variants filtered out, because of readdepth < 7
-    readdepth=[passed[0]-filtering_dict["SNP"][3], passed[1]-filtering_dict["sINS"][3], passed[2]-filtering_dict["INS"][3],passed[3]-filtering_dict["sDEL"][3], passed[4]-filtering_dict["DEL"][3], passed[4]-filtering_dict["MIXED"][3]]
+    readdepth=[passed[0]-filtering_dict["SNP"][3], passed[1]-filtering_dict["sINS"][3], passed[2]-filtering_dict["INS"][3],passed[3]-filtering_dict["sDEL"][3], passed[4]-filtering_dict["DEL"][3], passed[5]-filtering_dict["MIXED"][3]]
     
     #variants filtered out that have allelefreq <80%
-    allelefreq=[readdepth[0]-filtering_dict["SNP"][4], readdepth[1]-filtering_dict["sINS"][4], readdepth[2]-filtering_dict["INS"][4],readdepth[3]-filtering_dict["sDEL"][4], readdepth[4]-filtering_dict["DEL"][4], readdepth[4]-filtering_dict["MIXED"][4]]
+    allelefreq=[readdepth[0]-filtering_dict["SNP"][4], readdepth[1]-filtering_dict["sINS"][4], readdepth[2]-filtering_dict["INS"][4],readdepth[3]-filtering_dict["sDEL"][4], readdepth[4]-filtering_dict["DEL"][4], readdepth[5]-filtering_dict["MIXED"][4]]
     
     data=[total,variant_calls,passed,readdepth,allelefreq]
    
