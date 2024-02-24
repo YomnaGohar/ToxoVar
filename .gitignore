@@ -1,3 +1,4 @@
 workflow/.snakemake/
 data/
 analysis/
+config/config.yaml

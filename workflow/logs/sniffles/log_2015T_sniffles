@@ -1,0 +1,63 @@
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+Running Sniffles2, build 2.2
+  Run Mode: call_sample
+  Start on: 2024/02/24 15:37:40
+  Working dir: /home/yomna/Desktop/PhD_Yomna_Gohar/graph_genome_project/ToxoVar/workflow
+  Used command: /home/yomna/Desktop/PhD_Yomna_Gohar/graph_genome_project/ToxoVar/workflow/.snakemake/conda/daf4b3323f6d1158f138f796f7575e28_/bin/sniffles --input ../analysis/medaka/medaka_2015T/calls_to_ref.bam --reference /home/yomna/Desktop/PhD_Yomna_Gohar/fasta/ME49_genome_from_Third_generation_sequencing_paper/ToxoME49_GenBank_JACEHA000000000.1.fsa --vcf ../analysis/Sniffles/2015T/sniffles_2015T_with_reference.vcf
+==============================
+Opening for reading: ../analysis/medaka/medaka_2015T/calls_to_ref.bam
+Opening for reading: /home/yomna/Desktop/PhD_Yomna_Gohar/fasta/ME49_genome_from_Third_generation_sequencing_paper/ToxoME49_GenBank_JACEHA000000000.1.fsa
+Opening for writing: ../analysis/Sniffles/2015T/sniffles_2015T_with_reference.vcf (single-sample, sorted)
+[W::hts_idx_load3] [W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.baiThe index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2015T/calls_to_ref.bam.bai
+
+Analyzing 311849 alignments total...
+
+ 16344/311849 alignments processed (5%, 41392/s); 20/36 tasks done; parallel 4/4; 3 SVs. 
+ 52012/311849 alignments processed (16%, 3465/s); 23/36 tasks done; parallel 4/4; 24 SVs. 
+ 83883/311849 alignments processed (26%, 5164/s); 24/36 tasks done; parallel 4/4; 44 SVs. 
+118055/311849 alignments processed (37%, 7188/s); 25/36 tasks done; parallel 4/4; 61 SVs. 
+151141/311849 alignments processed (48%, 9123/s); 26/36 tasks done; parallel 4/4; 83 SVs. 
+171853/311849 alignments processed (55%, 8027/s); 28/36 tasks done; parallel 4/4; 94 SVs. 
+189066/311849 alignments processed (60%, 8440/s); 29/36 tasks done; parallel 4/4; 110 SVs. 
+204881/311849 alignments processed (65%, 8743/s); 30/36 tasks done; parallel 4/4; 129 SVs. 
+229501/311849 alignments processed (73%, 7456/s); 32/36 tasks done; parallel 4/4; 140 SVs. 
+311849/311849 alignments processed (100%, 7505/s); 36/36 tasks done; parallel 0/4; 196 SVs. 
+Took 41.55s.
+
+Done.
+Wrote 196 called SVs to ../analysis/Sniffles/2015T/sniffles_2015T_with_reference.vcf (single-sample, sorted)

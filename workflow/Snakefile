@@ -1,4 +1,5 @@
-configfile: "/home/yomna/Desktop/PhD_Yomna_Gohar/graph_genome_project/snakemake_Yomna/config/config.yaml"
+configfile: "../config/config.yaml"
 include: "rules/medaka.smk"
 include: "rules/SV.smk"
 include: "rules/graph.smk"
+include: "rules/figure_production.smk"
