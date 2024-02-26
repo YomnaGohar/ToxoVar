@@ -141,13 +141,14 @@ rule add_vartype_VG_calls:
 
 rule filter_vg_calls:
   input:
-    vcf="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype.vcf"
+    vcf="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype.vcf",
+    agp=config["Files"]["agp"] 
   output:
     filter_vcf="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_filter.vcf",
     graph_calling_stats="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_graph_calling_stats.txt",
     mod_filter_vcf="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_filter_mod.vcf"
   shell:
-    "python scripts/snake_cl_filter_count_VG_variants_GTVCF.py {input.vcf} {output.filter_vcf} {output.graph_calling_stats}"
+    "python scripts/snake_cl_filter_count_VG_variants_GTVCF.py {input.vcf} {input.agp} {output.filter_vcf} {output.graph_calling_stats}"
 
 rule make_result_table:
     input: 

@@ -12,6 +12,7 @@ conda_env:
 Files:
     ref: /home/yomna/Desktop/PhD_Yomna_Gohar/fasta/ME49_genome_from_Third_generation_sequencing_paper/ToxoME49_GenBank_JACEHA000000000.1.fsa
     gff: /home/yomna/Desktop/PhD_Yomna_Gohar/graph_genome_project/Data/t-gondii-me49-new-genome-annotation_results/scaffold.out.modified.with.gffread.and.with.biotype.for.vep.gff3.gz
+    agp: /home/marie/masterthesis/data/unplaced_seq/pseudo.pseudochr.agp
 pileup:
     #2015T: /home/yomna/Desktop/PhD_Yomna_Gohar/graph_genome_project/Medaka/2020T/analysis_2020T_Genbank/pileup/ToxoME49_2020T_combined_reads_to_Genbank_mpileup.txt
     2020T: /home/yomna/Desktop/PhD_Yomna_Gohar/graph_genome_project/Medaka/2020T/analysis_2020T_Genbank/pileup/ToxoME49_2020T_combined_reads_to_Genbank_mpileup.txt
