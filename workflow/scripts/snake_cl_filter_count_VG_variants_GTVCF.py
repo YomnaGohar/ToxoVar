@@ -120,10 +120,10 @@ def categorise_call(variant):
  
     
     if vartype=="INS":
-        if ALT_len-1 <=50:
+        if ALT_len-1 <50:
             vartype="sINS"
     elif vartype=="DEL":
-        if (REF_len-1 <= 50):
+        if (REF_len-1 <50):
             vartype="sDEL"
     
     return vartype
@@ -167,23 +167,55 @@ def count_calls(vcf_dict, stats_out):
             print(f"{category} calls: {counts[0]} ({counts[1]}, {counts[2]})", file=stats_file)
 
 #Method for writing valid variants in a VCF file 
-def write_valid_vcf(outfile, vg_valid, infile):
+def write_valid_vcf(outfile, mod_outfile, vg_valid, infile):
     valid_keys=[]
     for k in vg_valid.keys():
         if vg_valid[k][1][0]==1:
             valid_keys.append(k)
     
     with open (infile, "r") as vg_input:
-        with open (outfile, "w") as valid_output:
-            for line in vg_input:
-                if line.startswith("#"):
-                    valid_output.write(line)
-                else:
-                    splitline=line.strip().split("\t")
-                    chrom = splitline[0]
-                    pos = splitline[1]
-                    if (chrom,pos) in valid_keys:
+        with open (outfile, "w") as valid_output: #output without modifying the vcf file (keep all alt alleles)
+            with open (mod_outfile, "w") as mod_output: #output modified vcf file, only the called alt allele is kept and GT is set to 1 
+                for line in vg_input:
+                    if line.startswith("#"):
                         valid_output.write(line)
+                        mod_output.write(line)
+                    else:
+                        splitline=line.strip().split("\t")
+                        chrom = splitline[0]
+                        pos = splitline[1]
+                        variant=(chrom,pos)
+                        if variant in valid_keys:
+                            if ("," in splitline[4]):
+                                splitline_mod=get_alt_allele(splitline, vg_valid[variant])
+                                mod_line="\t".join(splitline_mod)
+                                mod_output.write(mod_line)
+                                mod_output.write("\n")
+                            else:
+                                mod_output.write(line)
+                                
+                            valid_output.write(line)
+                            
+def get_alt_allele(splitline, dict_entry):
+    if ("," in splitline[4]):
+       # print(splitline)
+        splitline[4]=dict_entry[0][2]
+        col9=splitline[9].split(":")
+        gt=col9[0]
+
+        refAD=col9[2].split(",")[0]
+        gtAD=col9[2].split(",")[int(gt)]
+        col9[2]=refAD + "," + gtAD
+        
+        refGL=col9[3].split(",")[0]
+        gtGL=col9[3].split(",")[int(gt)]
+        col9[3]=refGL + "," + gtGL
+        
+        col9[0]="1"
+        
+        splitline[9]=":".join(col9)
+       
+    return splitline
                          
 #Method for searching a specific variant in the dictionary        
 def search_entry(chrom, position, vg_valid_dictionary):
@@ -195,11 +227,12 @@ def search_entry(chrom, position, vg_valid_dictionary):
 #input and output files 
 vg_infile=sys.argv[1]
 vg_outfile=sys.argv[2]
-vg_filter_stats=sys.argv[3]
+mod_vg_outfile=sys.argv[3]
+vg_filter_stats=sys.argv[4]
 
 #Main 
 vg_dict=read_vcf(vg_infile)
 vg_dict_valid=validate_calls(vg_dict, vg_filter_stats)
 count_calls(vg_dict_valid, vg_filter_stats)
-write_valid_vcf(vg_outfile, vg_dict_valid, vg_infile)
+write_valid_vcf(vg_outfile, mod_vg_outfile, vg_dict_valid, vg_infile)
 #search_entry("JACEHA010000005.1", "600987", vg_dict_valid)
