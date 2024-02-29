@@ -90,6 +90,18 @@ rule graphAligner:
      GraphAligner -g {input.graph} -f {input.reads} -t 8 -a {output.alignment} -x vg --precise-clipping 0.75
      """
 
+rule graphAlignment_stats:
+  input:
+    gam="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_sequence_to_graph_alignment_newGA.gam"
+  output:
+    gam_stats="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_graphAlignment_stats.txt"
+  params:
+    vg=config["tools"]["vg"]
+  shell:
+    """
+    {params.vg} stats -a {input.gam} > {output.gam_stats}
+    """
+
 rule vg_filter_gam_Q30:
   input: 
     alignment="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_sequence_to_graph_alignment_newGA.gam"

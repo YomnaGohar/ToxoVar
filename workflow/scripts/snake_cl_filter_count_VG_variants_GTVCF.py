@@ -217,23 +217,30 @@ def write_valid_vcf(outfile, mod_outfile, vg_valid, infile):
                             
 def get_alt_allele(splitline, dict_entry):
     if ("," in splitline[4]):
-       # print(splitline)
+        #modify gt column, keep only information for called gt and set it to 1 
+        #remove information on not called gt alleles, keep information about reference and called gt
         splitline[4]=dict_entry[0][2]
+        
+        #modify gt column
         col9=splitline[9].split(":")
-        gt=col9[0]
+        gt=col9[0] #which gt is called, information to extract the suitable information for this alt allele
 
-        refAD=col9[2].split(",")[0]
-        gtAD=col9[2].split(",")[int(gt)]
-        col9[2]=refAD + "," + gtAD
+        AD=[col9[2].split(",")[0],col9[2].split(",")[int(gt)]] #0=ref, 1= first alt allele ...
+        col9[2]=",".join(AD)
         
-        refGL=col9[3].split(",")[0]
-        gtGL=col9[3].split(",")[int(gt)]
-        col9[3]=refGL + "," + gtGL
+        GL=[col9[3].split(",")[0], col9[3].split(",")[int(gt)]]
+        col9[3]=",".join(GL)
         
-        col9[0]="1"
-        
+        col9[0]="1" #gt always 1
         splitline[9]=":".join(col9)
        
+       #modify Vartype information in Info column, keep only information for called gt
+        col7=splitline[7].split(";")
+        var_info=[col7[3].split("=")[0],"=",col7[3].split("=")[1].split(",")[int(gt)-1]]
+        var_info="".join(var_info)
+        col7[3]=var_info
+        splitline[7]=";".join(col7)
+
     return splitline
                          
 #Method for searching a specific variant in the dictionary        
