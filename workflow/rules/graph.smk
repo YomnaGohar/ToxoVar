@@ -1,7 +1,8 @@
 
 rule Graph:
     input:
-     expand("../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_filter.vcf", sample=config["samples"])
+     "../analysis/Graph/graph_construction/results/vg_venn_diagramm.png"
+     #expand("../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_filter.vcf", sample=config["samples"])
 rule assign_id_SV:
     input:
         "../analysis/Sniffles/{sample}/sniffles_{sample}_with_reference_valid_corrected.newHead.sorted.vcf"
@@ -89,6 +90,18 @@ rule graphAligner:
      GraphAligner -g {input.graph} -f {input.reads} -t 8 -a {output.alignment} -x vg --precise-clipping 0.75
      """
 
+rule graphAlignment_stats:
+  input:
+    gam="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_sequence_to_graph_alignment_newGA.gam"
+  output:
+    gam_stats="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_graphAlignment_stats.txt"
+  params:
+    vg=config["tools"]["vg"]
+  shell:
+    """
+    {params.vg} stats -a {input.gam} > {output.gam_stats}
+    """
+
 rule vg_filter_gam_Q30:
   input: 
     alignment="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_sequence_to_graph_alignment_newGA.gam"
@@ -140,10 +153,12 @@ rule add_vartype_VG_calls:
 
 rule filter_vg_calls:
   input:
-    vcf="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype.vcf"
+    vcf="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype.vcf",
+    agp=config["Files"]["agp"] 
   output:
     filter_vcf="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_filter.vcf",
-    graph_calling_stats="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_graph_calling_stats.txt"
+    graph_calling_stats="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_graph_calling_stats.txt",
+    mod_filter_vcf="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_filter_mod.vcf"
   shell:
     """
     python scripts/snake_cl_filter_count_VG_variants_GTVCF.py {input.vcf} {output.filter_vcf} {output.graph_calling_stats}
@@ -168,3 +183,24 @@ rule filter_vg_calls:
 #     bgzip -c {input} > {output}
 #     tabix -p vcf {output}
 #     """
+    "python scripts/snake_cl_filter_count_VG_variants_GTVCF.py {input.vcf} {input.agp} {output.filter_vcf} {output.graph_calling_stats}"
+
+rule make_result_table:
+    input: 
+        merged="../analysis/Graph/merge_concat_medaka_sniffles/merge_medaka_sniffles.vcf",
+        vg_2015T_mod="../analysis/Graph/graph_construction/2015T_graph_Alignment/2015T_variants_MQ30_BQ20_vartype_filter_mod.vcf",
+        vg_2020T_mod="../analysis/Graph/graph_construction/2020T_graph_Alignment/2020T_variants_MQ30_BQ20_vartype_filter_mod.vcf",
+        vg_2000B_mod="../analysis/Graph/graph_construction/2000B_graph_Alignment/2000B_variants_MQ30_BQ20_vartype_filter_mod.vcf"
+    output:
+        out_table="../analysis/Graph/graph_construction/results/merged_vg_combined_table.csv"
+    shell:
+        "python scripts/snake_result_table_merged_vg.py {input.merged} {input.vg_2015T_mod} {input.vg_2020T_mod} {input.vg_2000B_mod} {output.out_table}"
+
+rule plot_venn_per_file:
+    input:
+        resulttable="../analysis/Graph/graph_construction/results/merged_vg_combined_table.csv"
+    output:
+        merged_png="../analysis/Graph/graph_construction/results/merged_venn_diagramm.png",
+        vg_png="../analysis/Graph/graph_construction/results/vg_venn_diagramm.png"
+    shell: 
+        "python scripts/snake_venn_diagramm_perFile.py {input.resulttable} {output.merged_png} {output.vg_png}"
