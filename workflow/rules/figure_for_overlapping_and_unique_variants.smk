@@ -44,7 +44,7 @@ rule figure_overlap:
     """
     python3 scripts/ {output.o} {input.f} 
     """     
-rule figure_in_coding_regions:
+rule figure_in_coding_regions_ovelap:
   input:
     f="../analysis/Graph/graph_construction/variation_overlap/{var}.{length}/variant_consequences_in_coding_areas.txt"
   output:
