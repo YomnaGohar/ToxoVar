@@ -161,7 +161,7 @@ rule filter_vg_calls:
     mod_filter_vcf="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_filter_mod.vcf"
   shell:
     """
-    python scripts/snake_cl_filter_count_VG_variants_GTVCF.py {input.vcf} {output.filter_vcf} {output.graph_calling_stats}
+    python scripts/snake_cl_filter_count_VG_variants_GTVCF.py {input.vcf} {input.agp} {output.filter_vcf} {output.graph_calling_stats}"
     """
 # rule sort_filtered_vcf:
 #   input:
@@ -183,8 +183,6 @@ rule filter_vg_calls:
 #     bgzip -c {input} > {output}
 #     tabix -p vcf {output}
 #     """
-    "python scripts/snake_cl_filter_count_VG_variants_GTVCF.py {input.vcf} {input.agp} {output.filter_vcf} {output.graph_calling_stats}"
-
 rule make_result_table:
     input: 
         merged="../analysis/Graph/merge_concat_medaka_sniffles/merge_medaka_sniffles.vcf",
