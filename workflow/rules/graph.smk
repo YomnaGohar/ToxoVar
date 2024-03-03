@@ -1,8 +1,8 @@
 
 rule Graph:
     input:
-     "../analysis/Graph/graph_construction/results/vg_venn_diagramm.png",
-     expand("../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_filter_mod.vcf", sample=config["samples"])
+     "../analysis/Graph/graph_construction/results/vg_venn_diagramm.png"
+     expand("../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_graph_calling_stats.txt", sample=config["samples"]) 
 rule assign_id_SV:
     input:
         "../analysis/Sniffles/{sample}/sniffles_{sample}_with_reference_valid_corrected.newHead.sorted.vcf"
@@ -163,6 +163,7 @@ rule filter_vg_calls:
     """
     python scripts/snake_cl_filter_count_VG_variants_GTVCF.py {input.vcf} {input.agp} {output.filter_vcf} {output.mod_filter_vcf} {output.graph_calling_stats}
     """
+
 # rule sort_filtered_vcf:
 #   input:
 #     "../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_filter.vcf"
@@ -183,6 +184,7 @@ rule filter_vg_calls:
 #     bgzip -c {input} > {output}
 #     tabix -p vcf {output}
 #     """
+
 rule make_result_table:
   input: 
     merged="../analysis/Graph/merge_concat_medaka_sniffles/merge_medaka_sniffles.vcf",
