@@ -45,18 +45,21 @@ def validate_calls(vcf_dict, stats_outfile, unplaced_seq):
     for key in vcf_dict.keys():
         variant=vcf_dict[key][0]
         vcf_dict[key][1].append(0)
+        which_altallele=variant[7].split(":")[0] #get the alt allele from the GT in the last column (first number)
         #exclude calls thst did not PASS all filtering criteria
-        if variant[7].split(":")[0] != "1":
+        if variant[7].split(":")[0] == "0": #reference call 
             vcf_dict[key][1].append("ref_call")
         elif variant[4] != "PASS":
             vcf_dict[key][1].append(f"notPass, {variant[4]}")
         else:
-            map_info=variant[7].split(":")
+            map_info=variant[7].split(":") 
             if int(map_info[1]) < 7:  
                 vcf_dict[key][1].append(f"lowReadDepth, {map_info[1]}")
             else:
-                DP=int(map_info[1])
-                ALT_DP=int(map_info[2].split(",")[1])
+                if("," in variant[2]): #variants with more than 1 alt allele, get the actually called alt allele
+                    variant[2]=variant[2].split(",")[int(which_altallele)-1] #-1 needed because alt allele 1 is at index 0 in the list 
+                DP=int(map_info[1]) #total read depth
+                ALT_DP=int(map_info[2].split(",")[int(which_altallele)]) #depth for the alt allele called 
                 ALT_freq=(ALT_DP*100)/DP
                 if ALT_freq <80.0:
                     r_alt_freq=round(ALT_freq,2)
@@ -68,6 +71,8 @@ def validate_calls(vcf_dict, stats_outfile, unplaced_seq):
                     vcf_dict[key][1][0]=1
         VarType=categorise_call(variant)
         vcf_dict[key][1].append(VarType)
+    
+    
     #get the filtering result table 
     get_filter_table(vcf_dict, stats_outfile)
     return (vcf_dict)

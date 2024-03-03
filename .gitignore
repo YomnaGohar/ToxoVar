@@ -2,3 +2,4 @@ workflow/.snakemake/
 data/
 analysis/
 config/config.yaml
+config/config_Marie.yaml
