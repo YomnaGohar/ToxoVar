@@ -26,16 +26,17 @@ def read_vcf(vcf):
                 else: 
                     print(chrom, pos, "already in dictionary")
     return vcf_dict
-
 def read_agp(agp_infile):
-    exclude_contigs=[]
-    
-    with open (agp_infile, "r") as agp:
-        for line in agp:
-            splitline=line.split("\t")
-            if splitline[0] == ("TgMe49_00") or splitline[0] == ("TgMe49_API"):
-                if(splitline[4]=="W"):
-                    exclude_contigs.append(splitline[5])
+    if not config["Files"]["sequences_to_exclude"]: 
+        exclude_contigs=[]
+        with open (agp_infile, "r") as agp:
+            for line in agp:
+                splitline=line.split("\t")
+                if splitline[0] == ("TgMe49_00") or splitline[0] == ("TgMe49_API"):
+                    if(splitline[4]=="W"):
+                        exclude_contigs.append(splitline[5])
+    else:
+        exclude_contigs = config["Files"]["sequences_to_exclude"]                 
     return(exclude_contigs)
 
 # Method for filtering and validating calls
