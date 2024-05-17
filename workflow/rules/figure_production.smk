@@ -39,26 +39,6 @@ rule zip_sorted_vcf:
         bgzip -c {input} > {output}
         tabix {output}
         """
-rule vep:
-    input:
-      var="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype.{var}.{length}.sorted.vcf",
-      gff=config["Files"]["gff"],
-      ref=config["Files"]["ref"]
-    output:
-      vep="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype.{var}.{length}.sorted.vep",
-      stat="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype.{var}.{length}.sorted.vep_summary.txt"
-    params:
-      vep_path=config["tools"]["Ensemble_vep"]    
-    run:
-        if len([line for line in open(input.var) if not line.startswith('#')]) == 0:
-            shell("touch {output.vep} {output.stat}")
-        else:
-            # VCF file contains data, so run VEP as usual
-            shell(
-                """
-                {params.vep_path} -i {input.var} -gff {input.gff} --fasta {input.ref} --stats_text -o {output.vep}
-                """
-            )
 rule statistics_from_vep:
     input:
      stat="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype.{var}.{length}.sorted.vep_summary.txt"
