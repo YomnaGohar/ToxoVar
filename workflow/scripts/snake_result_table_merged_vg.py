@@ -58,6 +58,7 @@ def read_variantcalls_per_sample(vg_infile, sample,dict_pos, combi_dict):
                 chrom = splitline[0]
                 pos = splitline[1]
                 alt=splitline[4] #altternative allele from the variant 
+                genotype=splitline[9].split(":")[0]
                 if (chrom, pos) in combi_dict.keys(): #if  variant is in the merged vcf dictionary 
                     alt_allel_combi= combi_dict[(chrom, pos)][0][1] #get the different alt allele(s) called at this position after merging with Pangenie
                     if "," in alt_allel_combi: # if there is more than one alt allele, get a list of those.
@@ -69,16 +70,18 @@ def read_variantcalls_per_sample(vg_infile, sample,dict_pos, combi_dict):
                           #  print("Concat ALT allele:", alt, " is identical to position" , position, "in", alt_list)
                             position=int(position[0]) 
                         else:
-                            position=-1
+                            position="-"
                             print("alt_allele", alt, "not found in", alt_list, "Variant: ",  chrom, pos)
                             vg_called_diff_allele += 1
                     elif alt == alt_allel_combi: #if one alt allele at this variant: identical: set position to 1, if different set position to -1
                         position=1
                     else: 
                         print("different ALT allele", alt," in concat compared to merged", alt_allel_combi, "Variant:", chrom, pos)
-                        position=-1
+                        position="-"
                         vg_called_diff_allele += 1
                     #print(position)
+                    if(genotype==".") or (genotype=="0"):
+                        position=genotype 
                     combi_dict[(chrom, pos)][dict_pos][sample]=position
                 else: 
                     print("variant not in dictionary: ", chrom, pos, sample, "\n", alt)
@@ -97,7 +100,7 @@ def write_table(output_dic, outfile):
         writer = csv.writer(file)
     
         # Write header if needed
-        writer.writerow(['Chromosom', 'Position', 'Ref', 'ALT', 'Vartype', '2015T merged', '2020T_merged','2000B_merged', '2015T_vg', '2020T_vg', '2000B_vg', "gene_id" ,'gene_info'])  
+        writer.writerow(['Chromosom', 'Position', 'Ref', 'ALT', 'Vartype', '2015T_merged', '2020T_merged','2000B_merged', '2015T_vg', '2020T_vg', '2000B_vg', "gene_id" ,'gene_info'])  
         # Adjust column names as needed
             
         # Write each entry as a comma-separated line

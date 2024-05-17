@@ -2,14 +2,16 @@ ruleorder: statistics_from_vep > vep > zip_sorted_vcf > sort_separated_vcf > sep
 ruleorder: getting_statistics_from_vep > overlapping_vep > overlapping_var
 rule generate_figures:
     input:
-        expand("../analysis/Graph/graph_construction/{sample}_graph_Alignment/{var}.{length}.variant_consequences_in_coding_areas.txt", var=["SNP","INS","DEL"],sample=config["samples"],length=["less_than_50","greater_than_50"]),
-        expand("../analysis/Graph/graph_construction/{var}.{length}.variant_consequences.all.pdf", var=["SNP","INS","DEL"],length=["less_than_50","greater_than_50"]),
-        expand("../analysis/Graph/graph_construction/{var}.{length}.variant_consequences_in_coding_areas.pdf", var=["SNP","INS","DEL"],length=["less_than_50","greater_than_50"])
+        expand("../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype.{var}.{length}.vcf", var=["SNP","INS","DEL"],sample=config["samples"],length=["less_than_50","greater_than_50"])
+        #expand("../analysis/Graph/graph_construction/{sample}_graph_Alignment/{var}.{length}.variant_consequences_in_coding_areas.txt", var=["SNP","INS","DEL"],sample=config["samples"],length=["less_than_50","greater_than_50"]),
+        #expand("../analysis/Graph/graph_construction/{var}.{length}.variant_consequences.all.pdf", var=["SNP","INS","DEL"],length=["less_than_50","greater_than_50"]),
+        #expand("../analysis/Graph/graph_construction/{var}.{length}.variant_consequences_in_coding_areas.pdf", var=["SNP","INS","DEL"],length=["less_than_50","greater_than_50"])
 rule separate_vcf:
     input:
         "../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_filter_mod.vcf"
     output:
         var="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype.{var}.{length}.vcf"
+        
     params: 
         vartype=lambda wildcards: wildcards.var.upper(),  
         length=lambda wildcards: wildcards.length
