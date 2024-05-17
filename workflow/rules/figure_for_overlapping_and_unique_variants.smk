@@ -21,10 +21,16 @@ rule overlapping_vep:
     stat="../analysis/Graph/graph_construction/variation_overlap/{var}.{length}/0000.vep_summary.txt"
   params:
     vep_path=config["tools"]["Ensemble_vep"]    
-  shell:
-    """
-    {params.vep_path} -i {input.var} -gff {input.gff} --fasta {input.ref} --stats_text -o {output.vep}
-    """
+  run:
+    if len([line for line in open(input.var) if not line.startswith('#')]) == 0:
+        shell("touch {output.vep} {output.stat}")
+    else:
+        # VCF file contains data, so run VEP as usual
+        shell(
+            """
+            {params.vep_path} -i {input.var} -gff {input.gff} --fasta {input.ref} --stats_text -o {output.vep}
+            """
+        )
 rule getting_statistics_from_vep:
   input:
     stat=lambda wildcards: f"../analysis/Graph/graph_construction/variation_overlap/{wildcards.var}.{wildcards.length}/0000.vep_summary.txt"
@@ -35,21 +41,21 @@ rule getting_statistics_from_vep:
     """
     python3 scripts/vep.statistics.py {input.stat} {output.all_cons} {output.coding}
     """
-rule figure_overlap:
-  input:
-    f="../analysis/Graph/graph_construction/variation_overlap/{var}.{length}/variant_consequences.all.txt"
-  output:
-    o= "../analysis/Graph/graph_construction/{var}.{length}/variant_consequences.all.pdf"
-  shell:
-    """
-    python3 scripts/ {output.o} {input.f} 
-    """     
-rule figure_in_coding_regions_ovelap:
-  input:
-    f="../analysis/Graph/graph_construction/variation_overlap/{var}.{length}/variant_consequences_in_coding_areas.txt"
-  output:
-    o= "../analysis/Graph/graph_construction/{var}.{length}./variant_consequences_in_coding_areas.pdf"
-  shell:
-    """
-    python3 scripts/ {output.o} {input.f} 
-    """            
+# rule figure_overlap:
+#   input:
+#     f="../analysis/Graph/graph_construction/variation_overlap/{var}.{length}/variant_consequences.all.txt"
+#   output:
+#     o= "../analysis/Graph/graph_construction/{var}.{length}/variant_consequences.all.pdf"
+#   shell:
+#     """
+#     python3 scripts/ {output.o} {input.f} 
+#     """     
+# rule figure_in_coding_regions_ovelap:
+#   input:
+#     f="../analysis/Graph/graph_construction/variation_overlap/{var}.{length}/variant_consequences_in_coding_areas.txt"
+#   output:
+#     o= "../analysis/Graph/graph_construction/{var}.{length}./variant_consequences_in_coding_areas.pdf"
+#   shell:
+#     """
+#     python3 scripts/ {output.o} {input.f} 
+#     """            

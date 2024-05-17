@@ -7,7 +7,7 @@ rule generate_figures:
         expand("../analysis/Graph/graph_construction/{var}.{length}.variant_consequences_in_coding_areas.pdf", var=["SNP","INS","DEL"],length=["less_than_50","greater_than_50"])
 rule separate_vcf:
     input:
-        "../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_filter.vcf"
+        "../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_filter_mod.vcf"
     output:
         var="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype.{var}.{length}.vcf"
     params: 
@@ -49,10 +49,16 @@ rule vep:
       stat="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype.{var}.{length}.sorted.vep_summary.txt"
     params:
       vep_path=config["tools"]["Ensemble_vep"]    
-    shell:
-     """
-     {params.vep_path} -i {input.var} -gff {input.gff} --fasta {input.ref} --stats_text -o {output.vep}
-     """
+    run:
+        if len([line for line in open(input.var) if not line.startswith('#')]) == 0:
+            shell("touch {output.vep} {output.stat}")
+        else:
+            # VCF file contains data, so run VEP as usual
+            shell(
+                """
+                {params.vep_path} -i {input.var} -gff {input.gff} --fasta {input.ref} --stats_text -o {output.vep}
+                """
+            )
 rule statistics_from_vep:
     input:
      stat="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype.{var}.{length}.sorted.vep_summary.txt"

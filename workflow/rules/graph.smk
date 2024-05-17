@@ -1,7 +1,7 @@
 
 rule Graph:
     input:
-     "../analysis/Graph/graph_construction/results/vg_venn_diagramm.png"
+     "../analysis/Graph/graph_construction/results/vg_venn_diagramm.png",
      expand("../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_graph_calling_stats.txt", sample=config["samples"]) 
 rule assign_id_SV:
     input:
