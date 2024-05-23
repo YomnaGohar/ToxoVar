@@ -27,7 +27,7 @@ def read_vcf(vcf):
                     print(chrom, pos, "already in dictionary")
     return vcf_dict
 def read_agp(agp_infile):
-    if not config["Files"]["sequences_to_exclude"]: 
+    if not excl_contig: 
         exclude_contigs=[]
         with open (agp_infile, "r") as agp:
             for line in agp:
@@ -36,7 +36,7 @@ def read_agp(agp_infile):
                     if(splitline[4]=="W"):
                         exclude_contigs.append(splitline[5])
     else:
-        exclude_contigs = config["Files"]["sequences_to_exclude"]                 
+        exclude_contigs = excl_contig                 
     return(exclude_contigs)
 
 # Method for filtering and validating calls
@@ -51,7 +51,7 @@ def ref_criteria_check(variant, vcf_dict,key, unplaced_seq):
         allele_depth=[int(s) for s in allele_depth]
         max_alt=(max(allele_depth[1:]))
         idx=allele_depth.index(max_alt)
-        if (idx == 0):
+        if (idx == 0): #how can idx be zero if max_alt is search in the alternative alleles
             variant[2]=variant[2].split(",")[0]
         else:
             variant[2]=variant[2].split(",")[idx-1]
@@ -60,14 +60,14 @@ def ref_criteria_check(variant, vcf_dict,key, unplaced_seq):
         vcf_dict[key][1].append(f"notPass, {variant[4]}")
         vcf_dict[key][1][0]="."
     else:
-        if int(map_info[1]) < 7:
+        if int(map_info[1]) < depth:
             vcf_dict[key][1].append(f"lowReadDepth, {map_info[1]}")
             vcf_dict[key][1][0]="."
         else:
             DP=int(map_info[1])
             REF_DP=int(map_info[2].split(",")[0])
             ALT_freq=(REF_DP*100)/DP
-            if ALT_freq <80.0:
+            if ALT_freq < alfreq:
                 r_alt_freq=round(ALT_freq,2)
                 vcf_dict[key][1].append(f"lowAllelefreq, ({r_alt_freq})")
                 vcf_dict[key][1][0]="."
@@ -87,13 +87,13 @@ def variant_criteria_check(variant, vcf_dict,key, which_altallele, unplaced_seq)
         vcf_dict[key][1].append(f"notPass, {variant[4]}")
     else:
         map_info=variant[7].split(":")
-        if int(map_info[1]) < 7:
+        if int(map_info[1]) < depth:
             vcf_dict[key][1].append(f"lowReadDepth, {map_info[1]}")
         else:
             DP=int(map_info[1])
             ALT_DP=int(map_info[2].split(",")[int(which_altallele)])
             ALT_freq=(ALT_DP*100)/DP
-            if ALT_freq <80.0:
+            if ALT_freq < alfreq:
                 r_alt_freq=round(ALT_freq,2)
                 vcf_dict[key][1].append(f"lowAllelefreq, ({r_alt_freq})" )
             elif(key[0] in unplaced_seq):
@@ -102,7 +102,6 @@ def variant_criteria_check(variant, vcf_dict,key, which_altallele, unplaced_seq)
                 vcf_dict[key][1].append(["PASS", DP, round(ALT_freq,2)])
                 vcf_dict[key][1][0]=1
     return vcf_dict
-
 def validate_calls(vcf_dict, stats_outfile, unplaced_seq):
     for key in vcf_dict.keys():
         variant=vcf_dict[key][0]
@@ -112,31 +111,30 @@ def validate_calls(vcf_dict, stats_outfile, unplaced_seq):
         if variant[7].split(":")[0] == "0":
             vcf_dict[key][1].append("ref_call")
             vcf_dict=ref_criteria_check(variant,vcf_dict,key, unplaced_seq)
+            #if reference vcf_dict[key]: [[varianat],[0,"ref_call",["Pass",DP,freq]]]
         else:
-            vcf_dict=variant_criteria_check(variant,vcf_dict,key,which_altallele, unplaced_seq)
-        
+            vcf_dict=variant_criteria_check(variant,vcf_dict,key,which_altallele, unplaced_seq)   
+            #if variant:  vcf_dict[key]: [[varianat],[0,["Pass",DP,freq]]]
         VarType=categorise_call(variant)
-        vcf_dict[key][1].append(VarType)
-            
+        vcf_dict[key][1].append(VarType)            
     vcf_dict=get_filter_table(vcf_dict, stats_outfile)
     return (vcf_dict)
-
 #Method for extracting a filtering table, showing in each row the different filtering criteria and how many variants are remaining after each step per varinat type
 def get_filter_table(vcf_dict, stats_outfile):
     filtering_dict={"SNP": [0,0,0,0,0,0,0], "sINS": [0,0,0,0,0,0,0], "INS": [0,0,0,0,0,0,0],"sDEL": [0,0,0,0,0,0,0],"DEL": [0,0,0,0,0,0,0], "MIXED":[0,0,0,0,0,0,0]}
     ref_calls={"valid":0, "not_valid": 0}
-    #per Vartype: [total, ref_call, not_pass (lowad, lowdepth), readdepth < 7, allelefreq,  valid]
+    #per Vartype: [total, ref_call, not_pass (lowad, lowdepth), readdepth < depth, allelefreq,  valid]
     for variant in vcf_dict.keys():
         #total (valid+not_valid calls)
         filtering_dict[vcf_dict[variant][1][-1]][0] +=1
-        if(vcf_dict[variant][1][0]==1):
+        if(vcf_dict[variant][1][0]==1): #yes if it is not a reference call and valid
             #valid calls 
             filtering_dict[vcf_dict[variant][1][2]][6] +=1
-        elif (vcf_dict[variant][1][0]=='.'):
+        elif (vcf_dict[variant][1][0]=='.'): # a not valid reference call
            # print("filtered reference call: ", vcf_dict[variant][1])
             filtering_dict[vcf_dict[variant][1][-1]][1] +=1
             ref_calls["not_valid"] += 1
-        else:
+        else: #zero is for reference and variants that don't pass filtering
             #calls not passing criteria (information which one in the dictionary, used to assign it to the step where it was filtered out)
             filter_criterium=vcf_dict[variant][1][1].split(",")[0]
             if filter_criterium == "lowAllelefreq":
@@ -196,22 +194,16 @@ def get_filter_table(vcf_dict, stats_outfile):
 def categorise_call(variant):
     vartype=variant[5].split(";")[1]
     REF_len=len(variant[1])
-    ALT_len=len(variant[2])
- 
-    
+    ALT_len=len(variant[2])    
     if vartype=="INS":
         if ALT_len-1 <50:
             vartype="sINS"
     elif vartype=="DEL":
         if (REF_len-1 <50):
-            vartype="sDEL"
-    
+            vartype="sDEL"    
     return vartype
-
 #additional counting method; counts how many Variants of each type are in the file in total and devided by valid and not valid 
 #extract q scores and readDepth that could be used for plotting 
-
-
 def count_calls(vcf_dict, stats_out):
     categories = {
         'total': [0, 0, 0],
@@ -387,12 +379,16 @@ def search_entry(chrom, position, vg_valid_dictionary):
 
 #input and output files 
 vg_infile=sys.argv[1]
+#"/home/yomna/Desktop/PhD_Yomna_Gohar/graph_genome_project/ToxoVar/analysis/Graph/graph_construction/2015T_graph_Alignment/2015T_variants_MQ30_BQ20_vartype.vcf"
+#
 agp_file=sys.argv[2]
 vg_outfile=sys.argv[3]
 mod_vg_outfile=sys.argv[4]
 vg_filter_stats=sys.argv[5]
 vg_total_out=sys.argv[6]
-#Main 
+excl_contig=sys.argv[7]
+depth= int(sys.argv[7])
+alfreq=int(sys.argv[8])
 vg_dict=read_vcf(vg_infile)
 unplaced_seq=read_agp(agp_file)
 vg_dict_valid=validate_calls(vg_dict,vg_filter_stats ,unplaced_seq)

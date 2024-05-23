@@ -1,4 +1,4 @@
-ruleorder: statistics_from_vep > vep > zip_sorted_vcf > sort_separated_vcf > separate_vcf
+ruleorder: statistics_from_vep > zip_sorted_vcf > sort_separated_vcf > separate_vcf
 ruleorder: getting_statistics_from_vep > overlapping_vep > overlapping_var
 rule generate_figures:
     input:

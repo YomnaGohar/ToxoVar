@@ -10,13 +10,8 @@ import csv
 import sys
 
 merged_med_snif_vcf=sys.argv[1]
-vg_calls_2015T=sys.argv[2]
-vg_calls_2020T=sys.argv[3]
-vg_calls_2000B=sys.argv[4]
-
-vg_list=[vg_calls_2015T,vg_calls_2020T,vg_calls_2000B]
-resulttable=sys.argv[5]
-
+vg_list=sys.argv[2:-1]
+resulttable=sys.argv[-1]
 def read_merged_vcf(merged_vcf):
     merged_vcf_dict={}
     with open (merged_vcf, "r") as infile:
@@ -52,7 +47,7 @@ def read_variantcalls_per_sample(vg_infile, sample,dict_pos, combi_dict):
         
         print("analyzing: ", infile)
         for line in infile: 
-            if not line .startswith("#"):
+            if not line.startswith("#"):
                 cnt=cnt+1
                 splitline=line.strip().split("\t")
                 chrom = splitline[0]
