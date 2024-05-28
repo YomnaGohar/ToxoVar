@@ -1,7 +1,8 @@
 
+num_samples = len(config["samples"])
 rule Graph:
   input: 
-    "../analysis/Graph/graph_construction/results/merged_vg_combined_table_placed_ref.csv",
+    "../analysis/Graph/graph_construction/results/combined_bar_plot.pdf",
     expand("../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_graph_calling_stats.txt", sample=config["samples"]) 
 
 rule assign_id_SV:
@@ -155,8 +156,7 @@ rule add_vartype_VG_calls:
 rule filter_vg_calls:
   input:
     vcf="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype.vcf",
-    agp=config["Files"]["agp"] ,
-    exclude_contig=config["Files"]["sequences_to_exclude"] 
+    agp=config["Files"]["agp"],
   output:
     filter_vcf="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_filter.vcf",
     graph_calling_stats="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_graph_calling_stats.txt",
@@ -164,10 +164,12 @@ rule filter_vg_calls:
     total_filtered="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_total_filtered.vcf"
   params:
      depth=config["Files"]["depth"],
-     allele_freq=config["Files"]["allele_freq"]
+     allele_freq=config["Files"]["allele_freq"],
+     exclude_contig=config["Files"]["sequences_to_exclude"] 
   shell:
     """
-    python scripts/snake_cl_filter_count_VG_variants_GTVCF.py {input.vcf} {input.agp} {output.filter_vcf} {output.mod_filter_vcf} {output.graph_calling_stats} {output.total_filtered} {input.exclude_contig} {params.depth} {params.allele_freq}
+    echo "Running: python scripts/snake_cl_filter_count_VG_variants_GTVCF.py {input.vcf} {input.agp} {output.filter_vcf} {output.mod_filter_vcf} {output.graph_calling_stats} {output.total_filtered} {params.exclude_contig} {params.depth} {params.allele_freq}"
+    python scripts/snake_cl_filter_count_VG_variants_GTVCF.py {input.vcf} {input.agp} {output.filter_vcf} {output.mod_filter_vcf} {output.graph_calling_stats} {output.total_filtered} {params.exclude_contig} {params.depth} {params.allele_freq}
     """
 
 # rule sort_filtered_vcf:
@@ -225,3 +227,13 @@ rule reference_filtering_merged:
 #        vg_png="../analysis/Graph/graph_construction/results/vg_venn_diagramm.png"
 #    shell: 
 #        "python scripts/snake_venn_diagramm_perFile.py {input.resulttable} {output.merged_png} {output.vg_png}"
+
+rule plot_barplot:
+  input:
+    resulttable="../analysis/Graph/graph_construction/results/merged_vg_combined_table_placed_ref.csv"
+  output:
+    barplot="../analysis/Graph/graph_construction/results/combined_bar_plot.pdf"
+  params:
+    num_samples = num_samples
+  shell: 
+    "python scripts/comparison_for_merged_and_graph_1.py {params.num_samples} {input.resulttable} {output.barplot}"

@@ -14,7 +14,6 @@ import sys
 #Read in the VCF file per sample, VCF includes all call, variants (1) and reference calls (0) 
 def read_vcf(vcf):
     vcf_dict={}
-    
     with open (vcf, "r") as infile:
         for line in infile:
             if not line.startswith("#"):
@@ -26,8 +25,9 @@ def read_vcf(vcf):
                 else: 
                     print(chrom, pos, "already in dictionary")
     return vcf_dict
-def read_agp(agp_infile):
-    if not excl_contig: 
+def read_agp(agp_infile,excl_contig):
+    print(excl_contig == "None")
+    if excl_contig == "None": 
         exclude_contigs=[]
         with open (agp_infile, "r") as agp:
             for line in agp:
@@ -36,7 +36,8 @@ def read_agp(agp_infile):
                     if(splitline[4]=="W"):
                         exclude_contigs.append(splitline[5])
     else:
-        exclude_contigs = excl_contig                 
+        exclude_contigs = excl_contig    
+    #print(exclude_contigs)             
     return(exclude_contigs)
 
 # Method for filtering and validating calls
@@ -387,10 +388,10 @@ mod_vg_outfile=sys.argv[4]
 vg_filter_stats=sys.argv[5]
 vg_total_out=sys.argv[6]
 excl_contig=sys.argv[7]
-depth= int(sys.argv[7])
-alfreq=int(sys.argv[8])
+depth= int(sys.argv[8])
+alfreq=int(sys.argv[9])
 vg_dict=read_vcf(vg_infile)
-unplaced_seq=read_agp(agp_file)
+unplaced_seq=read_agp(agp_file,excl_contig)
 vg_dict_valid=validate_calls(vg_dict,vg_filter_stats ,unplaced_seq)
 count_calls(vg_dict_valid, vg_filter_stats)
 write_valid_vcf(vg_outfile, mod_vg_outfile, vg_dict_valid, vg_infile)

@@ -11,7 +11,6 @@ import sys
 #script to add reference and unplaced filtering to the merged vcf column of the combined resulttable vcf using medaka and sniffles raw data
 
 combined_table=sys.argv[1]
-
 medaka_2015T=sys.argv[2]
 medaka_2020T=sys.argv[3]
 medaka_2000B=sys.argv[4]
@@ -91,8 +90,6 @@ for index, row in df.iterrows():
             vartype="sDEL"
     else: 
         length=1
-    
- #   print(chrom, pos, vartype, alt, ref, length)    
     for sample in ['2015T', '2020T', '2000B']:
         variant_present=False
         merged_col = sample + '_merged'
@@ -117,6 +114,5 @@ for index, row in df.iterrows():
             df.at[index, merged_col] = '.'
             
 #print(df)
-df.to_csv(outfile, index=False)   
-        
+df.to_csv(outfile, index=False, sep='\t')        
         
