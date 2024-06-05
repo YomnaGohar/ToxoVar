@@ -6,10 +6,8 @@ Created on Thu Apr 18 07:57:56 2024
 @author: marie
 """
 import pandas as pd
-#import vcf
 import sys
 #script to add reference and unplaced filtering to the merged vcf column of the combined resulttable vcf using medaka and sniffles raw data
-
 combined_table=sys.argv[1]
 medaka_2015T=sys.argv[2]
 medaka_2020T=sys.argv[3]
@@ -23,11 +21,10 @@ sniffles_2000B=sys.argv[7]
 agp_file=sys.argv[8]
 outfile=sys.argv[9]
 
-df = pd.read_csv(combined_table, sep=',', dtype="str")
+df = pd.read_csv(combined_table, sep='\t', dtype="str")
 
 def read_agp(agp_infile):
     exclude_contigs=[]
-    
     with open (agp_infile, "r") as agp:
         for line in agp:
             splitline=line.split("\t")
@@ -72,7 +69,7 @@ sniffles_2020T_df = read_vcf_to_dataframe(sniffles_2020T)
 sniffles_2000B_df = read_vcf_to_dataframe(sniffles_2000B)
 
 unplaced_seq=read_agp(agp_file)
-  
+indices_to_remove = []  
 for index, row in df.iterrows():
     vartype = row['Vartype']
     alt = row['ALT']
@@ -95,6 +92,8 @@ for index, row in df.iterrows():
         merged_col = sample + '_merged'
         if(chrom in unplaced_seq):
             row[merged_col] = "."
+            indices_to_remove.append(index)  # Append index to list
+
         #print(merged_col)
         elif vartype in ["sINS", "sDEL", "SNV"]:
             medaka_df_name=f'medaka_{sample}_df' 
@@ -112,7 +111,7 @@ for index, row in df.iterrows():
         
         if variant_present:
             df.at[index, merged_col] = '.'
-            
+df.drop(index=indices_to_remove, inplace=True)            
 #print(df)
 df.to_csv(outfile, index=False, sep='\t')        
         
