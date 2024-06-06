@@ -123,18 +123,26 @@ def validate_calls(vcf_dict, stats_outfile, unplaced_seq):
 #Method for extracting a filtering table, showing in each row the different filtering criteria and how many variants are remaining after each step per varinat type
 def get_filter_table(vcf_dict, stats_outfile):
     filtering_dict={"SNP": [0,0,0,0,0,0,0], "sINS": [0,0,0,0,0,0,0], "INS": [0,0,0,0,0,0,0],"sDEL": [0,0,0,0,0,0,0],"DEL": [0,0,0,0,0,0,0], "MIXED":[0,0,0,0,0,0,0]}
-    ref_calls={"valid":0, "not_valid": 0}
     #per Vartype: [total, ref_call, not_pass (lowad, lowdepth), readdepth < depth, allelefreq,  valid]
+    ref_calls={"SNP":[0,0,0,0,0],"sINS": [0,0,0,0,0], "INS": [0,0,0,0,0],"sDEL": [0,0,0,0,0],"DEL": [0,0,0,0,0], "MIXED":[0,0,0,0,0]} #[refcall,not_pass (lowad, lowdepth), readdepth < depth, allelefreq]
     for variant in vcf_dict.keys():
         #total (valid+not_valid calls)
         filtering_dict[vcf_dict[variant][1][-1]][0] +=1
         if(vcf_dict[variant][1][0]==1): #yes if it is not a reference call and valid
             #valid calls 
             filtering_dict[vcf_dict[variant][1][2]][6] +=1
-        elif (vcf_dict[variant][1][0]=='.'): # a not valid reference call
+        elif (vcf_dict[variant][1][0]=='.'): # a not valid reference call because we done assign "." if the variant was not valid
            # print("filtered reference call: ", vcf_dict[variant][1])
             filtering_dict[vcf_dict[variant][1][-1]][1] +=1
-            ref_calls["not_valid"] += 1
+            ref_calls[vcf_dict[variant][1][-1]][0] +=1
+            if vcf_dict[variant][1][2].split(",")[0] =="notPass":
+               ref_calls[vcf_dict[variant][1][-1]][1] += 1
+            elif vcf_dict[variant][1][2].split(",")[0] =="lowReadDepth":
+                 ref_calls[vcf_dict[variant][1][-1]][2] += 1
+            elif vcf_dict[variant][1][2].split(",")[0] =="lowAllelefreq":    
+                 ref_calls[vcf_dict[variant][1][-1]][3] += 1
+            elif vcf_dict[variant][1][2].split(",")[0] =="unplaced":    
+                 ref_calls[vcf_dict[variant][1][-1]][3] += 1                             
         else: #zero is for reference and variants that don't pass filtering
             #calls not passing criteria (information which one in the dictionary, used to assign it to the step where it was filtered out)
             filter_criterium=vcf_dict[variant][1][1].split(",")[0]
@@ -148,8 +156,9 @@ def get_filter_table(vcf_dict, stats_outfile):
                 filtering_dict[vcf_dict[variant][1][2]][2] +=1
                 vcf_dict[variant][1][0]=("/")
             elif filter_criterium == "ref_call":
+                #print(vcf_dict[variant])
                 filtering_dict[vcf_dict[variant][1][-1]][1] +=1
-                ref_calls["valid"] += 1
+                ref_calls[vcf_dict[variant][1][-1]][0] +=1
             elif filter_criterium == "unplaced":
                 filtering_dict[vcf_dict[variant][1][2]][5] +=1
                 vcf_dict[variant][1][0]=("/")
@@ -188,8 +197,26 @@ def get_filter_table(vcf_dict, stats_outfile):
     
     with open (stats_outfile, "a") as stats_out:
         print(df, file=stats_out)  
-        print("reference calls: ", ref_calls, file=stats_out)  
+        
+    #reference filtered out because they dont "PASS" vg internal filtering
+    ref=[ref_calls["SNP"][0], ref_calls["sINS"][0], ref_calls["INS"][0],ref_calls["sDEL"][0], ref_calls["DEL"][0], ref_calls["MIXED"][0]]
+    passed_ref=[ref_calls["SNP"][0]-ref_calls["SNP"][1], ref_calls["sINS"][0]-ref_calls["sINS"][1], ref_calls["INS"][0]-ref_calls["INS"][1],ref_calls["sDEL"][0]-ref_calls["sDEL"][1], ref_calls["DEL"][0]-ref_calls["DEL"][1], ref_calls["MIXED"][0]-ref_calls["MIXED"][1]]
     
+    #reference filtered out, because of readdepth < 7
+    readdepth_ref=[passed_ref[0]-ref_calls["SNP"][2], passed_ref[1]-ref_calls["sINS"][2], passed_ref[2]-ref_calls["INS"][2],passed_ref[3]-ref_calls["sDEL"][2], passed_ref[4]-ref_calls["DEL"][2], passed_ref[5]-ref_calls["MIXED"][2]]
+    
+    #reference filtered out that have allelefreq <80%
+    allelefreq_ref=[readdepth_ref[0]-ref_calls["SNP"][3], readdepth_ref[1]-ref_calls["sINS"][3], readdepth_ref[2]-ref_calls["INS"][3],readdepth_ref[3]-ref_calls["sDEL"][3], readdepth_ref[4]-ref_calls["DEL"][3], readdepth_ref[5]-ref_calls["MIXED"][3]]
+    
+    #reference filtered out which are on unplaced sequences
+    placed_ref=[allelefreq_ref[0]-ref_calls["SNP"][4], allelefreq_ref[1]-ref_calls["sINS"][4], allelefreq_ref[2]-ref_calls["INS"][4],allelefreq_ref[3]-ref_calls["sDEL"][4], allelefreq_ref[4]-ref_calls["DEL"][4], allelefreq_ref[5]-ref_calls["MIXED"][4]]
+
+    data_ref=[ref,passed_ref,readdepth_ref,allelefreq_ref, placed_ref]
+   
+    df=pd.DataFrame(data_ref, index=["Reference", "pass", "readdepth >= 7", "allele freq >= 80%", "placed sequence"], columns=["SNP", "sINS", "INS", "sDEL", "DEL", "MIXED"])
+    with open (stats_outfile, "a") as stats_out:
+        print("Filtering of reference variants from the graph", file=stats_out)
+        print(df, file=stats_out)      
     return vcf_dict
 #Method for deviding small Indels and large Indels in INS/DEL and sINS/sDEL
 def categorise_call(variant):

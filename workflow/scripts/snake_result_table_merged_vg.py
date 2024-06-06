@@ -92,7 +92,7 @@ def write_table(output_dic, outfile):
     output_file = outfile
 
     with open(output_file, 'w', newline='') as file:
-        writer = csv.writer(file)
+        writer = csv.writer(file,delimiter='\t')
     
         # Write header if needed
         writer.writerow(['Chromosom', 'Position', 'Ref', 'ALT', 'Vartype', '2015T_merged', '2020T_merged','2000B_merged', '2015T_vg', '2020T_vg', '2000B_vg', "gene_id" ,'gene_info'])  

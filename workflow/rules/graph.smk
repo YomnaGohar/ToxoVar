@@ -198,25 +198,30 @@ rule make_result_table:
       merged="../analysis/Graph/merge_concat_medaka_sniffles/merge_medaka_sniffles.vcf",
       vg_mod=expand("../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_total_filtered.vcf",sample=config["samples"]),
   output:
-      out_table="../analysis/Graph/graph_construction/results/merged_vg_combined_table.csv"
+      out_table="../analysis/Graph/graph_construction/results/merged_vg_combined_table.txt"
   shell:
       "python scripts/snake_result_table_merged_vg.py {input.merged} {input.vg_mod} {output.out_table}"
 
 rule reference_filtering_merged:
   input:
-    combined_table="../analysis/Graph/graph_construction/results/merged_vg_combined_table.csv",
-    medaka_2015T="../analysis/medaka/medaka_2015T/medaka.annotated_with_VarType.vcf",
-    medaka_2020T="../analysis/medaka/medaka_2020T/medaka.annotated_with_VarType.vcf",
-    medaka_2000B="../analysis/medaka/medaka_2000B/medaka.annotated_with_VarType.vcf",
-    sniffles_2015T="../analysis/Sniffles/2015T/sniffles_2015T_with_reference.vcf",
-    sniffles_2020T="../analysis/Sniffles/2020T/sniffles_2020T_with_reference.vcf",
-    sniffles_2000B="../analysis/Sniffles/2000B/sniffles_2000B_with_reference.vcf",
+    combined_table="../analysis/Graph/graph_construction/results/merged_vg_combined_table.txt",
+    medaka=expand("../analysis/medaka/medaka_{sample}/medaka.annotated_with_VarType.vcf",sample=config["samples"]),
+    #medaka_2020T="../analysis/medaka/medaka_2020T/medaka.annotated_with_VarType.vcf",
+    #medaka_2000B="../analysis/medaka/medaka_2000B/medaka.annotated_with_VarType.vcf",
+    sniffles=expand("../analysis/Sniffles/{sample}/sniffles_{sample}_with_reference.vcf",sample=config["samples"]),
+    #sniffles_2020T="../analysis/Sniffles/2020T/sniffles_2020T_with_reference.vcf",
+    #sniffles_2000B="../analysis/Sniffles/2000B/sniffles_2000B_with_reference.vcf",
     agp_file=config["Files"]["agp"]
 
   output:
-    combined_table_out="../analysis/Graph/graph_construction/results/merged_vg_combined_table_placed_ref.csv"
+    combined_table_out="../analysis/Graph/graph_construction/results/merged_vg_combined_table_placed_ref.txt"
+  params:
+    num_samples = num_samples,
+    samples = "\t".join(config["samples"].keys()) 
   shell:
-    "python3 scripts/snake_medaka_sniffles_reference_filtering.py {input.combined_table} {input.medaka_2015T} {input.medaka_2020T} {input.medaka_2000B} {input.sniffles_2015T} {input.medaka_2020T} {input.medaka_2000B} {input.agp_file} {output.combined_table_out}"
+    """ 
+    python3 scripts/snake_medaka_sniffles_reference_filtering.py {input.combined_table} {params.num_samples} {params.samples} {input.medaka} {input.sniffles} {input.agp_file} {output.combined_table_out}
+    """
 
 #rule plot_venn_per_file:
 #    input:
@@ -230,7 +235,7 @@ rule reference_filtering_merged:
 
 rule plot_barplot:
   input:
-    resulttable="../analysis/Graph/graph_construction/results/merged_vg_combined_table_placed_ref.csv"
+    resulttable="../analysis/Graph/graph_construction/results/merged_vg_combined_table_placed_ref.txt"
   output:
     barplot="../analysis/Graph/graph_construction/results/combined_bar_plot.pdf"
   params:

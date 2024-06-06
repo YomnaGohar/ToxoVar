@@ -21,6 +21,7 @@ counts_vartype_disagree = {vt: [[0 for _ in range(7)] for _ in range(samples)] f
 counts_vartype_agree = {vt: [[0 for _ in range(3)] for _ in range(samples)] for vt in vartypes} #[count of (.,.),(0,0),(x,x))
 vartype_count_merged={vt: [0 for _ in range(samples)] for vt in vartypes}
 vartype_count_vg={vt: [0 for _ in range(samples)] for vt in vartypes}
+vartype_overlap_vg={vt: 0 for vt in vartypes}
 
 def update_vartype_disagree(vtype, i, category):
     counts_vartype_disagree[vtype][i][category] += 1
@@ -76,11 +77,13 @@ def update_counts(merged, vg, i, vtype):
 
 with open(input_file) as file:
    for r in file:
+       genotype=[]
        for i in range(samples):
            z = r.split('\t')
            if "Chromosom" not in z:
                 merged = z[i + 5]
                 vg = z[i + 5 + samples]
+                genotype.append(vg)
                 if z[4] == "INS":
                     if "," in z[3]: 
                         if merged != "." and  merged != "-":
@@ -104,6 +107,8 @@ with open(input_file) as file:
                 elif z[4] == "SNV":
                     vtype="SNV"
                 update_counts( merged, vg, i, vtype)
+       if len(set(genotype)) == 1 and genotype[0] != "0" and  genotype[0] != "."  and genotype[0] != "-":
+          vartype_overlap_vg[vtype] += 1
 # Convert counts to percentages
 percentages = []
 for sample_counts in counts:
@@ -196,3 +201,5 @@ for i in range(samples):
     output_plot = os.path.join(output_dir, f'sample_{i + 1}_bar_plot_agree.pdf')
     plt.savefig(output_plot, bbox_inches='tight')
 #    plt.show()    
+##########################################################################################################################################
+#calculate overlap between samples in their variant types
