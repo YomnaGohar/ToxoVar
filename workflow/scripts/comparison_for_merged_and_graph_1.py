@@ -11,7 +11,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 samples = int(sys.argv[1])
-input_file =sys.argv[2]
+input_file = sys.argv[2]
+#"/home/yomna/Desktop/PhD_Yomna_Gohar/graph_genome_project/ToxoVar/analysis/Graph/graph_construction/results/merged_vg_combined_table_placed_ref.txt"
 output_dir=os.path.dirname(sys.argv[3])
 
 # Initialize counts
@@ -119,7 +120,7 @@ for sample_counts in counts:
         percentages.append([(count / total) * 100 for count in sample_counts])
 # Transpose percentages for plotting
 percentages_transposed = list(zip(*percentages))
-# Categories
+#Categories
 categories = [
     "Graph and merged analyses both called an allele, and their calls agree (e.g., 1,1)",
     "Graph and merged analyses both called an allele, but their calls disagree (e.g., 0,1)",

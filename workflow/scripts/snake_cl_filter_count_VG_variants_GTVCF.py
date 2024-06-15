@@ -45,18 +45,14 @@ def read_agp(agp_infile,excl_contig):
 # Filtering results per step are printed in a DF (get_filter_table.py)
 def ref_criteria_check(variant, vcf_dict,key, unplaced_seq):
     map_info=variant[7].split(":")
-    if ("," in variant[2]):
-        #print(variant)
-        #print(map_info[2])
-        allele_depth=(map_info[2].split(","))
-        allele_depth=[int(s) for s in allele_depth]
-        max_alt=(max(allele_depth[1:]))
-        idx=allele_depth.index(max_alt)
-        if (idx == 0): #how can idx be zero if max_alt is search in the alternative alleles
-            variant[2]=variant[2].split(",")[0]
-        else:
-            variant[2]=variant[2].split(",")[idx-1]
-       # print(variant[2])
+    #print(variant)
+    #print(map_info[2])
+    allele_depth=(map_info[2].split(","))
+    allele_depth=[int(s) for s in allele_depth]
+    max_alt=(max(allele_depth[1:]))
+    idx=allele_depth[1:].index(max_alt)#if it's genotyped as a refernce allele, we assign the cartype and ALT allele based on the ALT with th highest depth
+    variant[2]=variant[2].split(",")[idx]
+    VarType=variant[5].split("=")[2].split(",")[idx]   
     if variant[4] != "PASS":
         vcf_dict[key][1].append(f"notPass, {variant[4]}")
         vcf_dict[key][1][0]="."
@@ -78,11 +74,12 @@ def ref_criteria_check(variant, vcf_dict,key, unplaced_seq):
                 #cnt=cnt+1
             else:
                 vcf_dict[key][1].append(["PASS", DP, round(ALT_freq,2)])
-             
+    vcf_dict[key][1].append(VarType)         
     return vcf_dict           
 
 def variant_criteria_check(variant, vcf_dict,key, which_altallele, unplaced_seq):
     if("," in variant[2]):
+        #print(variant)
         variant[2]=variant[2].split(",")[int(which_altallele)-1]
     if variant[4] != "PASS":
         vcf_dict[key][1].append(f"notPass, {variant[4]}")
@@ -102,8 +99,12 @@ def variant_criteria_check(variant, vcf_dict,key, which_altallele, unplaced_seq)
             else:
                 vcf_dict[key][1].append(["PASS", DP, round(ALT_freq,2)])
                 vcf_dict[key][1][0]=1
+    VarType=categorise_call(variant,which_altallele)
+    vcf_dict[key][1].append(VarType)            
     return vcf_dict
+
 def validate_calls(vcf_dict, stats_outfile, unplaced_seq):
+    unkown_GT=0
     for key in vcf_dict.keys():
         variant=vcf_dict[key][0]
         vcf_dict[key][1].append(0)
@@ -113,25 +114,31 @@ def validate_calls(vcf_dict, stats_outfile, unplaced_seq):
             vcf_dict[key][1].append("ref_call")
             vcf_dict=ref_criteria_check(variant,vcf_dict,key, unplaced_seq)
             #if reference vcf_dict[key]: [[varianat],[0,"ref_call",["Pass",DP,freq]]]
-        else:
+        elif variant[7].split(":")[0] == "./.":
+             unkown_GT +=1
+             vcf_dict[key][1][0]="./."
+             vcf_dict[key][1].append("unkown_variant_type_./.")
+        else:    
             vcf_dict=variant_criteria_check(variant,vcf_dict,key,which_altallele, unplaced_seq)   
             #if variant:  vcf_dict[key]: [[varianat],[0,["Pass",DP,freq]]]
-        VarType=categorise_call(variant)
-        vcf_dict[key][1].append(VarType)            
+
+    # with open (stats_outfile, "a") as stats_out:
+    #      print(f'Positions with unkown GT ./. : {unkown_GT}', file=stats_out)        
     vcf_dict=get_filter_table(vcf_dict, stats_outfile)
+ 
     return (vcf_dict)
 #Method for extracting a filtering table, showing in each row the different filtering criteria and how many variants are remaining after each step per varinat type
 def get_filter_table(vcf_dict, stats_outfile):
-    filtering_dict={"SNP": [0,0,0,0,0,0,0], "sINS": [0,0,0,0,0,0,0], "INS": [0,0,0,0,0,0,0],"sDEL": [0,0,0,0,0,0,0],"DEL": [0,0,0,0,0,0,0], "MIXED":[0,0,0,0,0,0,0]}
+    filtering_dict={"SNP": [0,0,0,0,0,0,0], "sINS": [0,0,0,0,0,0,0], "INS": [0,0,0,0,0,0,0],"sDEL": [0,0,0,0,0,0,0],"DEL": [0,0,0,0,0,0,0], "MIXED":[0,0,0,0,0,0,0],"MNP":[0,0,0,0,0,0,0],"unkown_variant_type_./.":[0]}
     #per Vartype: [total, ref_call, not_pass (lowad, lowdepth), readdepth < depth, allelefreq,  valid]
-    ref_calls={"SNP":[0,0,0,0,0],"sINS": [0,0,0,0,0], "INS": [0,0,0,0,0],"sDEL": [0,0,0,0,0],"DEL": [0,0,0,0,0], "MIXED":[0,0,0,0,0]} #[refcall,not_pass (lowad, lowdepth), readdepth < depth, allelefreq]
+    ref_calls={"SNP":[0,0,0,0,0],"sINS": [0,0,0,0,0], "INS": [0,0,0,0,0],"sDEL": [0,0,0,0,0],"DEL": [0,0,0,0,0], "MIXED":[0,0,0,0,0],"MNP":[0,0,0,0,0,0,0]} #[refcall,not_pass (lowad, lowdepth), readdepth < depth, allelefreq]
     for variant in vcf_dict.keys():
         #total (valid+not_valid calls)
         filtering_dict[vcf_dict[variant][1][-1]][0] +=1
         if(vcf_dict[variant][1][0]==1): #yes if it is not a reference call and valid
             #valid calls 
             filtering_dict[vcf_dict[variant][1][2]][6] +=1
-        elif (vcf_dict[variant][1][0]=='.'): # a not valid reference call because we done assign "." if the variant was not valid
+        elif (vcf_dict[variant][1][0]=='.'): # a not valid reference call because we don't assign "." if the variant was not valid
            # print("filtered reference call: ", vcf_dict[variant][1])
             filtering_dict[vcf_dict[variant][1][-1]][1] +=1
             ref_calls[vcf_dict[variant][1][-1]][0] +=1
@@ -143,7 +150,7 @@ def get_filter_table(vcf_dict, stats_outfile):
                  ref_calls[vcf_dict[variant][1][-1]][3] += 1
             elif vcf_dict[variant][1][2].split(",")[0] =="unplaced":    
                  ref_calls[vcf_dict[variant][1][-1]][3] += 1                             
-        else: #zero is for reference and variants that don't pass filtering
+        elif (str(vcf_dict[variant][1][0])=='0'): #zero is for reference and variants that don't pass filtering
             #calls not passing criteria (information which one in the dictionary, used to assign it to the step where it was filtered out)
             filter_criterium=vcf_dict[variant][1][1].split(",")[0]
             if filter_criterium == "lowAllelefreq":
@@ -219,10 +226,12 @@ def get_filter_table(vcf_dict, stats_outfile):
         print(df, file=stats_out)      
     return vcf_dict
 #Method for deviding small Indels and large Indels in INS/DEL and sINS/sDEL
-def categorise_call(variant):
-    vartype=variant[5].split(";")[1]
+def categorise_call(variant,which_altallele):
+    #print(variant)
+    vartype=variant[5].split("=")[2].split(",")[int(which_altallele)-1] #There can be a mix of allele types for example "DP=12;INS;HOM;VARTYPE=INS,DEL"  
+    #print(vartype)
     REF_len=len(variant[1])
-    ALT_len=len(variant[2])    
+    ALT_len=len(variant[2]) 
     if vartype=="INS":
         if ALT_len-1 <50:
             vartype="sINS"
@@ -232,46 +241,43 @@ def categorise_call(variant):
     return vartype
 #additional counting method; counts how many Variants of each type are in the file in total and devided by valid and not valid 
 #extract q scores and readDepth that could be used for plotting 
-def count_calls(vcf_dict, stats_out):
-    categories = {
-        'total': [0, 0, 0],
-        'sINS': [0, 0, 0],
-        'INS': [0, 0, 0],
-        'sDEL': [0, 0, 0],
-        'DEL': [0, 0, 0],
-        'SNP': [0, 0, 0],
-        "MIXED":[0,0,0],
-    }
+# def count_calls(vcf_dict, stats_out):
+#     categories = {
+#         'total': [0, 0, 0],
+#         'sINS': [0, 0, 0],
+#         'INS': [0, 0, 0],
+#         'sDEL': [0, 0, 0],
+#         'DEL': [0, 0, 0],
+#         'SNP': [0, 0, 0],
+#         "MIXED":[0,0,0],
+#         "MNP":[0,0,0]
+#     }
     
-    total_qscores=[]
-    total_readDepth=[]
+#     total_qscores=[]
+#     total_readDepth=[]
     
-    for key in vcf_dict:
-        validInfo=str(vcf_dict[key][1][0])
-        #validInfo=int(validInfo)
-        vartype=vcf_dict[key][1][-1]
+#     for key in vcf_dict:
+#         validInfo=str(vcf_dict[key][1][0])
+#         #validInfo=int(validInfo)
+#         vartype=vcf_dict[key][1][-1]
         
-        categories['total'][0]+=1
-        if validInfo=="1":
-            total_qscores.append(float(vcf_dict[key][0][3]))
-            total_readDepth.append(int(vcf_dict[key][0][7].split(":")[1]))
-            categories['total'][1]+=1
-        else:
-            categories['total'][2]+=1
+#         categories['total'][0]+=1
+#         if validInfo=="1":
+#             total_qscores.append(float(vcf_dict[key][0][3]))
+#             total_readDepth.append(int(vcf_dict[key][0][7].split(":")[1]))
+#             categories['total'][1]+=1
+#         else:
+#             categories['total'][2]+=1
         
-        category = categories[vartype]
-        category[0] += 1
-        category[1 if validInfo == "1" else 2] += 1
-    with open (stats_out, "a")as stats_file:
-        for category, counts in categories.items():
-            print(f"{category} calls: {counts[0]} ({counts[1]}, {counts[2]})", file=stats_file)
+#         category = categories[vartype]
+#         category[0] += 1
+#         category[1 if validInfo == "1" else 2] += 1
+#     with open (stats_out, "a")as stats_file:
+#         for category, counts in categories.items():
+#             print(f"{category} calls: {counts[0]} ({counts[1]}, {counts[2]})", file=stats_file)
 
             
-def write_total(total_out, infile, vg_valid):
-    valid_keys=[]
-    for k in vg_valid.keys():
-            valid_keys.append(k)
-            
+def write_total(total_out, infile, vg_valid):          
     with open(infile, "r") as vg_input, open(total_out, "w") as out:
         for line in vg_input:
             if line.startswith("#"):
@@ -281,10 +287,10 @@ def write_total(total_out, infile, vg_valid):
                 chrom = splitline[0]
                 pos = splitline[1]
                 variant=(chrom,pos)
-                if variant in valid_keys:
-                    if ("," in splitline[4]):
+                if variant in vg_valid.keys():
+                    if ("," in splitline[4] and splitline[9].split(":")[0] != './.' ):
                         splitline=get_alt_allele_total(splitline, vg_valid[variant])
-                    if (vg_valid[variant][1][0]=="." or vg_valid[variant][1][0]==("/")):
+                    if (vg_valid[variant][1][0]=="." or vg_valid[variant][1][0]==("/") or vg_valid[variant][1][0]==("./.")):
                         #print(vg_valid[variant])
                         col9=splitline[9].split(":")
                         col9[0]="."
@@ -305,10 +311,11 @@ def get_alt_allele_total(splitline, dict_entry):
         if(gt=="0"):
             allele_depth=(col9[2].split(","))
             allele_depth=[int(s) for s in allele_depth]
-            idx=allele_depth.index(max(allele_depth[1:]))
-            AD=[col9[2].split(",")[0],col9[2].split(",")[idx]] #reference calls should have the max alt allele depth as second entry (or 0 if all reads agree on 0 gt)
-            GL=[col9[3].split(",")[0], col9[3].split(",")[int(gt)]]
+            idx=allele_depth[1:].index(max(allele_depth[1:]))
+            AD=[col9[2].split(",")[0],col9[2].split(",")[idx+1]] #reference calls should have the max alt allele depth as second entry (or 0 if all reads agree on 0 gt)
+            GL=[col9[3].split(",")[0], col9[3].split(",")[int(gt)]] #shouldn't this be idx+1???????
             col9[0]="0" #gt always 1
+            gt=idx+1
         else:
             AD=[col9[2].split(",")[0],col9[2].split(",")[int(gt)]] #if genotype is not 0 get the alt allele depth at this postion 
             GL=[col9[3].split(",")[0], col9[3].split(",")[int(gt)]]
@@ -320,7 +327,7 @@ def get_alt_allele_total(splitline, dict_entry):
         splitline[9]=":".join(col9)
         
         col7=splitline[7].split(";")
-        var_info=[col7[3].split("=")[0],"=",col7[3].split("=")[1].split(",")[int(gt)-1]] #0=Vartype of first alt allle, 1=Vartype of second altallele
+        var_info=[col7[3].split("=")[0],"=",col7[3].split("=")[1].split(",")[int(gt)-1]] # if gt=0 the this give -1 0=Vartype of first alt allle, 1=Vartype of second altallele
         var_info="".join(var_info)
         col7[3]=var_info
         splitline[7]=";".join(col7)
@@ -420,7 +427,7 @@ alfreq=int(sys.argv[9])
 vg_dict=read_vcf(vg_infile)
 unplaced_seq=read_agp(agp_file,excl_contig)
 vg_dict_valid=validate_calls(vg_dict,vg_filter_stats ,unplaced_seq)
-count_calls(vg_dict_valid, vg_filter_stats)
+#count_calls(vg_dict_valid, vg_filter_stats)
 write_valid_vcf(vg_outfile, mod_vg_outfile, vg_dict_valid, vg_infile)
 write_total(vg_total_out, vg_infile,vg_dict_valid)
 #search_entry("JACEHA010000005.1", "600987", vg_dict_valid)

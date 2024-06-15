@@ -1,6 +1,7 @@
 rule call_SVs:
   input:
-    expand("../analysis/Sniffles/{sample}/sniffles_{sample}_with_reference_valid_corrected.newHead.sorted.vcf", sample=config["samples"])
+    expand("../analysis/Sniffles/{sample}/sniffles_{sample}_with_reference_valid_corrected.newHead.sorted.vcf", sample=config["samples"]),
+    expand("../analysis/Sniffles/{sample}/sniffles_{sample}_with_reference_corrected.newHead_assignedID.vcf", sample=config["samples"])
 rule sniffles:
     input:
         bam="../analysis/medaka/medaka_{sample}/calls_to_ref.bam",
@@ -13,22 +14,34 @@ rule sniffles:
         config["conda_env"]["sniffles"]
     shell:
         "sniffles --input {input.bam} --reference {input.ref} --vcf {output} > {log} 2>&1"
-
+rule assign_id_SV_all:
+  input:
+      "../analysis/Sniffles/{sample}/sniffles_{sample}_with_reference_corrected.vcf"
+  output:
+      corrected="../analysis/Sniffles/{sample}/sniffles_{sample}_with_reference_corrected_newHead.vcf",
+      uncompressed="../analysis/Sniffles/{sample}/sniffles_{sample}_with_reference_corrected.newHead_assignedID.vcf"
+  params:
+     col_name="Toxo_ME49_{sample}"    
+  shell:
+      """
+      awk 'BEGIN {{OFS="\t"}} /#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO\tFORMAT\tSAMPLE/ {{$NF = "{params.col_name}"}} 1' {input} > {output.corrected}
+      cat {output.corrected} | python3 scripts/PanGenie_scripts/assign-variant-ids.py > {output.uncompressed}
+      """
 rule filter_vcf:
     input:
-        vcf="../analysis/Sniffles/{sample}/sniffles_{sample}_with_reference.vcf"
+        vcf="../analysis/Sniffles/{sample}/sniffles_{sample}_with_reference_corrected.vcf"
     output:
-        valid="../analysis/Sniffles/{sample}/sniffles_{sample}_with_reference_valid.vcf",
+        valid="../analysis/Sniffles/{sample}/sniffles_{sample}_with_reference_valid_corrected.vcf",
         statistics="../analysis/Sniffles/{sample}/statistics.csv"
     shell:
         "python scripts/extract_valid_sniffles_SV_for_snakemake.py {input.vcf} {output.valid} {output.statistics}"
 
 rule correct_vcf:
     input:
-        vcf="../analysis/Sniffles/{sample}/sniffles_{sample}_with_reference_valid.vcf",
+        vcf="../analysis/Sniffles/{sample}/sniffles_{sample}_with_reference.vcf",
         ref=config["Files"]["ref"]
     output:
-        corrected="../analysis/Sniffles/{sample}/sniffles_{sample}_with_reference_valid_corrected.vcf"
+        corrected="../analysis/Sniffles/{sample}/sniffles_{sample}_with_reference_corrected.vcf"
     shell:
         "python scripts/correct_sniffles_vcf.py {input.vcf} {input.ref} {output.corrected}"
 rule correct_header_SV:
@@ -63,4 +76,16 @@ rule index_concat_vcf_sniffles:
   output:
     "../analysis/Sniffles/{sample}/sniffles_{sample}_with_reference_valid_corrected.newHead.sorted.vcf.gz.tbi" 
   shell:
-    "tabix -p vcf {input}"     
+    "tabix -p vcf {input}"   
+rule assign_id_SV:
+  input:
+      "../analysis/Sniffles/{sample}/sniffles_{sample}_with_reference_valid_corrected.newHead.sorted.vcf"
+  output:
+      uncompressed="../analysis/Sniffles/{sample}/sniffles_{sample}_with_reference_valid_corrected.newHead.sorted.assignedID.vcf",
+      compressed="../analysis/Sniffles/{sample}/sniffles_{sample}_with_reference_valid_corrected.newHead.sorted.assignedID.vcf.gz"
+  shell:
+      """
+      cat {input} | python3 scripts/PanGenie_scripts/assign-variant-ids.py > {output.uncompressed}
+      bgzip -c {output.uncompressed} > {output.compressed}
+      tabix -p vcf {output.compressed}
+      """   

@@ -10,6 +10,8 @@ import sys
 
 # Files:     
 medaka_vcf = sys.argv[1] 
+#"/home/yomna/Desktop/PhD_Yomna_Gohar/graph_genome_project/ToxoVar/analysis/medaka/medaka_2020T/medaka.annotated_with_VarType.newHead.sorted.assignedID.vcf"
+#
 medaka_files = [medaka_vcf]
 # Counting statistics from Vcf files
 
@@ -25,7 +27,7 @@ for file in range(0,len(medaka_files)):
                 arr = line.strip().split("\t") # line.strip() is to remove white spaces from the line. split fuction will create the list  
                 chom = arr[0]
                 pos = arr[1]
-                vartype=arr[7].split(";")[4].split("=")[1]
+                vartype=arr[7].split("=")[-1]
                 if not vartype in variant_count_total: variant_count_total[vartype]=0 #important because some weird variant names arise and they are not in the dictionary
                 if not(vartype in dupl_chrm_pos_nonIdentical): dupl_chrm_pos_nonIdentical[vartype]=0  #important because some weird variant names arise and they are not in the dictionary
                 if not(vartype in dupl_chrm_pos_Identical): dupl_chrm_pos_Identical[vartype]=0  #important because some weird variant names arise and they are not in the dictionary
@@ -40,7 +42,7 @@ for file in range(0,len(medaka_files)):
                      #print(arr)
                      #print("\n")
                 elif float(medaka_dict[(chom,pos)][0][3]) < float(arr[5]): 
-                     vartype_1=medaka_dict[(chom,pos)][0][5].split(";")[4].split("=")[1]
+                     vartype_1=medaka_dict[(chom,pos)][0][5].split("=")[-1]
                      dupl_chrm_pos_nonIdentical[vartype_1] +=1
                      medaka_dict[(chom,pos)]=[arr[2:]]   
                      unique_variants[vartype_1] -=1

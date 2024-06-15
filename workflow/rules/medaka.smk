@@ -1,6 +1,7 @@
 rule call_small_variantions:
   input:
-    expand("../analysis/medaka/medaka_{sample}/medaka.annotated_with_VarType_Qual_1_valid.newHead.sorted.vep", sample=config["samples"])
+    expand("../analysis/medaka/medaka_{sample}/medaka.annotated_with_VarType_Qual_1_valid.newHead.sorted.vep", sample=config["samples"]),
+    expand("../analysis/medaka/medaka_{sample}/medaka.annotated_with_VarType_new_head.assignedID.vcf",sample=config["samples"])
 rule medaka:
   input:
     ref=config["Files"]["ref"],
@@ -33,7 +34,19 @@ rule SNPSift_VarType:
     """
     java -jar {params.snpEff_path} varType {input.medaka_annotated_infile} > {output} 2> {log}
     """
-
+rule assign_id_medaka_all:
+  input: 
+    "../analysis/medaka/medaka_{sample}/medaka.annotated_with_VarType.vcf" 
+  output:
+    corrected_head="../analysis/medaka/medaka_{sample}/medaka.annotated_with_VarType_new_head.vcf",
+    uncompressed="../analysis/medaka/medaka_{sample}/medaka.annotated_with_VarType_new_head.assignedID.vcf"
+  params:
+    col_name="Toxo_ME49_{sample}"
+  shell: 
+    """
+    awk 'BEGIN {{OFS="\t"}} /#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO\tFORMAT\tSAMPLE/ {{$NF = "{params.col_name}"}} 1' {input} > {output.corrected_head}
+    cat {output.corrected_head} | python3 scripts/PanGenie_scripts/assign-variant-ids.py > {output.uncompressed}
+    """  
 rule SNPSift_filter:
   #run SNPSift_filter for the medaka.annotated_with_Vartype.vcf
   input:
@@ -49,6 +62,7 @@ rule SNPSift_filter:
     """
     java -jar {params.snpEff_path} filter {params.criteria} {input} > {output} 2> {log}
     """
+   
 rule counting_variant_types_before_filtering:
   input:
    All="../analysis/medaka/medaka_{sample}/medaka.annotated_with_VarType.vcf",
@@ -81,7 +95,7 @@ rule correct_header_medaka:
   shell:
     """
     awk 'BEGIN {{OFS="\t"}} /#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO\tFORMAT\tSAMPLE/ {{$NF = "{params.col_name}"}} 1' {input} > {output}
-    """
+    """    
 rule sort_vcf_medaka:
   input: 
    "../analysis/medaka/medaka_{sample}/medaka.annotated_with_VarType_Qual_1_valid.newHead.vcf"
@@ -89,7 +103,18 @@ rule sort_vcf_medaka:
     "../analysis/medaka/medaka_{sample}/medaka.annotated_with_VarType_Qual_1_valid.newHead.sorted.vcf"
   shell:
     "bcftools sort {input} > {output}"     
-
+rule assign_id_medaka:
+  input:
+    "../analysis/medaka/medaka_{sample}/medaka.annotated_with_VarType_Qual_1_valid.newHead.sorted.vcf" 
+  output:
+    uncompressed="../analysis/medaka/medaka_{sample}/medaka.annotated_with_VarType_Qual_1_valid.newHead.sorted.assignedID.vcf", 
+    compressed="../analysis/medaka/medaka_{sample}/medaka.annotated_with_VarType_Qual_1_valid.newHead.sorted.assignedID.vcf.gz" 
+  shell: 
+    """
+    cat {input} | python3 scripts/PanGenie_scripts/assign-variant-ids.py > {output.uncompressed}
+    bgzip -c {output.uncompressed} > {output.compressed}
+    tabix -p vcf {output.compressed}
+    """  
 rule variant_annotation:
   input:
     val="../analysis/medaka/medaka_{sample}/medaka.annotated_with_VarType_Qual_1_valid.newHead.sorted.vcf",

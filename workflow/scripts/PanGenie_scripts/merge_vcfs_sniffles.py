@@ -193,6 +193,8 @@ def combine_variants(variants, reference, chromosome):
             offset = start
             prev_end = 0
             undefined_allele = False
+            #print(variants)
+            #print(v.get_genotype_of(sample).get_alleles())
             for v in variants:
                 allele = v.get_genotype_of(sample).get_alleles()[p]
                 # if undefined allele, the combined allele is undefined as well

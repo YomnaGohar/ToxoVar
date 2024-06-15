@@ -180,14 +180,14 @@ for file in range(0,len(medaka_files)):
                 arr = line.strip().split("\t") # line.strip() is to remove white spaces from the line. split fuction will create the list  
                 chom = arr[0]
                 pos = arr[1]
-                vartype=arr[7].split(";")[4].split("=")[1]
+                vartype=arr[7].split("=")[-1]
                 if not(vartype in unique_variants): unique_variants[vartype]=0
                 if not(vartype in filtering_sample): filtering_sample[vartype]=[0,0,0,0,0]
                 if not (chom,pos) in medaka_dict: # it's important to include this if statement because medaka_comp has repeated lines
                     medaka_dict[(chom,pos)]=[arr[2:],[['',{}],0,'','']]    
                     unique_variants[vartype] +=1
                 elif float(medaka_dict[(chom,pos)][0][3]) < float(arr[5]):  
-                     vartype_1=medaka_dict[(chom,pos)][0][5].split(";")[4].split("=")[1]
+                     vartype_1=medaka_dict[(chom,pos)][0][5].split("=")[-1]
                      unique_variants[vartype_1] -=1
                      unique_variants[vartype] +=1
                      medaka_dict[(chom,pos)]=[arr[2:],[['',{}],0,'','']]
