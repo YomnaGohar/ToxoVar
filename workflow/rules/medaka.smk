@@ -74,10 +74,22 @@ rule counting_variant_types_before_filtering:
     python3 scripts/2023.12.11_variants_counting_from_vcf_file.py {input.All} > {output}
     python3 scripts/2023.12.11_variants_counting_from_vcf_file.py {input.qual_1} >> {output}
     """
+rule pileup:
+  input:
+   bam="../analysis/medaka/medaka_{sample}/calls_to_ref.bam",
+   ref=config["Files"]["ref"]
+  output:
+    "../analysis/pileup/{sample}_mpileup.txt"
+  params:
+    samtools_bin=config["tools"]["samtools"]   
+  shell:  
+   """
+   perl ../scripts/extractPileUpFrequencies.pl --samtools_bin {params.samtools_bin} --BAM {input.bam} --outputFile {output} --referenceGenome {input.ref}     
+   """
 rule filtering_vcf_for_valid_variants:
   input:
    vcf="../analysis/medaka/medaka_{sample}/medaka.annotated_with_VarType_Qual_1.vcf",
-   pileup=lambda wildcards: config["pileup"][wildcards.sample],
+   pileup= "../analysis/pileup/{sample}_mpileup.txt", #lambda wildcards: config["pileup"][wildcards.sample],
    stats="../analysis/medaka/medaka_{sample}/variant.statistics.txt"
   output:
     "../analysis/medaka/medaka_{sample}/medaka.annotated_with_VarType_Qual_1_valid.vcf"

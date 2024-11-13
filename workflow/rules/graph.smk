@@ -184,25 +184,27 @@ rule make_result_table:
       merged="../analysis/Graph/merge_concat_medaka_sniffles/merge_medaka_sniffles.vcf",
       vg_mod=expand("../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_total_filtered.vcf",sample=config["samples"]),
   output:
-      out_table="../analysis/Graph/graph_construction/results/merged_vg_combined_table.txt"
+      out_table="../analysis/Graph/graph_construction/results/merged_vg_combined_table.vcf"
   shell:
       "python scripts/snake_result_table_merged_vg.py {input.merged} {input.vg_mod} {output.out_table}"
 
 rule reference_filtering_merged:
   input:
-    combined_table="../analysis/Graph/graph_construction/results/merged_vg_combined_table.txt",
+    combined_table="../analysis/Graph/graph_construction/results/merged_vg_combined_table.vcf",
     medaka=expand("../analysis/medaka/medaka_{sample}/medaka.annotated_with_VarType_new_head.assignedID.vcf",sample=config["samples"]),
     sniffles=expand("../analysis/Sniffles/{sample}/sniffles_{sample}_with_reference_corrected.newHead_assignedID.vcf",sample=config["samples"]),
     agp_file=config["Files"]["agp"]
 
   output:
-    combined_table_out="../analysis/Graph/graph_construction/results/merged_vg_combined_table_placed_ref.txt"
+    combined_table_out="../analysis/Graph/graph_construction/results/merged_vg_combined_table_placed_ref.vcf",
+    for_igv="../analysis/Graph/graph_construction/results/merged_vg_combined_table_placed_ref_for_igv.vcf"
   params:
     num_samples = num_samples,
     samples = "\t".join(config["samples"].keys()) 
   shell:
     """ 
     python3 scripts/snake_medaka_sniffles_reference_filtering.py {input.combined_table} {params.num_samples} {params.samples} {input.medaka} {input.sniffles} {input.agp_file} {output.combined_table_out}
+    awk 'BEGIN {{FS=OFS="\t"}} {{for (i=1; i<=NF; i++) if ($i == "-") $i="."; print}}' {output.combined_table_out} > {output.for_igv}    
     """
 
 #rule plot_venn_per_file:
@@ -217,7 +219,7 @@ rule reference_filtering_merged:
 
 rule plot_barplot:
   input:
-    resulttable="../analysis/Graph/graph_construction/results/merged_vg_combined_table_placed_ref.txt"
+    resulttable="../analysis/Graph/graph_construction/results/merged_vg_combined_table_placed_ref.vcf"
   output:
     barplot="../analysis/Graph/graph_construction/results/combined_bar_plot.pdf"
   params:

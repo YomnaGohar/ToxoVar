@@ -82,8 +82,8 @@ with open(input_file) as file:
        for i in range(samples):
            z = r.split('\t')
            if "Chromosom" not in z:
-                merged = z[i + 5]
-                vg = z[i + 5 + samples]
+                merged = z[i + 6]
+                vg = z[i + 9 + samples]
                 genotype.append(vg)
                 if z[4] == "INS":
                     if "," in z[3]: 

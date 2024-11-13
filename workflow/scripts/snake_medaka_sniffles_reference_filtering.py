@@ -17,19 +17,10 @@ def read_agp(agp_infile):
                 if parts[4] == "W":
                     exclude_contigs.add(parts[5])
     return exclude_contigs
-def check_variant_presence(files_to_check, id_to_check):
-    ids2=set()
-    #files_to_check = (medaka_vcf, sniffles_vcf)
-    for file_path in files_to_check:
-        with open(file_path, "r") as file:
-            for line in file:
-                if line.startswith('#'):
-                    continue  # Skip header lines
-                parts = line.strip().split("\t")
-                ids2.add(parts[2])  # Assuming the ID is in the third column (0-based index)
+def check_variant_presence(sample_id, id_to_check):
     for id1 in id_to_check.split(","):
         for i in id1.split(":"):
-            if i in ids2:
+            if i in sample_id:
                 return True  # Found the variant, exit the function immediately
 
     return False  
@@ -60,28 +51,47 @@ def main():
 
     exclude_contigs = read_agp(agp_file)
     sample_dict = dict(zip(samples, zip(medaka_files, sniffles_files)))
+# Assuming sample_dict is properly defined and maps each sample to its corresponding VCF files.
+    ids_dict = {}
+    
+    for sample, (medaka_vcf, sniffles_vcf) in sample_dict.items():
+        # Initialize a set for each sample to hold variant IDs
+        ids_dict[sample] = set()
+        
+        # Loop over both VCF files associated with the sample
+        for file_path in (medaka_vcf, sniffles_vcf):
+            with open(file_path, "r") as file:
+                for line in file:
+                    if line.startswith('#'):
+                        continue  # Skip header lines
+                    
+                    parts = line.strip().split("\t")
+                    if len(parts) > 2: 
+                       ids_dict[sample].add(parts[2])  # Add the 
     l=0
     with open(combined_table, 'r') as f, open(outfile, 'w') as out:
-        headers = next(f).strip()  # Presuming the first line is headers
-        out.write(headers + "\n")
+        #headers = next(f).strip()  # Presuming the first line is headers
+        #out.write(headers + "\n")
         for line in f:
-            l=l+1
-            print(l)
-            parts = line.strip().split("\t")
-            id_to_check = parts[2].split("=")[1]
-            chrom=parts[0]
-            if chrom in exclude_contigs:
-                continue  # Skip processing this row altogether
-            i=6
-            for sample, (medaka_vcf, sniffles_vcf)in sample_dict.items(): 
-                if parts[i] == "0":
-                   variant_present = check_variant_presence( (medaka_vcf, sniffles_vcf), id_to_check)
-                   if variant_present:
-                       parts[i]= "."
-                   else:
-                       parts[i] = "0"
-                   i=i+1    
-            out.write("\t".join(parts) + "\n")
-
+            if not (line.startswith("#") or line.startswith("##")):
+                l=l+1
+                print(l)
+                parts = line.strip().split("\t")
+                id_to_check = parts[2].split("=")[1]
+                chrom=parts[0]
+                if chrom in exclude_contigs:
+                    continue  # Skip processing this row altogether
+                i=9
+                for sample in samples: 
+                    if parts[i] == "0":
+                       variant_present = check_variant_presence(ids_dict[sample] , id_to_check)
+                       if variant_present:
+                           parts[i]= "."
+                       else:
+                           parts[i] = "0"
+                       i=i+1    
+                out.write("\t".join(parts) + "\n")
+            else:
+                out.write(line)
 if __name__ == "__main__":
     main()
