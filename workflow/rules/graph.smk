@@ -13,10 +13,8 @@ def get_sniffles_input2(sample):
 rule Graph:
   input: 
     expand("{out}/analysis/medaka/medaka_{sample}/medaka.annotated_with_VarType_valid.newHead.sorted.assignedID_no_overlap_with_sniffles.vcf", out=config["output_dir"],sample=config["samples"]),
-    expand("{out}/analysis/Graph/merge_concat_medaka_sniffles/merge_medaka_sniffles.vcf", out=config["output_dir"]),
-    #"../analysis/Graph/graph_construction/results/with_2015T_filtering/merged_vg_combined_table_placed_ref_for_igv_no_2015.vcf",
-    expand("{out}/analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_graph_calling_stats.txt",out=config["output_dir"], sample=config["graph_regenoyping_additional"]),
-    #expand("../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_filter_mod_sorted.vep", sample=config["graph_regenoyping_additional"]),
+    expand("{out}/analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_graph_calling_stats.txt",out=config["output_dir"], sample=config["samples"]),
+    expand("{out}/analysis/Graph/graph_construction/results/merged_vg_combined_table_placed_ref_for_igv.vcf",out=config["output_dir"])
     
 rule assign_id_SV_manual:
   input:
@@ -193,9 +191,9 @@ rule filter_vg_calls:
 
 rule sort_filtered_vcf:
   input:
-    "../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_filter_mod.vcf"
+    "{out}/analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_filter_mod.vcf"
   output:
-    "../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_filter_mod_sorted.vcf"
+    "{out}/analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_filter_mod_sorted.vcf"
   shell:
     """
     bcftools sort {input} > {output}
@@ -203,9 +201,9 @@ rule sort_filtered_vcf:
 
 rule zip_sorted_vcf:
   input:
-    "../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_filter_mod_sorted.vcf"
+    "{out}/analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_filter_mod_sorted.vcf"
   output:
-    "../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_filter_mod_sorted.vcf.gz"
+    "{out}/analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_filter_mod_sorted.vcf.gz"
   shell:
     """
     bgzip -c {input} > {output}
@@ -213,67 +211,20 @@ rule zip_sorted_vcf:
     """
 rule make_result_table:
   input: 
-      merged="../analysis/Graph/merge_concat_medaka_sniffles/merge_medaka_sniffles.vcf",
-      vg_mod=expand("../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_total_filtered.vcf",sample=config["samples"]),
+      merged="{out}/analysis/Graph/merge_concat_medaka_sniffles/merge_medaka_sniffles.vcf",
+      vg_mod=expand("{out}/analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_total_filtered.vcf", out=config["output_dir"], sample=config["samples"]),
+      medaka=expand("{out}/analysis/medaka/medaka_{sample}/medaka.annotated_with_VarType_new_head.assignedID.vcf", out=config["output_dir"], sample=config["samples"]),
+      sniffles=expand("{out}/analysis/Sniffles/{sample}/sniffles_{sample}_with_reference_corrected.newHead_assignedID.vcf", out=config["output_dir"], sample=config["samples"])
   output:
-      out_table="../analysis/Graph/graph_construction/results/merged_vg_combined_table.vcf"
-  shell:
-      "python scripts/snake_result_table_merged_vg.py {input.merged} {input.vg_mod} {output.out_table}"
-
-
-rule reference_filtering_merged:
-  input:
-    combined_table="../analysis/Graph/graph_construction/results/merged_vg_combined_table.vcf",
-    medaka=expand("../analysis/medaka/medaka_{sample}/medaka.annotated_with_VarType_new_head.assignedID.vcf",sample=config["samples"]),
-    sniffles=expand("../analysis/Sniffles/{sample}/sniffles_{sample}_with_reference_corrected.newHead_assignedID.vcf",sample=config["samples"]),
-
-  output:
-    combined_table_out="../analysis/Graph/graph_construction/results/merged_vg_combined_table_placed_ref.vcf",
-    for_igv="../analysis/Graph/graph_construction/results/merged_vg_combined_table_placed_ref_for_igv.vcf"
+      out_table=temp("{out}/analysis/Graph/graph_construction/results/merged_vg_combined_table.vcf"),
+      combined_table_out=temp("{out}/analysis/Graph/graph_construction/results/merged_vg_combined_table_placed_ref.vcf"),
+      for_igv="{out}/analysis/Graph/graph_construction/results/merged_vg_combined_table_placed_ref_for_igv.vcf"
   params:
-    num_samples = num_samples,
-    samples = "\t".join(config["samples"].keys()) 
+      num_samples = num_samples,
+      samples = "\t".join(config["samples"].keys())       
   shell:
-    """ 
-    python3 scripts/snake_medaka_sniffles_reference_filtering.py {input.combined_table} {params.num_samples} {params.samples} {input.medaka} {input.sniffles} {input.agp_file} {output.combined_table_out}
-    awk 'BEGIN {{FS=OFS="\t"}} {{for (i=1; i<=NF; i++) if ($i == "-") $i="."; print}}' {output.combined_table_out} > {output.for_igv}    
-    """
-rule filter_by_2015:
-     input:
-          for_igv="../analysis/Graph/graph_construction/results/merged_vg_combined_table_placed_ref_for_igv.vcf",
-          mod_filter_vcf="../analysis/Graph/graph_construction/2015T_graph_Alignment/2015T_variants_MQ30_BQ20_vartype_filter_mod.vcf", 
-          ref="../analysis/Graph/graph_construction/2015T_graph_Alignment/trial_with_filtering_with_0.1/loci_to_be_filtered_from_ref.vcf"      
-     output:
-          for_igv_2015="../analysis/Graph/graph_construction/results/merged_vg_combined_table_placed_ref_for_igv_no_2015.vcf",
-          gz="../analysis/Graph/graph_construction/results/with_2015T_filtering/merged_vg_combined_table_placed_ref_for_igv_no_2015.vcf.gz"
-     shell:
-          """
-          grep '^#' {input.for_igv} > {output.for_igv_2015}
-          bedtools intersect -v -a {input.for_igv} -b  {input.mod_filter_vcf} {input.ref} >> {output.for_igv_2015}
-          bgzip -c {output.for_igv_2015} > {output.gz}
-          tabix {output.gz}
-          """         
-          
-#rule plot_venn_per_file:
-#    input:
-#        resulttable="../analysis/Graph/graph_construction/results/merged_vg_combined_table.csv"
-
-#    output:
-#        merged_png="../analysis/Graph/graph_construction/results/merged_venn_diagramm.png",
-#        vg_png="../analysis/Graph/graph_construction/results/vg_venn_diagramm.png"
-#    shell: 
-#        "python scripts/snake_venn_diagramm_perFile.py {input.resulttable} {output.merged_png} {output.vg_png}"
-
-
-rule variant_annotation_graph:
-  input:
-    val="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_filter_mod_sorted.vcf",
-    gff=config["Files"]["gff"],
-    ref=config["Files"]["ref"]
-  output:
-    vep="../analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_filter_mod_sorted.vep" 
-  threads: 4    
-  shell:  
-   """
-   vep -i {input.val} -gff {input.gff} --fasta {input.ref} -o {output.vep}
-   """
+      """
+      python scripts/snake_result_table_merged_vg.py {input.merged} {input.vg_mod} {output.out_table}
+      python3 scripts/snake_medaka_sniffles_reference_filtering.py {output.out_table} {params.num_samples} {params.samples} {input.medaka} {input.sniffles} {output.combined_table_out}
+      awk 'BEGIN {{FS=OFS="\t"}} {{for (i=1; i<=NF; i++) if ($i == "-") $i="."; print}}' {output.combined_table_out} > {output.for_igv}
+      """
