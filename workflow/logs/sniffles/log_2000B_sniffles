@@ -1,27 +1,13 @@
 [W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2000B/calls_to_ref.bam.bai
 Running Sniffles2, build 2.2
   Run Mode: call_sample
-  Start on: 2024/04/03 13:02:43
+  Start on: 2025/01/04 08:00:13
   Working dir: /home/yomna/Desktop/PhD_Yomna_Gohar/graph_genome_project/ToxoVar/workflow
-  Used command: /home/yomna/Desktop/PhD_Yomna_Gohar/graph_genome_project/ToxoVar/workflow/.snakemake/conda/daf4b3323f6d1158f138f796f7575e28_/bin/sniffles --input ../analysis/medaka/medaka_2000B/calls_to_ref.bam --reference /home/yomna/Desktop/PhD_Yomna_Gohar/fasta/ME49_genome_from_Third_generation_sequencing_paper/ToxoME49_GenBank_JACEHA000000000.1.fsa --vcf ../analysis/Sniffles/2000B/sniffles_2000B_with_reference.vcf
+  Used command: /home/yomna/Desktop/PhD_Yomna_Gohar/graph_genome_project/ToxoVar/workflow/.snakemake/conda/daf4b3323f6d1158f138f796f7575e28_/bin/sniffles --input ../analysis/medaka/medaka_2000B/calls_to_ref.bam --reference /home/yomna/hpc_project/combined_with_pipline_after_rebasecalling_and_herro_using_all_read_that_donot_map_to_human_or_mouse/after_mit_removal/assembly/nano-corr/toxoplasma-gondii-annotation_results/scafs.fasta --vcf ../analysis/Sniffles/2000B/sniffles_2000B_with_reference.vcf
 ==============================
 Opening for reading: ../analysis/medaka/medaka_2000B/calls_to_ref.bam
-Opening for reading: /home/yomna/Desktop/PhD_Yomna_Gohar/fasta/ME49_genome_from_Third_generation_sequencing_paper/ToxoME49_GenBank_JACEHA000000000.1.fsa
+Opening for reading: /home/yomna/hpc_project/combined_with_pipline_after_rebasecalling_and_herro_using_all_read_that_donot_map_to_human_or_mouse/after_mit_removal/assembly/nano-corr/toxoplasma-gondii-annotation_results/scafs.fasta
 Opening for writing: ../analysis/Sniffles/2000B/sniffles_2000B_with_reference.vcf (single-sample, sorted)
-[W::hts_idx_load3] [W::hts_idx_load3] [W::hts_idx_load3] [W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2000B/calls_to_ref.bam.baiThe index file is older than the data file: ../analysis/medaka/medaka_2000B/calls_to_ref.bam.baiThe index file is older than the data file: ../analysis/medaka/medaka_2000B/calls_to_ref.bam.bai
-The index file is older than the data file: ../analysis/medaka/medaka_2000B/calls_to_ref.bam.bai
-
-
-[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2000B/calls_to_ref.bam.bai
-[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2000B/calls_to_ref.bam.bai
-[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2000B/calls_to_ref.bam.bai
-[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2000B/calls_to_ref.bam.bai
-[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2000B/calls_to_ref.bam.bai
-[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2000B/calls_to_ref.bam.bai
-[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2000B/calls_to_ref.bam.bai
-[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2000B/calls_to_ref.bam.bai
-[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2000B/calls_to_ref.bam.bai
-[W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2000B/calls_to_ref.bam.bai
 [W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2000B/calls_to_ref.bam.bai
 [W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2000B/calls_to_ref.bam.bai
 [W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2000B/calls_to_ref.bam.bai
@@ -45,19 +31,20 @@ The index file is older than the data file: ../analysis/medaka/medaka_2000B/call
 [W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2000B/calls_to_ref.bam.bai
 [W::hts_idx_load3] The index file is older than the data file: ../analysis/medaka/medaka_2000B/calls_to_ref.bam.bai
 
-Analyzing 328275 alignments total...
+Analyzing 298523 alignments total...
 
- 18540/328275 alignments processed (5%, 43357/s); 20/36 tasks done; parallel 4/4; 7 SVs. 
- 41997/328275 alignments processed (12%, 55235/s); 22/36 tasks done; parallel 4/4; 8 SVs. 
- 71518/328275 alignments processed (21%, 20932/s); 23/36 tasks done; parallel 4/4; 27 SVs. 
-104180/328275 alignments processed (31%, 28290/s); 24/36 tasks done; parallel 4/4; 46 SVs. 
-141153/328275 alignments processed (42%, 28056/s); 26/36 tasks done; parallel 4/4; 66 SVs. 
-175415/328275 alignments processed (53%, 32148/s); 27/36 tasks done; parallel 4/4; 79 SVs. 
-207219/328275 alignments processed (63%, 29399/s); 29/36 tasks done; parallel 4/4; 106 SVs. 
-235759/328275 alignments processed (71%, 32080/s); 31/36 tasks done; parallel 4/4; 128 SVs. 
-256240/328275 alignments processed (78%, 29746/s); 33/36 tasks done; parallel 3/4; 135 SVs. 
-328275/328275 alignments processed (100%, 35752/s); 36/36 tasks done; parallel 0/4; 184 SVs. 
-Took 9.18s.
+ 19819/298523 alignments processed (6%, 17706/s); 2/22 tasks done; parallel 4/4; 3 SVs. 
+ 48658/298523 alignments processed (16%, 31624/s); 4/22 tasks done; parallel 4/4; 5 SVs. 
+ 80078/298523 alignments processed (26%, 46535/s); 5/22 tasks done; parallel 4/4; 5 SVs. 
+113165/298523 alignments processed (37%, 63833/s); 7/22 tasks done; parallel 4/4; 11 SVs. 
+138078/298523 alignments processed (46%, 56789/s); 9/22 tasks done; parallel 4/4; 11 SVs. 
+153148/298523 alignments processed (51%, 59511/s); 10/22 tasks done; parallel 4/4; 28 SVs. 
+167590/298523 alignments processed (56%, 60252/s); 12/22 tasks done; parallel 4/4; 29 SVs. 
+190971/298523 alignments processed (63%, 55699/s); 14/22 tasks done; parallel 4/4; 29 SVs. 
+203848/298523 alignments processed (68%, 56609/s); 16/22 tasks done; parallel 4/4; 31 SVs. 
+236622/298523 alignments processed (79%, 62152/s); 20/22 tasks done; parallel 2/4; 33 SVs. 
+298523/298523 alignments processed (100%, 74677/s); 22/22 tasks done; parallel 0/4; 35 SVs. 
+Took 4.00s.
 
 Done.
-Wrote 184 called SVs to ../analysis/Sniffles/2000B/sniffles_2000B_with_reference.vcf (single-sample, sorted)
+Wrote 35 called SVs to ../analysis/Sniffles/2000B/sniffles_2000B_with_reference.vcf (single-sample, sorted)

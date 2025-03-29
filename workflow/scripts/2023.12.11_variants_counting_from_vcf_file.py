@@ -9,12 +9,12 @@ import pandas as pd
 import sys
 
 # Files:     
-medaka_vcf = sys.argv[1] 
-#"/home/yomna/Desktop/PhD_Yomna_Gohar/graph_genome_project/ToxoVar/analysis/medaka/medaka_2020T/medaka.annotated_with_VarType.newHead.sorted.assignedID.vcf"
+ #= #
+medaka_vcf= sys.argv[1]  #"/home/yomna/hpc_project/ToxoVar/analysis/medaka/medaka_2000B/medaka.annotated_with_VarType.vcf"
 #
 medaka_files = [medaka_vcf]
 # Counting statistics from Vcf files
-
+c=0
 for file in range(0,len(medaka_files)):
     with open(medaka_files[file]) as medaka:
         medaka_dict={}
@@ -36,11 +36,13 @@ for file in range(0,len(medaka_files)):
                 if not (chom,pos) in medaka_dict: # it's important to include this if statement because medaka_comp has repeated lines
                     medaka_dict[(chom,pos)]=[arr[2:]]  
                     unique_variants[vartype] +=1
-                elif medaka_dict[(chom,pos)][0][2] == arr[4]:
+                elif medaka_dict[(chom,pos)][0][2] == arr[4] and medaka_dict[(chom,pos)][0][1] == arr[3]:
                      dupl_chrm_pos_Identical[vartype] +=1
-                     #print(medaka_dict[(chom,pos)])
-                     #print(arr)
-                     #print("\n")
+                     # if vartype == "DEL":
+                     #    c +=1 
+                     #    print(medaka_dict[(chom,pos)])
+                     #    print(arr)
+                     #    print("\n")
                 elif float(medaka_dict[(chom,pos)][0][3]) < float(arr[5]): 
                      vartype_1=medaka_dict[(chom,pos)][0][5].split("=")[-1]
                      dupl_chrm_pos_nonIdentical[vartype_1] +=1

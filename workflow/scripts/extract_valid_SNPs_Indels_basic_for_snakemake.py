@@ -52,13 +52,13 @@ def get_alt_idx(s_signal):
     return idx   
  
 def check_filtering(sum_i, base_sum_c, filter_sample):
-    if sum_i < 7 and base_sum_c >= 80.0:
+    if sum_i < depth and base_sum_c >= allele_freq:
         filter_sample[0] += 1
-    elif sum_i >= 7 and base_sum_c < 80.0:
+    elif sum_i >= depth and base_sum_c < allele_freq:
         filter_sample[1] += 1
-    elif sum_i < 7 and base_sum_c < 80.0:
+    elif sum_i < depth and base_sum_c < allele_freq:
         filter_sample[2] += 1
-    elif sum_i >= 7 and base_sum_c >= 80.0:
+    elif sum_i >= depth and base_sum_c >= allele_freq:
         filter_sample[4] += 1   
     return (filter_sample)
 
@@ -107,7 +107,7 @@ def add_eval (signal,a,b,Toxo, vartype, filtering_sample):
                 
             filtering_sample[vartype]=check_filtering(sum_i, base_sum_c, filtering_sample[vartype])
                 
-            if sum_i >= 7 and base_sum_c >= 80:
+            if sum_i >= depth and base_sum_c >= allele_freq:
                 medaka_dict[i][a][2]=1
             else: 
                 medaka_dict[i][a][2]=0
@@ -166,6 +166,8 @@ mpileup_files=[mpileup]
 ### outfiles: valid_vcf 
 valid_vcf= sys.argv[3]
 #statistics=snakemake.output["stats"]
+depth= int(sys.argv[4])
+allele_freq= int(sys.argv[5])
 
 valid_outfiles=[valid_vcf] #Can also be run for one sample at the time by inserting only one file to the list
 
@@ -252,7 +254,7 @@ for file in range(0,len(medaka_files)):
 
     # Creating the DataFrame
     df = pd.DataFrame(data, index=["at least one base MapQ>30&baseQ>20 ",
-                                   "Depth >= 7", "Allele Freq >= 80"])
+                                   f"Depth >= {depth}", f"Allele Freq >= {allele_freq}"])
     # Display the DataFrame
     print(df)
                          

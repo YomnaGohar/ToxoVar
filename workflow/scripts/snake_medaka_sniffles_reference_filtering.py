@@ -75,7 +75,7 @@ def main():
         for line in f:
             if not (line.startswith("#") or line.startswith("##")):
                 l=l+1
-                print(l)
+                #print(l)
                 parts = line.strip().split("\t")
                 id_to_check = parts[2].split("=")[1]
                 chrom=parts[0]

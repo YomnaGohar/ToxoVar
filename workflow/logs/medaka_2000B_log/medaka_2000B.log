@@ -2,1564 +2,1364 @@ Cannot import pyabpoa, some features may not be available.
 Cannot import pyabpoa, some features may not be available.
 Cannot import pyabpoa, some features may not be available.
 Cannot import pyabpoa, some features may not be available.
-[20:50:07 - MdlStrTF] Successfully removed temporary files from /tmp/tmpsq8tzbf2.
+[22:59:46 - MdlStrTGZ] Successfully removed temporary files from /tmp/tmpvi_ymgq1.
 Cannot import pyabpoa, some features may not be available.
 Cannot import pyabpoa, some features may not be available.
-[20:50:08 - MdlStrTF] Successfully removed temporary files from /tmp/tmp60xc8_90.
-Using the existing fai index file /home/yomna/Desktop/PhD_Yomna_Gohar/fasta/ME49_genome_from_Third_generation_sequencing_paper/ToxoME49_GenBank_JACEHA000000000.1.fsa.fai
-Using the existing mmi index file /home/yomna/Desktop/PhD_Yomna_Gohar/fasta/ME49_genome_from_Third_generation_sequencing_paper/ToxoME49_GenBank_JACEHA000000000.1.fsa.map-ont.mmi
-[M::main::0.333*0.95] loaded/built the index for 36 target sequence(s)
-[M::mm_mapopt_update::0.435*0.96] mid_occ = 37
-[M::mm_idx_stat] kmer size: 15; skip: 10; is_hpc: 0; #seq: 36
-[M::mm_idx_stat::0.520*0.97] distinct minimizers: 10169349 (89.39% are singletons); average occurrences: 1.199; average spacing: 5.315
-[M::worker_pipeline::82.185*3.92] mapped 111307 sequences
-[M::worker_pipeline::147.515*3.99] mapped 126327 sequences
-[M::worker_pipeline::203.738*3.92] mapped 132928 sequences
+[22:59:48 - MdlStrTGZ] Successfully removed temporary files from /tmp/tmp6pa0xwp1.
+Using the existing fai index file /home/yomna/hpc_project/combined_with_pipline_after_rebasecalling_and_herro_using_all_read_that_donot_map_to_human_or_mouse/after_mit_removal/assembly/nano-corr/toxoplasma-gondii-annotation_results/scafs.fasta.fai
+Using the existing mmi index file /home/yomna/hpc_project/combined_with_pipline_after_rebasecalling_and_herro_using_all_read_that_donot_map_to_human_or_mouse/after_mit_removal/assembly/nano-corr/toxoplasma-gondii-annotation_results/scafs.fasta.map-ont.mmi
+[M::main::248.993*0.00] loaded/built the index for 22 target sequence(s)
+[M::mm_mapopt_update::249.119*0.00] mid_occ = 36
+[M::mm_idx_stat] kmer size: 15; skip: 10; is_hpc: 0; #seq: 22
+[M::mm_idx_stat::249.193*0.00] distinct minimizers: 10162711 (89.58% are singletons); average occurrences: 1.195; average spacing: 5.315
+[M::worker_pipeline::1621.149*0.18] mapped 256564 sequences
+[M::worker_pipeline::3028.666*0.18] mapped 252627 sequences
+[M::worker_pipeline::4722.191*0.16] mapped 142224 sequences
 [M::main] Version: 2.17-r941
-[M::main] CMD: minimap2 -x map-ont --secondary=no -L --MD -A 2 -B 4 -O 4,24 -E 2,1 -t 4 -a /home/yomna/Desktop/PhD_Yomna_Gohar/fasta/ME49_genome_from_Third_generation_sequencing_paper/ToxoME49_GenBank_JACEHA000000000.1.fsa.map-ont.mmi /home/yomna/Desktop/PhD_Yomna_Gohar/graph_genome_project/snakemake_Yomna/data/2000B/concat_filtered_Toxo2000B_6.fastq
-[M::main] Real time: 203.769 sec; CPU: 798.760 sec; Peak RSS: 3.604 GB
+[M::main] CMD: minimap2 -x map-ont --secondary=no -L --MD -A 2 -B 4 -O 4,24 -E 2,1 -t 4 -a /home/yomna/hpc_project/combined_with_pipline_after_rebasecalling_and_herro_using_all_read_that_donot_map_to_human_or_mouse/after_mit_removal/assembly/nano-corr/toxoplasma-gondii-annotation_results/scafs.fasta.map-ont.mmi /home/yomna/hpc/nanopore_long_reads_fastq/samples_ToxoME49_2000_B/combined_with_pipline_after_rebasecalling/non_mit_reads.fastq
+[M::main] Real time: 4722.264 sec; CPU: 754.276 sec; Peak RSS: 2.933 GB
 [bam_sort_core] merging from 0 files and 4 in-memory blocks...
 Cannot import pyabpoa, some features may not be available.
-[20:54:05 - Predict] Reducing threads to 2, anymore is a waste.
-[20:54:05 - Predict] It looks like you are running medaka without a GPU and attempted to set a high number of threads. We have scaled this down to an optimal number. If you wish to improve performance please see https://nanoporetech.github.io/medaka/installation.html#improving-parallelism.
-[20:54:05 - Predict] Setting tensorflow inter/intra-op threads to 2/1.
-[20:54:05 - Predict] Processing region(s): JACEHA010000001.1:0-1997081 JACEHA010000002.1:0-1982890 JACEHA010000003.1:0-2497824 JACEHA010000004.1:0-2591259 JACEHA010000005.1:0-2830561 JACEHA010000006.1:0-3596493 JACEHA010000007.1:0-3781463 JACEHA010000008.1:0-3410322 JACEHA010000009.1:0-1395699 JACEHA010000010.1:0-12088238 JACEHA010000011.1:0-6603527 JACEHA010000012.1:0-7667134 JACEHA010000013.1:0-6675137 JACEHA010000014.1:0-7423918 JACEHA010000015.1:0-12355 JACEHA010000016.1:0-34779 JACEHA010000017.1:0-49721 JACEHA010000018.1:0-6287 JACEHA010000019.1:0-5929 JACEHA010000020.1:0-10568 JACEHA010000021.1:0-13645 JACEHA010000022.1:0-6659 JACEHA010000023.1:0-6212 JACEHA010000024.1:0-7749 JACEHA010000025.1:0-18315 JACEHA010000026.1:0-9731 JACEHA010000027.1:0-9197 JACEHA010000028.1:0-8367 JACEHA010000029.1:0-9156 JACEHA010000030.1:0-2138 JACEHA010000031.1:0-1814 JACEHA010000032.1:0-7546 JACEHA010000033.1:0-3707 JACEHA010000034.1:0-3905 JACEHA010000035.1:0-4783 JACEHA010000036.1:0-5570
-[20:54:05 - Predict] Using model: /home/yomna/mambaforge/envs/snakemake-tutorial/lib/python3.10/site-packages/medaka/data/r103_sup_variant_g507_model.tar.gz.
-[20:54:05 - BAMFile] Creating pool of 16 BAM file sets.
-[20:54:05 - Predict] Processing 76 long region(s) with batching.
-[20:54:06 - MdlStrTF] Model <keras.engine.sequential.Sequential object at 0x7fef7782f1c0>
-[20:54:06 - MdlStrTF] loading weights from /tmp/tmpdolwx4kd/model/variables/variables (using expect partial)
-[20:54:06 - Sampler] Initializing sampler for consensus of region JACEHA010000001.1:0-1000000.
-[20:54:06 - Sampler] Initializing sampler for consensus of region JACEHA010000001.1:999000-1997081.
-[20:54:06 - PWorker] Running inference for 64.7M draft bases.
-[20:54:08 - Feature] Processed JACEHA010000001.1:999000.0-1997080.0 (median depth 16.0)
-[20:54:08 - Sampler] Took 1.85s to make features.
-[20:54:08 - Sampler] Initializing sampler for consensus of region JACEHA010000002.1:0-1000000.
-[20:54:08 - Feature] Processed JACEHA010000001.1:0.0-999999.0 (median depth 16.0)
-[20:54:08 - Sampler] Took 1.88s to make features.
-[20:54:08 - Sampler] Initializing sampler for consensus of region JACEHA010000002.1:999000-1982890.
-[20:54:09 - Feature] Processed JACEHA010000002.1:0.0-999999.0 (median depth 18.0)
-[20:54:09 - Sampler] Took 1.32s to make features.
-[20:54:09 - Sampler] Initializing sampler for consensus of region JACEHA010000003.1:0-1000000.
-[20:54:09 - Feature] Processed JACEHA010000002.1:999000.0-1982889.0 (median depth 19.0)
-[20:54:09 - Sampler] Took 1.57s to make features.
-[20:54:09 - Sampler] Initializing sampler for consensus of region JACEHA010000003.1:999000-1999000.
-[20:54:10 - Feature] Processed JACEHA010000003.1:0.0-999999.1 (median depth 18.0)
-[20:54:10 - Sampler] Took 1.10s to make features.
-[20:54:10 - Sampler] Initializing sampler for consensus of region JACEHA010000003.1:1998000-2497824.
-[20:54:10 - Feature] Processed JACEHA010000003.1:999000.0-1998999.0 (median depth 18.0)
-[20:54:10 - Sampler] Took 1.09s to make features.
-[20:54:10 - Sampler] Initializing sampler for consensus of region JACEHA010000004.1:0-1000000.
-[20:54:11 - Feature] Processed JACEHA010000003.1:1998000.0-2497823.0 (median depth 18.0)
-[20:54:11 - Sampler] Took 0.68s to make features.
-[20:54:11 - Sampler] Initializing sampler for consensus of region JACEHA010000004.1:999000-1999000.
-[20:54:11 - Feature] Processed JACEHA010000004.1:0.0-999999.1 (median depth 18.0)
-[20:54:11 - Sampler] Took 0.83s to make features.
-[20:54:11 - Sampler] Initializing sampler for consensus of region JACEHA010000004.1:1998000-2591259.
-[20:54:12 - Feature] Processed JACEHA010000004.1:999000.0-1998999.0 (median depth 18.0)
-[20:54:12 - Sampler] Took 0.90s to make features.
-[20:54:12 - Sampler] Initializing sampler for consensus of region JACEHA010000005.1:0-1000000.
-[20:54:12 - Feature] Processed JACEHA010000004.1:1998000.0-2591258.0 (median depth 18.0)
-[20:54:12 - Sampler] Took 0.68s to make features.
-[20:54:12 - Sampler] Initializing sampler for consensus of region JACEHA010000005.1:999000-1999000.
-[20:54:13 - Feature] Processed JACEHA010000005.1:0.0-999999.0 (median depth 18.0)
-[20:54:13 - Sampler] Took 0.82s to make features.
-[20:54:13 - Sampler] Initializing sampler for consensus of region JACEHA010000005.1:1998000-2830561.
-[20:54:13 - Feature] Processed JACEHA010000005.1:999000.0-1998999.0 (median depth 18.0)
-[20:54:13 - Sampler] Took 0.98s to make features.
-[20:54:13 - Sampler] Initializing sampler for consensus of region JACEHA010000006.1:0-1000000.
-[20:54:14 - Feature] Processed JACEHA010000005.1:1998000.0-2830560.0 (median depth 18.0)
-[20:54:14 - Sampler] Took 0.91s to make features.
-[20:54:14 - Sampler] Initializing sampler for consensus of region JACEHA010000006.1:999000-1999000.
-[20:54:14 - Feature] Processed JACEHA010000006.1:0.0-999999.0 (median depth 18.0)
-[20:54:14 - Sampler] Took 1.08s to make features.
-[20:54:14 - Sampler] Initializing sampler for consensus of region JACEHA010000006.1:1998000-2998000.
-[20:54:15 - Feature] Processed JACEHA010000006.1:999000.0-1998999.0 (median depth 18.0)
-[20:54:15 - Sampler] Took 1.09s to make features.
-[20:54:15 - Sampler] Initializing sampler for consensus of region JACEHA010000006.1:2997000-3596493.
-[20:54:15 - Feature] Processed JACEHA010000006.1:1998000.0-2997999.0 (median depth 16.0)
-[20:54:15 - Sampler] Took 0.93s to make features.
-[20:54:15 - Feature] Processed JACEHA010000006.1:2997000.0-3596492.0 (median depth 18.0)
-[20:54:15 - Sampler] Took 0.72s to make features.
-[20:54:39 - PWorker] Batches in cache: 8.
-[20:54:39 - PWorker] 1.2% Done (0.8/64.7 Mbases) in 33.1s
-[20:54:58 - PWorker] Batches in cache: 8.
-[20:54:58 - PWorker] 2.5% Done (1.6/64.7 Mbases) in 52.1s
-[20:54:58 - Sampler] Initializing sampler for consensus of region JACEHA010000007.1:0-1000000.
-[20:54:58 - Sampler] Initializing sampler for consensus of region JACEHA010000007.1:999000-1999000.
-[20:54:59 - Feature] Processed JACEHA010000007.1:0.0-999999.0 (median depth 19.0)
-[20:54:59 - Sampler] Took 1.38s to make features.
-[20:55:00 - Feature] Processed JACEHA010000007.1:999000.0-1998999.0 (median depth 18.0)
-[20:55:00 - Sampler] Took 1.48s to make features.
-[20:55:19 - PWorker] Batches in cache: 8.
-[20:55:19 - PWorker] 3.7% Done (2.4/64.7 Mbases) in 73.3s
-[20:55:34 - PWorker] Batches in cache: 8.
-[20:55:34 - PWorker] 4.9% Done (3.2/64.7 Mbases) in 88.0s
-[20:55:34 - Sampler] Initializing sampler for consensus of region JACEHA010000007.1:1998000-2998000.
-[20:55:34 - Feature] Processed JACEHA010000007.1:1998000.0-2997999.0 (median depth 17.0)
-[20:55:35 - Sampler] Took 0.61s to make features.
-[20:55:47 - PWorker] Batches in cache: 8.
-[20:55:47 - PWorker] 6.1% Done (3.9/64.7 Mbases) in 101.2s
-[20:55:47 - Sampler] Initializing sampler for consensus of region JACEHA010000007.1:2997000-3781463.
-[20:55:47 - Feature] Processed JACEHA010000007.1:2997000.0-3781462.0 (median depth 18.0)
-[20:55:47 - Sampler] Took 0.35s to make features.
-[20:56:00 - PWorker] Batches in cache: 8.
-[20:56:00 - PWorker] 7.3% Done (4.7/64.7 Mbases) in 114.5s
-[20:56:00 - Sampler] Initializing sampler for consensus of region JACEHA010000008.1:0-1000000.
-[20:56:01 - Feature] Pileup counts do not span requested region, requested JACEHA010000008.1:0-1000000, received 4070-4614.
-[20:56:01 - Feature] Processed JACEHA010000008.1:4070.0-4614.0 (median depth 1.0)
-[20:56:01 - Feature] Pileup counts do not span requested region, requested JACEHA010000008.1:0-1000000, received 5196-6396.
-[20:56:01 - Feature] Processed JACEHA010000008.1:5196.0-6396.0 (median depth 1.0)
-[20:56:01 - Feature] Pileup counts do not span requested region, requested JACEHA010000008.1:0-1000000, received 6440-6993.
-[20:56:01 - Feature] Processed JACEHA010000008.1:6440.0-6993.0 (median depth 1.0)
-[20:56:01 - Feature] Pileup counts do not span requested region, requested JACEHA010000008.1:0-1000000, received 9484-10106.
-[20:56:01 - Feature] Processed JACEHA010000008.1:9484.0-10106.0 (median depth 1.0)
-[20:56:01 - Feature] Pileup counts do not span requested region, requested JACEHA010000008.1:0-1000000, received 11848-12111.
-[20:56:01 - Feature] Processed JACEHA010000008.1:11848.0-12111.0 (median depth 1.0)
-[20:56:01 - Feature] Pileup counts do not span requested region, requested JACEHA010000008.1:0-1000000, received 12172-12364.
-[20:56:01 - Feature] Processed JACEHA010000008.1:12172.0-12364.0 (median depth 1.0)
-[20:56:01 - Feature] Pileup counts do not span requested region, requested JACEHA010000008.1:0-1000000, received 14686-17474.
-[20:56:01 - Feature] Processed JACEHA010000008.1:14686.0-17474.0 (median depth 2.0)
-[20:56:01 - Feature] Pileup counts do not span requested region, requested JACEHA010000008.1:0-1000000, received 19041-999999.
-[20:56:01 - Feature] Processed JACEHA010000008.1:19041.0-999999.0 (median depth 18.0)
-[20:56:01 - Sampler] Took 0.46s to make features.
-[20:56:01 - Sampler] Region JACEHA010000008.1:4070.0-4614.0 (549 positions) is smaller than inference chunk length 10000, quarantining.
-[20:56:01 - Sampler] Region JACEHA010000008.1:5196.0-6396.0 (1213 positions) is smaller than inference chunk length 10000, quarantining.
-[20:56:01 - Sampler] Region JACEHA010000008.1:6440.0-6993.0 (560 positions) is smaller than inference chunk length 10000, quarantining.
-[20:56:01 - Sampler] Region JACEHA010000008.1:9484.0-10106.0 (630 positions) is smaller than inference chunk length 10000, quarantining.
-[20:56:01 - Sampler] Region JACEHA010000008.1:11848.0-12111.0 (269 positions) is smaller than inference chunk length 10000, quarantining.
-[20:56:01 - Sampler] Region JACEHA010000008.1:12172.0-12364.0 (194 positions) is smaller than inference chunk length 10000, quarantining.
-[20:56:01 - Sampler] Region JACEHA010000008.1:14686.0-17474.0 (2836 positions) is smaller than inference chunk length 10000, quarantining.
-[20:56:15 - PWorker] Batches in cache: 8.
-[20:56:15 - PWorker] 8.5% Done (5.5/64.7 Mbases) in 129.4s
-[20:56:33 - PWorker] Batches in cache: 8.
-[20:56:33 - PWorker] 9.7% Done (6.3/64.7 Mbases) in 147.0s
-[20:56:33 - Sampler] Initializing sampler for consensus of region JACEHA010000008.1:999000-1999000.
-[20:56:33 - Sampler] Initializing sampler for consensus of region JACEHA010000008.1:1998000-2998000.
-[20:56:35 - Feature] Processed JACEHA010000008.1:999000.0-1998999.0 (median depth 18.0)
-[20:56:35 - Sampler] Took 1.75s to make features.
-[20:56:35 - Feature] Processed JACEHA010000008.1:1998000.0-2997999.1 (median depth 18.0)
-[20:56:35 - Sampler] Took 1.84s to make features.
-[20:56:54 - PWorker] Batches in cache: 8.
-[20:56:54 - PWorker] 10.9% Done (7.1/64.7 Mbases) in 168.5s
-[20:57:16 - PWorker] Batches in cache: 8.
-[20:57:16 - PWorker] 12.1% Done (7.8/64.7 Mbases) in 190.1s
-[20:57:16 - Sampler] Initializing sampler for consensus of region JACEHA010000008.1:2997000-3410322.
-[20:57:16 - Feature] Processed JACEHA010000008.1:2997000.0-3410321.0 (median depth 20.0)
-[20:57:16 - Sampler] Took 0.36s to make features.
-[20:57:35 - PWorker] Batches in cache: 8.
-[20:57:35 - PWorker] 13.3% Done (8.6/64.7 Mbases) in 209.2s
-[20:57:35 - Sampler] Initializing sampler for consensus of region JACEHA010000009.1:0-1000000.
-[20:57:35 - Feature] Pileup counts do not span requested region, requested JACEHA010000009.1:0-1000000, received 3944-9152.
-[20:57:35 - Feature] Processed JACEHA010000009.1:3944.0-9152.0 (median depth 1.0)
-[20:57:35 - Feature] Pileup counts do not span requested region, requested JACEHA010000009.1:0-1000000, received 19464-24144.
-[20:57:35 - Feature] Processed JACEHA010000009.1:19464.0-24144.0 (median depth 1.0)
-[20:57:35 - Feature] Pileup counts do not span requested region, requested JACEHA010000009.1:0-1000000, received 24431-24914.
-[20:57:35 - Feature] Processed JACEHA010000009.1:24431.0-24914.0 (median depth 1.0)
-[20:57:35 - Feature] Pileup counts do not span requested region, requested JACEHA010000009.1:0-1000000, received 27586-32602.
-[20:57:35 - Feature] Processed JACEHA010000009.1:27586.0-32602.0 (median depth 3.0)
-[20:57:35 - Feature] Pileup counts do not span requested region, requested JACEHA010000009.1:0-1000000, received 33406-35041.
-[20:57:35 - Feature] Processed JACEHA010000009.1:33406.0-35041.0 (median depth 2.0)
-[20:57:35 - Feature] Pileup counts do not span requested region, requested JACEHA010000009.1:0-1000000, received 36606-38871.
-[20:57:35 - Feature] Processed JACEHA010000009.1:36606.0-38871.0 (median depth 1.0)
-[20:57:35 - Feature] Pileup counts do not span requested region, requested JACEHA010000009.1:0-1000000, received 39034-47735.
-[20:57:35 - Feature] Processed JACEHA010000009.1:39034.0-47735.0 (median depth 2.0)
-[20:57:35 - Feature] Pileup counts do not span requested region, requested JACEHA010000009.1:0-1000000, received 60885-61530.
-[20:57:35 - Feature] Processed JACEHA010000009.1:60885.0-61530.0 (median depth 2.0)
-[20:57:35 - Feature] Pileup counts do not span requested region, requested JACEHA010000009.1:0-1000000, received 64679-65163.
-[20:57:35 - Feature] Processed JACEHA010000009.1:64679.0-65163.0 (median depth 1.0)
-[20:57:35 - Feature] Pileup counts do not span requested region, requested JACEHA010000009.1:0-1000000, received 67186-68768.
-[20:57:35 - Feature] Processed JACEHA010000009.1:67186.0-68768.0 (median depth 1.0)
-[20:57:35 - Feature] Pileup counts do not span requested region, requested JACEHA010000009.1:0-1000000, received 70722-72132.
-[20:57:35 - Feature] Processed JACEHA010000009.1:70722.0-72132.0 (median depth 1.0)
-[20:57:35 - Feature] Pileup counts do not span requested region, requested JACEHA010000009.1:0-1000000, received 76194-77945.
-[20:57:35 - Feature] Processed JACEHA010000009.1:76194.0-77945.0 (median depth 3.0)
-[20:57:35 - Feature] Pileup counts do not span requested region, requested JACEHA010000009.1:0-1000000, received 78073-78307.
-[20:57:35 - Feature] Processed JACEHA010000009.1:78073.0-78307.0 (median depth 1.0)
-[20:57:35 - Feature] Pileup counts do not span requested region, requested JACEHA010000009.1:0-1000000, received 78844-999999.
-[20:57:36 - Feature] Processed JACEHA010000009.1:78844.0-999999.0 (median depth 18.0)
-[20:57:36 - Sampler] Took 0.45s to make features.
-[20:57:36 - Sampler] Region JACEHA010000009.1:3944.0-9152.0 (5317 positions) is smaller than inference chunk length 10000, quarantining.
-[20:57:36 - Sampler] Region JACEHA010000009.1:19464.0-24144.0 (4786 positions) is smaller than inference chunk length 10000, quarantining.
-[20:57:36 - Sampler] Region JACEHA010000009.1:24431.0-24914.0 (485 positions) is smaller than inference chunk length 10000, quarantining.
-[20:57:36 - Sampler] Region JACEHA010000009.1:27586.0-32602.0 (5177 positions) is smaller than inference chunk length 10000, quarantining.
-[20:57:36 - Sampler] Region JACEHA010000009.1:33406.0-35041.0 (1663 positions) is smaller than inference chunk length 10000, quarantining.
-[20:57:36 - Sampler] Region JACEHA010000009.1:36606.0-38871.0 (2301 positions) is smaller than inference chunk length 10000, quarantining.
-[20:57:36 - Sampler] Region JACEHA010000009.1:39034.0-47735.0 (8928 positions) is smaller than inference chunk length 10000, quarantining.
-[20:57:36 - Sampler] Region JACEHA010000009.1:60885.0-61530.0 (659 positions) is smaller than inference chunk length 10000, quarantining.
-[20:57:36 - Sampler] Region JACEHA010000009.1:64679.0-65163.0 (487 positions) is smaller than inference chunk length 10000, quarantining.
-[20:57:36 - Sampler] Region JACEHA010000009.1:67186.0-68768.0 (1596 positions) is smaller than inference chunk length 10000, quarantining.
-[20:57:36 - Sampler] Region JACEHA010000009.1:70722.0-72132.0 (1433 positions) is smaller than inference chunk length 10000, quarantining.
-[20:57:36 - Sampler] Region JACEHA010000009.1:76194.0-77945.0 (1877 positions) is smaller than inference chunk length 10000, quarantining.
-[20:57:36 - Sampler] Region JACEHA010000009.1:78073.0-78307.0 (235 positions) is smaller than inference chunk length 10000, quarantining.
-[20:57:52 - PWorker] Batches in cache: 8.
-[20:57:52 - PWorker] 14.5% Done (9.4/64.7 Mbases) in 226.1s
-[20:57:52 - Sampler] Initializing sampler for consensus of region JACEHA010000009.1:999000-1395699.
-[20:57:52 - Feature] Processed JACEHA010000009.1:999000.0-1395698.0 (median depth 17.0)
-[20:57:52 - Sampler] Took 0.30s to make features.
-[20:58:11 - PWorker] Batches in cache: 8.
-[20:58:11 - PWorker] 15.7% Done (10.2/64.7 Mbases) in 245.5s
-[20:58:11 - Sampler] Initializing sampler for consensus of region JACEHA010000010.1:0-1000000.
-[20:58:11 - Sampler] Initializing sampler for consensus of region JACEHA010000010.1:999000-1999000.
-[20:58:13 - Feature] Processed JACEHA010000010.1:0.0-999999.0 (median depth 18.0)
-[20:58:13 - Sampler] Took 1.37s to make features.
-[20:58:13 - Feature] Processed JACEHA010000010.1:999000.0-1998999.0 (median depth 19.0)
-[20:58:13 - Sampler] Took 1.47s to make features.
-[20:58:30 - PWorker] Batches in cache: 8.
-[20:58:30 - PWorker] 16.9% Done (10.9/64.7 Mbases) in 264.4s
-[20:58:47 - PWorker] Batches in cache: 8.
-[20:58:47 - PWorker] 18.1% Done (11.7/64.7 Mbases) in 281.4s
-[20:59:03 - PWorker] Batches in cache: 8.
-[20:59:03 - PWorker] 19.3% Done (12.5/64.7 Mbases) in 297.2s
-[20:59:03 - Sampler] Initializing sampler for consensus of region JACEHA010000010.1:1998000-2998000.
-[20:59:03 - Sampler] Initializing sampler for consensus of region JACEHA010000010.1:2997000-3997000.
-[20:59:04 - Feature] Processed JACEHA010000010.1:1998000.0-2997999.0 (median depth 17.0)
-[20:59:04 - Sampler] Took 0.87s to make features.
-[20:59:04 - Feature] Processed JACEHA010000010.1:2997000.0-3996999.0 (median depth 17.0)
-[20:59:04 - Sampler] Took 0.98s to make features.
-[20:59:22 - PWorker] Batches in cache: 8.
-[20:59:22 - PWorker] 20.5% Done (13.3/64.7 Mbases) in 316.6s
-[20:59:37 - PWorker] Batches in cache: 8.
-[20:59:37 - PWorker] 21.7% Done (14.1/64.7 Mbases) in 331.1s
-[20:59:37 - Sampler] Initializing sampler for consensus of region JACEHA010000010.1:3996000-4996000.
-[20:59:37 - Sampler] Initializing sampler for consensus of region JACEHA010000010.1:4995000-5995000.
-[20:59:38 - Feature] Processed JACEHA010000010.1:3996000.0-4995999.0 (median depth 17.0)
-[20:59:38 - Sampler] Took 1.06s to make features.
-[20:59:38 - Feature] Processed JACEHA010000010.1:4995000.0-5994999.0 (median depth 17.0)
-[20:59:38 - Sampler] Took 1.17s to make features.
-[20:59:50 - PWorker] Batches in cache: 8.
-[20:59:50 - PWorker] 23.0% Done (14.9/64.7 Mbases) in 344.4s
-[21:00:03 - PWorker] Batches in cache: 8.
-[21:00:03 - PWorker] 24.2% Done (15.6/64.7 Mbases) in 357.2s
-[21:00:03 - Sampler] Initializing sampler for consensus of region JACEHA010000010.1:5994000-6994000.
-[21:00:04 - Feature] Processed JACEHA010000010.1:5994000.0-6993999.0 (median depth 18.0)
-[21:00:04 - Sampler] Took 0.65s to make features.
-[21:00:16 - PWorker] Batches in cache: 8.
-[21:00:16 - PWorker] 25.4% Done (16.4/64.7 Mbases) in 370.2s
-[21:00:16 - Sampler] Initializing sampler for consensus of region JACEHA010000010.1:6993000-7993000.
-[21:00:17 - Feature] Processed JACEHA010000010.1:6993000.0-7992999.0 (median depth 17.0)
-[21:00:17 - Sampler] Took 0.55s to make features.
-[21:00:29 - PWorker] Batches in cache: 8.
-[21:00:29 - PWorker] 26.6% Done (17.2/64.7 Mbases) in 382.9s
-[21:00:29 - Sampler] Initializing sampler for consensus of region JACEHA010000010.1:7992000-8992000.
-[21:00:29 - Feature] Processed JACEHA010000010.1:7992000.0-8991999.0 (median depth 16.0)
-[21:00:29 - Sampler] Took 0.53s to make features.
-[21:00:42 - PWorker] Batches in cache: 8.
-[21:00:42 - PWorker] 27.8% Done (18.0/64.7 Mbases) in 396.2s
-[21:00:54 - PWorker] Batches in cache: 8.
-[21:00:54 - PWorker] 29.0% Done (18.8/64.7 Mbases) in 408.6s
-[21:00:54 - Sampler] Initializing sampler for consensus of region JACEHA010000010.1:8991000-9991000.
-[21:00:55 - Feature] Processed JACEHA010000010.1:8991000.0-9990999.0 (median depth 17.0)
-[21:00:55 - Sampler] Took 0.64s to make features.
-[21:01:08 - PWorker] Batches in cache: 8.
-[21:01:08 - PWorker] 30.2% Done (19.6/64.7 Mbases) in 421.8s
-[21:01:08 - Sampler] Initializing sampler for consensus of region JACEHA010000010.1:9990000-10990000.
-[21:01:08 - Feature] Processed JACEHA010000010.1:9990000.0-10989999.0 (median depth 17.0)
-[21:01:08 - Sampler] Took 0.52s to make features.
-[21:01:23 - PWorker] Batches in cache: 8.
-[21:01:23 - PWorker] 31.4% Done (20.3/64.7 Mbases) in 437.5s
-[21:01:23 - Sampler] Initializing sampler for consensus of region JACEHA010000010.1:10989000-11989000.
-[21:01:24 - Feature] Processed JACEHA010000010.1:10989000.0-11988999.0 (median depth 18.0)
-[21:01:24 - Sampler] Took 1.11s to make features.
-[21:01:45 - PWorker] Batches in cache: 8.
-[21:01:45 - PWorker] 32.6% Done (21.1/64.7 Mbases) in 458.8s
-[21:02:06 - PWorker] Batches in cache: 8.
-[21:02:06 - PWorker] 33.8% Done (21.9/64.7 Mbases) in 479.9s
-[21:02:06 - Sampler] Initializing sampler for consensus of region JACEHA010000010.1:11988000-12088238.
-[21:02:06 - Feature] Processed JACEHA010000010.1:11988000.0-12088237.0 (median depth 21.0)
-[21:02:06 - Sampler] Took 0.19s to make features.
-[21:02:25 - PWorker] Batches in cache: 8.
-[21:02:25 - PWorker] 35.0% Done (22.7/64.7 Mbases) in 499.4s
-[21:02:25 - Sampler] Initializing sampler for consensus of region JACEHA010000011.1:0-1000000.
-[21:02:25 - Sampler] Initializing sampler for consensus of region JACEHA010000011.1:999000-1999000.
-[21:02:28 - Feature] Pileup counts do not span requested region, requested JACEHA010000011.1:999000-1999000, received 999000-1508224.
-[21:02:28 - Feature] Processed JACEHA010000011.1:999000.0-1508224.0 (median depth 17.0)
-[21:02:28 - Feature] Pileup counts do not span requested region, requested JACEHA010000011.1:999000-1999000, received 1515426-1998999.
-[21:02:28 - Feature] Processed JACEHA010000011.1:0.0-999999.0 (median depth 18.0)
-[21:02:28 - Sampler] Took 2.83s to make features.
-[21:02:28 - Feature] Processed JACEHA010000011.1:1515426.0-1998999.0 (median depth 16.0)
-[21:02:28 - Sampler] Took 2.90s to make features.
-[21:02:44 - PWorker] Batches in cache: 8.
-[21:02:44 - PWorker] 36.2% Done (23.5/64.7 Mbases) in 518.4s
-[21:02:58 - PWorker] Batches in cache: 8.
-[21:02:58 - PWorker] 37.5% Done (24.2/64.7 Mbases) in 531.9s
-[21:02:58 - Sampler] Initializing sampler for consensus of region JACEHA010000011.1:1998000-2998000.
-[21:02:58 - Sampler] Initializing sampler for consensus of region JACEHA010000011.1:2997000-3997000.
-[21:02:59 - Feature] Processed JACEHA010000011.1:2997000.0-3996999.0 (median depth 18.0)
-[21:02:59 - Sampler] Took 1.05s to make features.
-[21:02:59 - Feature] Processed JACEHA010000011.1:1998000.0-2997999.0 (median depth 18.0)
-[21:02:59 - Sampler] Took 1.09s to make features.
-[21:03:12 - PWorker] Batches in cache: 8.
-[21:03:12 - PWorker] 38.7% Done (25.0/64.7 Mbases) in 546.4s
-[21:03:26 - PWorker] Batches in cache: 8.
-[21:03:26 - PWorker] 39.9% Done (25.8/64.7 Mbases) in 560.4s
-[21:03:44 - PWorker] Batches in cache: 8.
-[21:03:44 - PWorker] 41.1% Done (26.6/64.7 Mbases) in 578.6s
-[21:03:44 - Sampler] Initializing sampler for consensus of region JACEHA010000011.1:3996000-4996000.
-[21:03:44 - Sampler] Initializing sampler for consensus of region JACEHA010000011.1:4995000-5995000.
-[21:03:46 - Feature] Processed JACEHA010000011.1:3996000.0-4995999.1 (median depth 17.0)
-[21:03:46 - Sampler] Took 1.11s to make features.
-[21:03:46 - Feature] Processed JACEHA010000011.1:4995000.0-5994999.0 (median depth 18.0)
-[21:03:46 - Sampler] Took 1.27s to make features.
-[21:04:04 - PWorker] Batches in cache: 8.
-[21:04:04 - PWorker] 42.3% Done (27.4/64.7 Mbases) in 597.9s
-[21:04:20 - PWorker] Batches in cache: 8.
-[21:04:20 - PWorker] 43.5% Done (28.2/64.7 Mbases) in 614.3s
-[21:04:20 - Sampler] Initializing sampler for consensus of region JACEHA010000011.1:5994000-6603527.
-[21:04:20 - Sampler] Initializing sampler for consensus of region JACEHA010000012.1:0-1000000.
-[21:04:21 - Feature] Processed JACEHA010000011.1:5994000.0-6603526.0 (median depth 20.0)
-[21:04:21 - Sampler] Took 0.83s to make features.
-[21:04:21 - Feature] Processed JACEHA010000012.1:0.0-999999.0 (median depth 17.0)
-[21:04:21 - Sampler] Took 1.11s to make features.
-[21:04:41 - PWorker] Batches in cache: 8.
-[21:04:41 - PWorker] 44.7% Done (29.0/64.7 Mbases) in 635.2s
-[21:04:41 - Sampler] Initializing sampler for consensus of region JACEHA010000012.1:999000-1999000.
-[21:04:42 - Feature] Processed JACEHA010000012.1:999000.0-1998999.0 (median depth 18.0)
-[21:04:42 - Sampler] Took 1.28s to make features.
-[21:04:57 - PWorker] Batches in cache: 8.
-[21:04:57 - PWorker] 46.0% Done (29.8/64.7 Mbases) in 651.1s
-[21:04:57 - Sampler] Initializing sampler for consensus of region JACEHA010000012.1:1998000-2998000.
-[21:04:58 - Feature] Processed JACEHA010000012.1:1998000.0-2997999.0 (median depth 18.0)
-[21:04:58 - Sampler] Took 0.74s to make features.
-[21:05:18 - PWorker] Batches in cache: 8.
-[21:05:18 - PWorker] 47.2% Done (30.5/64.7 Mbases) in 672.0s
-[21:05:36 - PWorker] Batches in cache: 8.
-[21:05:36 - PWorker] 48.4% Done (31.3/64.7 Mbases) in 690.4s
-[21:05:36 - Sampler] Initializing sampler for consensus of region JACEHA010000012.1:2997000-3997000.
-[21:05:38 - Feature] Processed JACEHA010000012.1:2997000.0-3996999.4 (median depth 18.0)
-[21:05:38 - Sampler] Took 1.26s to make features.
-[21:05:55 - PWorker] Batches in cache: 8.
-[21:05:55 - PWorker] 49.6% Done (32.1/64.7 Mbases) in 708.6s
-[21:05:55 - Sampler] Initializing sampler for consensus of region JACEHA010000012.1:3996000-4996000.
-[21:05:55 - Feature] Processed JACEHA010000012.1:3996000.0-4995999.0 (median depth 17.0)
-[21:05:55 - Sampler] Took 0.97s to make features.
-[21:06:10 - PWorker] Batches in cache: 8.
-[21:06:10 - PWorker] 50.8% Done (32.9/64.7 Mbases) in 724.0s
-[21:06:10 - Sampler] Initializing sampler for consensus of region JACEHA010000012.1:4995000-5995000.
-[21:06:10 - Feature] Processed JACEHA010000012.1:4995000.0-5994999.0 (median depth 18.0)
-[21:06:10 - Sampler] Took 0.52s to make features.
-[21:06:23 - PWorker] Batches in cache: 8.
-[21:06:23 - PWorker] 52.0% Done (33.7/64.7 Mbases) in 736.8s
-[21:06:35 - PWorker] Batches in cache: 8.
-[21:06:35 - PWorker] 53.3% Done (34.5/64.7 Mbases) in 749.5s
-[21:06:35 - Sampler] Initializing sampler for consensus of region JACEHA010000012.1:5994000-6994000.
-[21:06:36 - Feature] Processed JACEHA010000012.1:5994000.0-6993999.0 (median depth 17.0)
-[21:06:36 - Sampler] Took 0.56s to make features.
-[21:06:49 - PWorker] Batches in cache: 8.
-[21:06:49 - PWorker] 54.5% Done (35.3/64.7 Mbases) in 762.8s
-[21:06:49 - Sampler] Initializing sampler for consensus of region JACEHA010000012.1:6993000-7667134.
-[21:06:49 - Feature] Processed JACEHA010000012.1:6993000.0-7667133.0 (median depth 20.0)
-[21:06:49 - Sampler] Took 0.34s to make features.
-[21:07:05 - PWorker] Batches in cache: 8.
-[21:07:05 - PWorker] 55.7% Done (36.0/64.7 Mbases) in 779.3s
-[21:07:05 - Sampler] Initializing sampler for consensus of region JACEHA010000013.1:0-1000000.
-[21:07:06 - Feature] Processed JACEHA010000013.1:0.0-999999.0 (median depth 18.0)
-[21:07:06 - Sampler] Took 0.92s to make features.
-[21:07:26 - PWorker] Batches in cache: 8.
-[21:07:26 - PWorker] 56.9% Done (36.8/64.7 Mbases) in 800.2s
-[21:07:26 - Sampler] Initializing sampler for consensus of region JACEHA010000013.1:999000-1999000.
-[21:07:28 - Feature] Processed JACEHA010000013.1:999000.0-1998999.0 (median depth 17.0)
-[21:07:28 - Sampler] Took 1.82s to make features.
-[21:07:44 - PWorker] Batches in cache: 8.
-[21:07:44 - PWorker] 58.0% Done (37.6/64.7 Mbases) in 817.8s
-[21:07:57 - PWorker] Batches in cache: 8.
-[21:07:57 - PWorker] 59.3% Done (38.4/64.7 Mbases) in 831.4s
-[21:07:57 - Sampler] Initializing sampler for consensus of region JACEHA010000013.1:1998000-2998000.
-[21:07:58 - Feature] Processed JACEHA010000013.1:1998000.0-2997999.0 (median depth 17.0)
-[21:07:58 - Sampler] Took 0.71s to make features.
-[21:08:10 - PWorker] Batches in cache: 8.
-[21:08:10 - PWorker] 60.5% Done (39.1/64.7 Mbases) in 844.5s
-[21:08:10 - Sampler] Initializing sampler for consensus of region JACEHA010000013.1:2997000-3997000.
-[21:08:11 - Feature] Processed JACEHA010000013.1:2997000.0-3996999.0 (median depth 18.0)
-[21:08:11 - Sampler] Took 0.48s to make features.
-[21:08:23 - PWorker] Batches in cache: 8.
-[21:08:23 - PWorker] 61.7% Done (39.9/64.7 Mbases) in 857.3s
-[21:08:23 - Sampler] Initializing sampler for consensus of region JACEHA010000013.1:3996000-4996000.
-[21:08:24 - Feature] Processed JACEHA010000013.1:3996000.0-4995999.0 (median depth 17.0)
-[21:08:24 - Sampler] Took 0.53s to make features.
-[21:08:36 - PWorker] Batches in cache: 8.
-[21:08:36 - PWorker] 62.9% Done (40.7/64.7 Mbases) in 870.2s
-[21:08:36 - Sampler] Initializing sampler for consensus of region JACEHA010000013.1:4995000-5995000.
-[21:08:37 - Feature] Processed JACEHA010000013.1:4995000.0-5994999.0 (median depth 18.0)
-[21:08:37 - Sampler] Took 0.57s to make features.
-[21:08:49 - PWorker] Batches in cache: 8.
-[21:08:49 - PWorker] 64.1% Done (41.5/64.7 Mbases) in 883.0s
-[21:09:02 - PWorker] Batches in cache: 8.
-[21:09:02 - PWorker] 65.3% Done (42.3/64.7 Mbases) in 895.7s
-[21:09:02 - Sampler] Initializing sampler for consensus of region JACEHA010000013.1:5994000-6675137.
-[21:09:02 - Feature] Processed JACEHA010000013.1:5994000.0-6675136.0 (median depth 19.0)
-[21:09:02 - Sampler] Took 0.29s to make features.
-[21:09:14 - PWorker] Batches in cache: 8.
-[21:09:14 - PWorker] 66.5% Done (43.1/64.7 Mbases) in 908.3s
-[21:09:14 - Sampler] Initializing sampler for consensus of region JACEHA010000014.1:0-1000000.
-[21:09:15 - Feature] Processed JACEHA010000014.1:0.0-999999.0 (median depth 19.0)
-[21:09:15 - Sampler] Took 0.55s to make features.
-[21:09:27 - PWorker] Batches in cache: 8.
-[21:09:27 - PWorker] 67.7% Done (43.8/64.7 Mbases) in 921.1s
-[21:09:27 - Sampler] Initializing sampler for consensus of region JACEHA010000014.1:999000-1999000.
-[21:09:28 - Feature] Processed JACEHA010000014.1:999000.0-1998999.0 (median depth 17.0)
-[21:09:28 - Sampler] Took 0.51s to make features.
-[21:09:40 - PWorker] Batches in cache: 8.
-[21:09:40 - PWorker] 68.9% Done (44.6/64.7 Mbases) in 934.1s
-[21:09:53 - PWorker] Batches in cache: 8.
-[21:09:53 - PWorker] 70.1% Done (45.4/64.7 Mbases) in 946.7s
-[21:09:53 - Sampler] Initializing sampler for consensus of region JACEHA010000014.1:1998000-2998000.
-[21:09:53 - Sampler] Initializing sampler for consensus of region JACEHA010000014.1:2997000-3997000.
-[21:09:53 - Feature] Processed JACEHA010000014.1:1998000.0-2997999.0 (median depth 18.0)
-[21:09:53 - Sampler] Took 0.85s to make features.
-[21:09:54 - Feature] Processed JACEHA010000014.1:2997000.0-3996999.0 (median depth 17.0)
-[21:09:54 - Sampler] Took 0.97s to make features.
-[21:10:08 - PWorker] Batches in cache: 8.
-[21:10:08 - PWorker] 71.3% Done (46.2/64.7 Mbases) in 962.0s
-[21:10:08 - Sampler] Initializing sampler for consensus of region JACEHA010000014.1:3996000-4996000.
-[21:10:09 - Feature] Processed JACEHA010000014.1:3996000.0-4995999.0 (median depth 18.0)
-[21:10:09 - Sampler] Took 1.22s to make features.
-[21:10:24 - PWorker] Batches in cache: 8.
-[21:10:24 - PWorker] 72.6% Done (47.0/64.7 Mbases) in 977.9s
-[21:10:41 - PWorker] Batches in cache: 8.
-[21:10:41 - PWorker] 73.8% Done (47.8/64.7 Mbases) in 995.3s
-[21:10:41 - Sampler] Initializing sampler for consensus of region JACEHA010000014.1:4995000-5995000.
-[21:10:42 - Feature] Processed JACEHA010000014.1:4995000.0-5994999.0 (median depth 18.0)
-[21:10:42 - Sampler] Took 0.83s to make features.
-[21:10:55 - PWorker] Batches in cache: 8.
-[21:10:55 - PWorker] 75.0% Done (48.5/64.7 Mbases) in 1009.1s
-[21:11:11 - PWorker] Batches in cache: 8.
-[21:11:11 - PWorker] 76.2% Done (49.3/64.7 Mbases) in 1025.4s
-[21:11:11 - Sampler] Initializing sampler for consensus of region JACEHA010000014.1:5994000-6994000.
-[21:11:11 - Sampler] Initializing sampler for consensus of region JACEHA010000014.1:6993000-7423918.
-[21:11:12 - Feature] Processed JACEHA010000014.1:6993000.0-7423917.0 (median depth 20.0)
-[21:11:12 - Sampler] Took 0.97s to make features.
-[21:11:13 - Feature] Processed JACEHA010000014.1:5994000.0-6993999.0 (median depth 15.0)
-[21:11:13 - Sampler] Took 1.88s to make features.
-[21:11:30 - PWorker] Batches in cache: 8.
-[21:11:30 - PWorker] 77.4% Done (50.1/64.7 Mbases) in 1044.5s
-[21:11:30 - Sampler] Initializing sampler for consensus of region JACEHA010000015.1:0-12355.
-[21:11:31 - Feature] Processed JACEHA010000015.1:0.0-12354.0 (median depth 172.0)
-[21:11:31 - Sampler] Took 0.19s to make features.
-[21:11:47 - PWorker] Batches in cache: 8.
-[21:11:47 - PWorker] 78.6% Done (50.9/64.7 Mbases) in 1061.5s
-[21:11:47 - Sampler] Initializing sampler for consensus of region JACEHA010000016.1:0-34779.
-[21:11:47 - Sampler] Initializing sampler for consensus of region JACEHA010000017.1:0-49721.
-[21:11:47 - Sampler] Took 0.00s to make features.
-[21:11:47 - Sampler] Initializing sampler for consensus of region JACEHA010000020.1:0-10568.
-[21:11:48 - Feature] Pileup counts do not span requested region, requested JACEHA010000020.1:0-10568, received 0-10566.
-[21:11:48 - Feature] Processed JACEHA010000020.1:0.0-10566.0 (median depth 245.0)
-[21:11:48 - Sampler] Took 0.19s to make features.
-[21:11:48 - Sampler] Initializing sampler for consensus of region JACEHA010000021.1:0-13645.
-[21:11:48 - Feature] Processed JACEHA010000021.1:0.0-13644.0 (median depth 100.0)
-[21:11:48 - Sampler] Took 0.08s to make features.
-[21:11:48 - Sampler] Initializing sampler for consensus of region JACEHA010000025.1:0-18315.
-[21:11:48 - Feature] Pileup counts do not span requested region, requested JACEHA010000025.1:0-18315, received 0-18313.
-[21:11:48 - Feature] Processed JACEHA010000025.1:0.0-18313.0 (median depth 388.0)
-[21:11:48 - Sampler] Took 0.42s to make features.
-[21:11:48 - Feature] Processed JACEHA010000016.1:0.0-34778.0 (median depth 352.0)
-[21:11:48 - Sampler] Took 0.72s to make features.
-[21:12:00 - PWorker] Batches in cache: 8.
-[21:12:00 - PWorker] 79.8% Done (51.7/64.7 Mbases) in 1074.5s
-[21:12:13 - PWorker] Batches in cache: 8.
-[21:12:13 - PWorker] 81.0% Done (52.5/64.7 Mbases) in 1087.3s
-[21:12:26 - PWorker] Batches in cache: 8.
-[21:12:26 - PWorker] 82.3% Done (53.2/64.7 Mbases) in 1100.0s
-[21:12:39 - PWorker] Batches in cache: 8.
-[21:12:39 - PWorker] 83.5% Done (54.0/64.7 Mbases) in 1112.8s
-[21:12:51 - PWorker] Batches in cache: 8.
-[21:12:51 - PWorker] 84.7% Done (54.8/64.7 Mbases) in 1125.5s
-[21:13:04 - PWorker] Batches in cache: 8.
-[21:13:04 - PWorker] 85.9% Done (55.6/64.7 Mbases) in 1138.3s
-[21:13:17 - PWorker] Batches in cache: 8.
-[21:13:17 - PWorker] 87.1% Done (56.4/64.7 Mbases) in 1151.3s
-[21:13:30 - PWorker] Batches in cache: 8.
-[21:13:30 - PWorker] 88.3% Done (57.2/64.7 Mbases) in 1164.3s
-[21:13:43 - PWorker] Batches in cache: 8.
-[21:13:43 - PWorker] 89.5% Done (57.9/64.7 Mbases) in 1177.2s
-[21:13:58 - PWorker] Batches in cache: 8.
-[21:13:58 - PWorker] 90.7% Done (58.7/64.7 Mbases) in 1192.4s
-[21:14:18 - PWorker] Batches in cache: 8.
-[21:14:18 - PWorker] 91.9% Done (59.5/64.7 Mbases) in 1212.4s
-[21:14:33 - PWorker] Batches in cache: 7.
-[21:14:33 - PWorker] 93.1% Done (60.3/64.7 Mbases) in 1227.3s
-[21:14:46 - PWorker] Batches in cache: 6.
-[21:14:46 - PWorker] 94.3% Done (61.0/64.7 Mbases) in 1240.1s
-[21:15:01 - PWorker] Batches in cache: 5.
-[21:15:01 - PWorker] 95.5% Done (61.8/64.7 Mbases) in 1255.0s
-[21:15:14 - PWorker] Batches in cache: 4.
-[21:15:14 - PWorker] 96.7% Done (62.6/64.7 Mbases) in 1268.3s
-[21:15:28 - PWorker] Batches in cache: 3.
-[21:15:28 - PWorker] 97.9% Done (63.4/64.7 Mbases) in 1281.7s
-[21:15:41 - PWorker] Batches in cache: 2.
-[21:15:41 - PWorker] 99.1% Done (64.2/64.7 Mbases) in 1295.1s
-[21:15:54 - PWorker] Batches in cache: 1.
-[21:15:54 - PWorker] 100.0% Done (64.7/64.7 Mbases) in 1308.0s
-[21:15:55 - PWorker] Processed 83 batches
-[21:15:55 - PWorker] All done, 20 remainder regions.
-[21:15:55 - Predict] Processing 36 short region(s).
-[21:15:55 - MdlStrTF] Model <keras.engine.sequential.Sequential object at 0x7fefbd2a9270>
-[21:15:55 - MdlStrTF] loading weights from /tmp/tmpdolwx4kd/model/variables/variables (using expect partial)
-[21:15:55 - Sampler] Initializing sampler for consensus of region JACEHA010000018.1:0-6287.
-[21:15:55 - Sampler] Initializing sampler for consensus of region JACEHA010000019.1:0-5929.
-[21:15:55 - PWorker] Running inference for 0.1M draft bases.
-[21:15:55 - Sampler] Took 0.02s to make features.
-[21:15:56 - Sampler] Initializing sampler for consensus of region JACEHA010000022.1:0-6659.
-[21:15:56 - Feature] Processed JACEHA010000019.1:0.0-5928.0 (median depth 46.0)
-[21:15:56 - Sampler] Took 0.47s to make features.
-[21:15:56 - Sampler] Initializing sampler for consensus of region JACEHA010000023.1:0-6212.
-[21:15:56 - Feature] Processed JACEHA010000022.1:0.0-6658.0 (median depth 121.0)
-[21:15:56 - Sampler] Took 0.39s to make features.
-[21:15:56 - Sampler] Initializing sampler for consensus of region JACEHA010000024.1:0-7749.
-[21:15:56 - Feature] Processed JACEHA010000024.1:0.0-7748.0 (median depth 247.0)
-[21:15:56 - Sampler] Took 0.20s to make features.
-[21:15:56 - Sampler] Initializing sampler for consensus of region JACEHA010000026.1:0-9731.
-[21:15:56 - Feature] Processed JACEHA010000023.1:0.0-6211.0 (median depth 282.0)
-[21:15:56 - Sampler] Took 0.24s to make features.
-[21:15:56 - Sampler] Initializing sampler for consensus of region JACEHA010000027.1:0-9197.
-[21:15:56 - Feature] Pileup counts do not span requested region, requested JACEHA010000027.1:0-9197, received 0-9195.
-[21:15:56 - Feature] Processed JACEHA010000027.1:0.0-9195.0 (median depth 79.0)
-[21:15:56 - Sampler] Took 0.17s to make features.
-[21:15:56 - Sampler] Initializing sampler for consensus of region JACEHA010000028.1:0-8367.
-[21:15:56 - Feature] Processed JACEHA010000026.1:0.0-9730.0 (median depth 113.0)
-[21:15:56 - Sampler] Took 0.20s to make features.
-[21:15:56 - Sampler] Initializing sampler for consensus of region JACEHA010000029.1:0-9156.
-[21:15:57 - Feature] Processed JACEHA010000029.1:0.0-9155.0 (median depth 20.0)
-[21:15:57 - Sampler] Took 0.20s to make features.
-[21:15:57 - Sampler] Initializing sampler for consensus of region JACEHA010000030.1:0-2138.
-[21:15:57 - Feature] Processed JACEHA010000028.1:0.0-8366.0 (median depth 215.0)
-[21:15:57 - Sampler] Took 0.23s to make features.
-[21:15:57 - Sampler] Initializing sampler for consensus of region JACEHA010000031.1:0-1814.
-[21:15:57 - Feature] Pileup counts do not span requested region, requested JACEHA010000030.1:0-2138, received 92-2137.
-[21:15:57 - Feature] Processed JACEHA010000030.1:92.0-2137.0 (median depth 32.0)
-[21:15:57 - Sampler] Took 0.08s to make features.
-[21:15:57 - Sampler] Initializing sampler for consensus of region JACEHA010000032.1:0-7546.
-[21:15:57 - Feature] Pileup counts do not span requested region, requested JACEHA010000032.1:0-7546, received 4727-7545.
-[21:15:57 - Feature] Processed JACEHA010000032.1:4727.0-7545.0 (median depth 8.0)
-[21:15:57 - Feature] Processed JACEHA010000031.1:0.0-1813.0 (median depth 5.0)
-[21:15:57 - Sampler] Took 0.09s to make features.
-[21:15:57 - Sampler] Took 0.17s to make features.
-[21:15:57 - Sampler] Initializing sampler for consensus of region JACEHA010000033.1:0-3707.
-[21:15:57 - Sampler] Initializing sampler for consensus of region JACEHA010000034.1:0-3905.
-[21:15:57 - Feature] Pileup counts do not span requested region, requested JACEHA010000033.1:0-3707, received 2557-3706.
-[21:15:57 - Feature] Processed JACEHA010000033.1:2557.0-3706.0 (median depth 2.0)
-[21:15:57 - Sampler] Took 0.00s to make features.
-[21:15:57 - Sampler] Initializing sampler for consensus of region JACEHA010000035.1:0-4783.
-[21:15:57 - Feature] Pileup counts do not span requested region, requested JACEHA010000034.1:0-3905, received 2709-3866.
-[21:15:57 - Feature] Processed JACEHA010000034.1:2709.0-3866.0 (median depth 2.0)
-[21:15:57 - Sampler] Took 0.00s to make features.
-[21:15:57 - Sampler] Initializing sampler for consensus of region JACEHA010000036.1:0-5570.
-[21:15:57 - Feature] Pileup counts do not span requested region, requested JACEHA010000035.1:0-4783, received 1-4782.
-[21:15:57 - Feature] Processed JACEHA010000035.1:1.0-4782.0 (median depth 94.0)
-[21:15:57 - Sampler] Took 0.02s to make features.
-[21:15:57 - Sampler] Initializing sampler for consensus of region JACEHA010000008.1:4070-4615.
-[21:15:57 - Feature] Processed JACEHA010000008.1:4070.0-4614.0 (median depth 1.0)
-[21:15:57 - Sampler] Took 0.00s to make features.
-[21:15:57 - Sampler] Initializing sampler for consensus of region JACEHA010000008.1:5196-6397.
-[21:15:57 - Feature] Processed JACEHA010000008.1:5196.0-6396.0 (median depth 1.0)
-[21:15:57 - Sampler] Took 0.00s to make features.
-[21:15:57 - Sampler] Initializing sampler for consensus of region JACEHA010000008.1:6440-6994.
-[21:15:57 - Feature] Processed JACEHA010000008.1:6440.0-6993.0 (median depth 1.0)
-[21:15:57 - Sampler] Took 0.00s to make features.
-[21:15:57 - Sampler] Initializing sampler for consensus of region JACEHA010000008.1:9484-10107.
-[21:15:57 - Feature] Processed JACEHA010000008.1:9484.0-10106.0 (median depth 1.0)
-[21:15:57 - Sampler] Took 0.00s to make features.
-[21:15:57 - Sampler] Initializing sampler for consensus of region JACEHA010000008.1:11848-12112.
-[21:15:57 - Feature] Processed JACEHA010000008.1:11848.0-12111.0 (median depth 1.0)
-[21:15:57 - Sampler] Took 0.00s to make features.
-[21:15:57 - Feature] Processed JACEHA010000036.1:0.0-5569.0 (median depth 213.0)
-[21:15:57 - Sampler] Took 0.05s to make features.
-[21:16:21 - PWorker] Batches in cache: 8.
-[21:16:21 - PWorker] 3.7% Done (0.0/0.1 Mbases) in 25.3s
-[21:16:21 - Sampler] Initializing sampler for consensus of region JACEHA010000008.1:12172-12365.
-[21:16:21 - Feature] Processed JACEHA010000008.1:12172.0-12364.0 (median depth 1.0)
-[21:16:21 - Sampler] Took 0.00s to make features.
-[21:16:54 - PWorker] Batches in cache: 8.
-[21:16:54 - PWorker] 7.9% Done (0.0/0.1 Mbases) in 58.2s
-[21:16:54 - Sampler] Initializing sampler for consensus of region JACEHA010000008.1:14686-17475.
-[21:16:54 - Feature] Processed JACEHA010000008.1:14686.0-17474.0 (median depth 2.0)
-[21:16:54 - Sampler] Took 0.00s to make features.
-[21:17:51 - PWorker] Batches in cache: 8.
-[21:17:51 - PWorker] 12.9% Done (0.0/0.1 Mbases) in 115.8s
-[21:17:51 - Sampler] Initializing sampler for consensus of region JACEHA010000009.1:3944-9153.
-[21:17:51 - Feature] Processed JACEHA010000009.1:3944.0-9152.0 (median depth 1.0)
-[21:17:51 - Sampler] Took 0.01s to make features.
-[21:18:34 - PWorker] Batches in cache: 8.
-[21:18:34 - PWorker] 16.8% Done (0.0/0.1 Mbases) in 158.6s
-[21:18:34 - Sampler] Initializing sampler for consensus of region JACEHA010000009.1:19464-24145.
-[21:18:34 - Feature] Processed JACEHA010000009.1:19464.0-24144.0 (median depth 1.0)
-[21:18:34 - Sampler] Took 0.00s to make features.
-[21:19:25 - PWorker] Batches in cache: 8.
-[21:19:25 - PWorker] 22.8% Done (0.0/0.1 Mbases) in 209.6s
-[21:19:25 - Sampler] Initializing sampler for consensus of region JACEHA010000009.1:24431-24915.
-[21:19:25 - Feature] Processed JACEHA010000009.1:24431.0-24914.0 (median depth 1.0)
-[21:19:25 - Sampler] Took 0.00s to make features.
-[21:20:27 - PWorker] Batches in cache: 8.
-[21:20:27 - PWorker] 29.3% Done (0.0/0.1 Mbases) in 271.7s
-[21:20:27 - Sampler] Initializing sampler for consensus of region JACEHA010000009.1:27586-32603.
-[21:20:27 - Feature] Processed JACEHA010000009.1:27586.0-32602.0 (median depth 3.0)
-[21:20:27 - Sampler] Took 0.00s to make features.
-[21:21:06 - PWorker] Batches in cache: 8.
-[21:21:06 - PWorker] 35.4% Done (0.0/0.1 Mbases) in 311.0s
-[21:21:06 - Sampler] Initializing sampler for consensus of region JACEHA010000009.1:33406-35042.
-[21:21:06 - Feature] Processed JACEHA010000009.1:33406.0-35041.0 (median depth 2.0)
-[21:21:06 - Sampler] Took 0.00s to make features.
-[21:21:58 - PWorker] Batches in cache: 8.
-[21:21:58 - PWorker] 40.9% Done (0.1/0.1 Mbases) in 362.1s
-[21:21:58 - Sampler] Initializing sampler for consensus of region JACEHA010000009.1:36606-38872.
-[21:21:58 - Feature] Processed JACEHA010000009.1:36606.0-38871.0 (median depth 1.0)
-[21:21:58 - Sampler] Took 0.00s to make features.
-[21:22:06 - PWorker] Batches in cache: 8.
-[21:22:06 - Sampler] Initializing sampler for consensus of region JACEHA010000009.1:39034-47736.
-[21:22:06 - Feature] Processed JACEHA010000009.1:39034.0-47735.0 (median depth 2.0)
-[21:22:06 - Sampler] Took 0.00s to make features.
-[21:22:16 - PWorker] Batches in cache: 8.
-[21:22:16 - PWorker] 43.1% Done (0.1/0.1 Mbases) in 380.5s
-[21:22:16 - Sampler] Initializing sampler for consensus of region JACEHA010000009.1:60885-61531.
-[21:22:16 - Feature] Processed JACEHA010000009.1:60885.0-61530.0 (median depth 2.0)
-[21:22:16 - Sampler] Took 0.00s to make features.
-[21:22:22 - PWorker] Batches in cache: 8.
-[21:22:22 - Sampler] Initializing sampler for consensus of region JACEHA010000009.1:64679-65164.
-[21:22:22 - Feature] Processed JACEHA010000009.1:64679.0-65163.0 (median depth 1.0)
-[21:22:22 - Sampler] Took 0.00s to make features.
-[21:22:26 - Sampler] Initializing sampler for consensus of region JACEHA010000009.1:67186-68769.
-[21:22:26 - Feature] Processed JACEHA010000009.1:67186.0-68768.0 (median depth 1.0)
-[21:22:26 - Sampler] Took 0.00s to make features.
-[21:22:30 - PWorker] Batches in cache: 8.
-[21:22:30 - PWorker] 44.0% Done (0.1/0.1 Mbases) in 394.3s
-[21:22:30 - Sampler] Initializing sampler for consensus of region JACEHA010000009.1:70722-72133.
-[21:22:30 - Feature] Processed JACEHA010000009.1:70722.0-72132.0 (median depth 1.0)
-[21:22:30 - Sampler] Took 0.00s to make features.
-[21:22:53 - PWorker] Batches in cache: 8.
-[21:22:53 - PWorker] 47.0% Done (0.1/0.1 Mbases) in 418.0s
-[21:22:53 - Sampler] Initializing sampler for consensus of region JACEHA010000009.1:76194-77946.
-[21:22:53 - Feature] Processed JACEHA010000009.1:76194.0-77945.0 (median depth 3.0)
-[21:22:53 - Sampler] Took 0.00s to make features.
-[21:22:55 - Sampler] Initializing sampler for consensus of region JACEHA010000009.1:78073-78308.
-[21:22:55 - Feature] Processed JACEHA010000009.1:78073.0-78307.0 (median depth 1.0)
-[21:22:55 - Sampler] Took 0.01s to make features.
-[21:23:00 - PWorker] Batches in cache: 8.
-[21:23:04 - PWorker] 48.4% Done (0.1/0.1 Mbases) in 429.0s
-[21:23:06 - PWorker] Batches in cache: 8.
-[21:23:47 - PWorker] Batches in cache: 8.
-[21:23:47 - PWorker] 52.1% Done (0.1/0.1 Mbases) in 471.5s
-[21:23:57 - PWorker] Batches in cache: 8.
-[21:24:14 - PWorker] Batches in cache: 8.
-[21:24:14 - PWorker] 56.6% Done (0.1/0.1 Mbases) in 497.6s
-[21:24:28 - PWorker] Batches in cache: 8.
-[21:24:28 - PWorker] 59.2% Done (0.1/0.1 Mbases) in 512.4s
-[21:24:46 - PWorker] Batches in cache: 8.
-[21:24:46 - PWorker] 62.5% Done (0.1/0.1 Mbases) in 529.9s
-[21:24:51 - PWorker] Batches in cache: 8.
-[21:24:58 - PWorker] Batches in cache: 8.
-[21:24:58 - PWorker] 63.9% Done (0.1/0.1 Mbases) in 542.1s
-[21:25:26 - PWorker] Batches in cache: 7.
-[21:25:26 - PWorker] 69.4% Done (0.1/0.1 Mbases) in 569.7s
-[21:25:34 - PWorker] Batches in cache: 4.
-[21:25:38 - PWorker] 71.0% Done (0.1/0.1 Mbases) in 582.5s
-[21:25:44 - PWorker] Batches in cache: 2.
-[21:25:45 - PWorker] Processed 35 batches
-[21:25:45 - PWorker] All done, 0 remainder regions.
-[21:25:45 - Predict] Finished processing all regions.
-[21:25:45 - MdlStrTF] Successfully removed temporary files from /tmp/tmpdolwx4kd.
+[00:18:59 - Predict] Processing region(s): contig_1:0-5153 contig_25:0-11354 contig_19:0-818 contig_50:0-24398 contig_13:0-2450531 contig_22:0-53715 contig_24:0-2596606 contig_2:0-2881782 contig_30:0-5219375 contig_35:0-1390229 contig_14:0-2000958 contig_37:0-1987479 contig_4:0-3514252 contig_5:0-45802 contig_20:0-3788807 contig_43:0-12101396 contig_40:0-76924 contig_42:0-4595037 contig_46:0-7662873 contig_39:0-6685531 contig_11:0-7421671 contig_9:0-18981
+[00:18:59 - Predict] Using model: /home/yomna/.local/lib/python3.8/site-packages/medaka/data/r1041_e82_400bps_sup_variant_g615_model_pt.tar.gz.
+[00:18:59 - Predict] Using minimum mapQ threshold of 1 for read filtering.
+[00:18:59 - MdlStrTGZ] Model GRUModel(
+  (gru): GRU(10, 128, num_layers=2, batch_first=True, bidirectional=True)
+  (linear): Linear(in_features=256, out_features=5, bias=True)
+)
+[00:18:59 - MdlStrTGZ] loading weights from /tmp/tmpc6kerujd/model/weights.pt
+/home/yomna/.local/lib/python3.8/site-packages/medaka/datastore.py:193: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.model.load_state_dict(torch.load(weights, map_location=device))
+[00:18:59 - MdlStrTGZ] Successfully removed temporary files from /tmp/tmpc6kerujd.
+[00:18:59 - Predict] Model device: cpu
+[00:18:59 - Predict] Running prediction at full precision
+[00:18:59 - BAMFile] Creating pool of 16 BAM file sets.
+[00:18:59 - Predict] Processing 77 long region(s) with batching.
+[00:18:59 - Sampler] Initializing sampler for consensus of region contig_25:0-11354.
+[00:18:59 - Sampler] Initializing sampler for consensus of region contig_50:0-24398.
+[00:18:59 - PWorker] Running inference for 64.6M draft bases.
+[00:18:59 - Feature] Pileup counts do not span requested region, requested contig_25:0-11354, received 170-11353.
+[00:18:59 - Feature] Processed contig_25:170.0-11353.0 (median depth 10.0)
+[00:18:59 - Sampler] Took 0.16s to make features.
+[00:18:59 - Sampler] Initializing sampler for consensus of region contig_13:0-1000000.
+[00:19:00 - Feature] Processed contig_50:0.0-24397.0 (median depth 342.0)
+[00:19:00 - Sampler] Took 0.68s to make features.
+[00:19:00 - Sampler] Initializing sampler for consensus of region contig_13:999000-1999000.
+[00:19:01 - Feature] Processed contig_13:0.0-999999.0 (median depth 19.0)
+[00:19:01 - Sampler] Took 1.16s to make features.
+[00:19:01 - Sampler] Initializing sampler for consensus of region contig_13:1998000-2450531.
+[00:19:01 - Feature] Processed contig_13:1998000.0-2450530.0 (median depth 16.0)
+[00:19:01 - Sampler] Took 0.47s to make features.
+[00:19:01 - Sampler] Initializing sampler for consensus of region contig_22:0-53715.
+[00:19:01 - Feature] Processed contig_13:999000.0-1998999.0 (median depth 17.0)
+[00:19:01 - Sampler] Took 1.15s to make features.
+[00:19:01 - Sampler] Initializing sampler for consensus of region contig_24:0-1000000.
+[00:19:01 - Feature] Pileup counts do not span requested region, requested contig_22:0-53715, received 0-53689.
+[00:19:01 - Feature] Processed contig_22:0.0-53689.0 (median depth 31.0)
+[00:19:01 - Sampler] Took 0.21s to make features.
+[00:19:01 - Sampler] Initializing sampler for consensus of region contig_24:999000-1999000.
+[00:19:02 - Feature] Processed contig_24:0.0-999999.0 (median depth 18.0)
+[00:19:02 - Sampler] Took 1.03s to make features.
+[00:19:02 - Sampler] Initializing sampler for consensus of region contig_24:1998000-2596606.
+[00:19:02 - Feature] Processed contig_24:999000.0-1998999.0 (median depth 19.0)
+[00:19:02 - Sampler] Took 1.19s to make features.
+[00:19:02 - Sampler] Initializing sampler for consensus of region contig_2:0-1000000.
+[00:19:03 - Feature] Pileup counts do not span requested region, requested contig_24:1998000-2596606, received 1998000-2595972.
+[00:19:03 - Feature] Processed contig_24:1998000.0-2595972.0 (median depth 17.0)
+[00:19:03 - Sampler] Took 0.71s to make features.
+[00:19:03 - Sampler] Initializing sampler for consensus of region contig_2:999000-1999000.
+[00:19:03 - Feature] Pileup counts do not span requested region, requested contig_2:0-1000000, received 114-999999.
+[00:19:03 - Feature] Processed contig_2:114.0-999999.0 (median depth 17.0)
+[00:19:03 - Sampler] Took 0.89s to make features.
+[00:19:03 - Sampler] Initializing sampler for consensus of region contig_2:1998000-2881782.
+[00:19:04 - Feature] Processed contig_2:999000.0-1998999.0 (median depth 18.0)
+[00:19:04 - Sampler] Took 1.00s to make features.
+[00:19:04 - Sampler] Initializing sampler for consensus of region contig_30:0-1000000.
+[00:19:04 - Feature] Pileup counts do not span requested region, requested contig_2:1998000-2881782, received 1998000-2881754.
+[00:19:04 - Feature] Processed contig_2:1998000.0-2881754.0 (median depth 17.0)
+[00:19:04 - Sampler] Took 0.86s to make features.
+[00:19:05 - Feature] Processed contig_30:0.0-999999.0 (median depth 18.0)
+[00:19:05 - Sampler] Took 0.77s to make features.
+[00:19:14 - PWorker] Batches in cache: 8.
+[00:19:14 - PWorker] 0.6% Done (0.4/64.6 Mbases) in 14.4s
+[00:19:23 - PWorker] Batches in cache: 8.
+[00:19:23 - Sampler] Initializing sampler for consensus of region contig_30:999000-1999000.
+[00:19:23 - Feature] Processed contig_30:999000.0-1998999.0 (median depth 17.0)
+[00:19:23 - Sampler] Took 0.62s to make features.
+[00:19:32 - PWorker] Batches in cache: 8.
+[00:19:32 - PWorker] 1.8% Done (1.2/64.6 Mbases) in 32.8s
+[00:19:41 - PWorker] Batches in cache: 8.
+[00:19:50 - PWorker] Batches in cache: 8.
+[00:19:50 - PWorker] 3.1% Done (2.0/64.6 Mbases) in 51.2s
+[00:19:59 - PWorker] Batches in cache: 8.
+[00:19:59 - Sampler] Initializing sampler for consensus of region contig_30:1998000-2998000.
+[00:20:00 - Feature] Processed contig_30:1998000.0-2997999.0 (median depth 18.0)
+[00:20:00 - Sampler] Took 0.60s to make features.
+[00:20:08 - PWorker] Batches in cache: 8.
+[00:20:08 - PWorker] 4.4% Done (2.8/64.6 Mbases) in 69.3s
+[00:20:08 - Sampler] Initializing sampler for consensus of region contig_30:2997000-3997000.
+[00:20:09 - Feature] Processed contig_30:2997000.0-3996999.0 (median depth 17.0)
+[00:20:09 - Sampler] Took 0.62s to make features.
+[00:20:18 - PWorker] Batches in cache: 8.
+[00:20:27 - PWorker] Batches in cache: 8.
+[00:20:27 - PWorker] 5.6% Done (3.6/64.6 Mbases) in 87.5s
+[00:20:36 - PWorker] Batches in cache: 8.
+[00:20:45 - PWorker] Batches in cache: 8.
+[00:20:45 - PWorker] 6.9% Done (4.4/64.6 Mbases) in 105.7s
+[00:20:45 - Sampler] Initializing sampler for consensus of region contig_30:3996000-4996000.
+[00:20:46 - Feature] Processed contig_30:3996000.0-4995999.0 (median depth 17.0)
+[00:20:46 - Sampler] Took 0.68s to make features.
+[00:20:54 - PWorker] Batches in cache: 8.
+[00:20:54 - Sampler] Initializing sampler for consensus of region contig_30:4995000-5219375.
+[00:20:55 - Feature] Processed contig_30:4995000.0-5219374.0 (median depth 17.0)
+[00:20:55 - Sampler] Took 0.34s to make features.
+[00:21:04 - PWorker] Batches in cache: 8.
+[00:21:04 - PWorker] 8.1% Done (5.2/64.6 Mbases) in 124.5s
+[00:21:13 - PWorker] Batches in cache: 8.
+[00:21:21 - PWorker] Batches in cache: 8.
+[00:21:21 - PWorker] 9.4% Done (6.1/64.6 Mbases) in 142.3s
+[00:21:21 - Sampler] Initializing sampler for consensus of region contig_35:0-1000000.
+[00:21:21 - Sampler] Initializing sampler for consensus of region contig_35:999000-1390229.
+[00:21:22 - Feature] Pileup counts do not span requested region, requested contig_35:999000-1390229, received 999000-1390206.
+[00:21:22 - Feature] Processed contig_35:999000.0-1390206.0 (median depth 19.0)
+[00:21:22 - Sampler] Took 0.51s to make features.
+[00:21:22 - Feature] Processed contig_35:0.0-999999.0 (median depth 16.0)
+[00:21:22 - Sampler] Took 0.67s to make features.
+[00:21:31 - PWorker] Batches in cache: 8.
+[00:21:31 - Sampler] Initializing sampler for consensus of region contig_14:0-1000000.
+[00:21:31 - Feature] Pileup counts do not span requested region, requested contig_14:0-1000000, received 31-999999.
+[00:21:32 - Feature] Processed contig_14:31.0-999999.0 (median depth 18.0)
+[00:21:32 - Sampler] Took 0.61s to make features.
+[00:21:41 - PWorker] Batches in cache: 8.
+[00:21:41 - PWorker] 10.6% Done (6.9/64.6 Mbases) in 161.3s
+[00:21:50 - PWorker] Batches in cache: 8.
+[00:21:59 - PWorker] Batches in cache: 8.
+[00:21:59 - PWorker] 11.9% Done (7.7/64.6 Mbases) in 179.9s
+[00:22:08 - PWorker] Batches in cache: 8.
+[00:22:17 - PWorker] Batches in cache: 8.
+[00:22:17 - PWorker] 13.1% Done (8.5/64.6 Mbases) in 198.1s
+[00:22:17 - Sampler] Initializing sampler for consensus of region contig_14:999000-1999000.
+[00:22:17 - Sampler] Initializing sampler for consensus of region contig_14:1998000-2000958.
+[00:22:17 - Feature] Pileup counts do not span requested region, requested contig_14:1998000-2000958, received 1998000-2000666.
+[00:22:17 - Feature] Processed contig_14:1998000.0-2000666.0 (median depth 23.0)
+[00:22:17 - Sampler] Took 0.05s to make features.
+[00:22:17 - Sampler] Region contig_14:1998000.0-2000666.0 (4583 positions) is smaller than inference chunk length 10000, quarantining.
+[00:22:17 - Sampler] Initializing sampler for consensus of region contig_37:0-1000000.
+[00:22:18 - Feature] Pileup counts do not span requested region, requested contig_37:0-1000000, received 17-999999.
+[00:22:18 - Feature] Processed contig_14:999000.0-1998999.0 (median depth 17.0)
+[00:22:18 - Sampler] Took 0.87s to make features.
+[00:22:18 - Feature] Processed contig_37:17.0-999999.0 (median depth 18.0)
+[00:22:18 - Sampler] Took 0.93s to make features.
+[00:22:27 - PWorker] Batches in cache: 8.
+[00:22:36 - PWorker] Batches in cache: 8.
+[00:22:36 - PWorker] 14.4% Done (9.3/64.6 Mbases) in 217.1s
+[00:22:46 - PWorker] Batches in cache: 8.
+[00:22:55 - PWorker] Batches in cache: 8.
+[00:22:55 - PWorker] 15.7% Done (10.1/64.6 Mbases) in 235.8s
+[00:22:55 - Sampler] Initializing sampler for consensus of region contig_37:999000-1987479.
+[00:22:55 - Feature] Pileup counts do not span requested region, requested contig_37:999000-1987479, received 999000-1987450.
+[00:22:56 - Feature] Processed contig_37:999000.0-1987450.0 (median depth 17.0)
+[00:22:56 - Sampler] Took 0.60s to make features.
+[00:23:04 - PWorker] Batches in cache: 8.
+[00:23:13 - PWorker] Batches in cache: 8.
+[00:23:13 - PWorker] 16.9% Done (10.9/64.6 Mbases) in 254.1s
+[00:23:22 - PWorker] Batches in cache: 8.
+[00:23:22 - Sampler] Initializing sampler for consensus of region contig_4:0-1000000.
+[00:23:23 - Feature] Pileup counts do not span requested region, requested contig_4:0-1000000, received 18-999999.
+[00:23:23 - Feature] Processed contig_4:18.0-999999.0 (median depth 18.0)
+[00:23:23 - Sampler] Took 0.60s to make features.
+[00:23:32 - PWorker] Batches in cache: 8.
+[00:23:32 - PWorker] 18.2% Done (11.7/64.6 Mbases) in 272.5s
+[00:23:41 - PWorker] Batches in cache: 8.
+[00:23:41 - Sampler] Initializing sampler for consensus of region contig_4:999000-1999000.
+[00:23:41 - Feature] Processed contig_4:999000.0-1998999.0 (median depth 18.0)
+[00:23:41 - Sampler] Took 0.62s to make features.
+[00:23:50 - PWorker] Batches in cache: 8.
+[00:23:50 - PWorker] 19.4% Done (12.6/64.6 Mbases) in 291.2s
+[00:23:50 - Sampler] Initializing sampler for consensus of region contig_4:1998000-2998000.
+[00:23:51 - Feature] Processed contig_4:1998000.0-2997999.0 (median depth 16.0)
+[00:23:51 - Sampler] Took 0.60s to make features.
+[00:24:00 - PWorker] Batches in cache: 8.
+[00:24:09 - PWorker] Batches in cache: 8.
+[00:24:09 - PWorker] 20.7% Done (13.4/64.6 Mbases) in 309.4s
+[00:24:17 - PWorker] Batches in cache: 8.
+[00:24:17 - Sampler] Initializing sampler for consensus of region contig_4:2997000-3514252.
+[00:24:18 - Feature] Pileup counts do not span requested region, requested contig_4:2997000-3514252, received 2997000-3513774.
+[00:24:18 - Feature] Processed contig_4:2997000.0-3513774.0 (median depth 18.0)
+[00:24:18 - Sampler] Took 0.40s to make features.
+[00:24:27 - PWorker] Batches in cache: 8.
+[00:24:27 - PWorker] 22.0% Done (14.2/64.6 Mbases) in 327.7s
+[00:24:36 - PWorker] Batches in cache: 8.
+[00:24:36 - Sampler] Initializing sampler for consensus of region contig_5:0-45802.
+[00:24:36 - Feature] Processed contig_5:0.0-45801.0 (median depth 21.0)
+[00:24:36 - Sampler] Took 0.08s to make features.
+[00:24:45 - PWorker] Batches in cache: 8.
+[00:24:45 - PWorker] 23.2% Done (15.0/64.6 Mbases) in 345.7s
+[00:24:45 - Sampler] Initializing sampler for consensus of region contig_20:0-1000000.
+[00:24:45 - Sampler] Initializing sampler for consensus of region contig_20:999000-1999000.
+[00:24:46 - Feature] Pileup counts do not span requested region, requested contig_20:0-1000000, received 127-999999.
+[00:24:46 - Feature] Processed contig_20:127.0-999999.0 (median depth 18.0)
+[00:24:46 - Sampler] Took 0.90s to make features.
+[00:24:46 - Feature] Processed contig_20:999000.0-1998999.0 (median depth 16.0)
+[00:24:46 - Sampler] Took 1.21s to make features.
+[00:24:55 - PWorker] Batches in cache: 8.
+[00:24:55 - PWorker] 23.8% Done (15.4/64.6 Mbases) in 356.0s
+[00:25:04 - PWorker] Batches in cache: 8.
+[00:25:13 - PWorker] Batches in cache: 8.
+[00:25:13 - PWorker] 25.1% Done (16.2/64.6 Mbases) in 374.2s
+[00:25:13 - Sampler] Initializing sampler for consensus of region contig_20:1998000-2998000.
+[00:25:14 - Feature] Processed contig_20:1998000.0-2997999.0 (median depth 18.0)
+[00:25:14 - Sampler] Took 0.59s to make features.
+[00:25:23 - PWorker] Batches in cache: 8.
+[00:25:32 - PWorker] Batches in cache: 8.
+[00:25:32 - PWorker] 26.4% Done (17.0/64.6 Mbases) in 392.7s
+[00:25:41 - PWorker] Batches in cache: 8.
+[00:25:50 - PWorker] Batches in cache: 8.
+[00:25:50 - PWorker] 27.6% Done (17.8/64.6 Mbases) in 411.2s
+[00:25:50 - Sampler] Initializing sampler for consensus of region contig_20:2997000-3788807.
+[00:25:51 - Feature] Processed contig_20:2997000.0-3788806.0 (median depth 18.0)
+[00:25:51 - Sampler] Took 0.54s to make features.
+[00:26:00 - PWorker] Batches in cache: 8.
+[00:26:00 - Sampler] Initializing sampler for consensus of region contig_43:0-1000000.
+[00:26:00 - Feature] Pileup counts do not span requested region, requested contig_43:0-1000000, received 166-999999.
+[00:26:01 - Feature] Processed contig_43:166.0-999999.0 (median depth 18.0)
+[00:26:01 - Sampler] Took 0.66s to make features.
+[00:26:10 - PWorker] Batches in cache: 8.
+[00:26:10 - PWorker] 28.9% Done (18.7/64.6 Mbases) in 430.3s
+[00:26:18 - PWorker] Batches in cache: 8.
+[00:26:18 - Sampler] Initializing sampler for consensus of region contig_43:999000-1999000.
+[00:26:19 - Feature] Processed contig_43:999000.0-1998999.0 (median depth 18.0)
+[00:26:19 - Sampler] Took 0.66s to make features.
+[00:26:28 - PWorker] Batches in cache: 8.
+[00:26:28 - PWorker] 30.1% Done (19.5/64.6 Mbases) in 449.2s
+[00:26:37 - PWorker] Batches in cache: 8.
+[00:26:37 - Sampler] Initializing sampler for consensus of region contig_43:1998000-2998000.
+[00:26:38 - Feature] Processed contig_43:1998000.0-2997999.0 (median depth 16.0)
+[00:26:38 - Sampler] Took 0.59s to make features.
+[00:26:47 - PWorker] Batches in cache: 8.
+[00:26:47 - PWorker] 31.4% Done (20.3/64.6 Mbases) in 468.0s
+[00:26:56 - PWorker] Batches in cache: 8.
+[00:27:05 - PWorker] Batches in cache: 8.
+[00:27:05 - PWorker] 32.7% Done (21.1/64.6 Mbases) in 486.0s
+[00:27:14 - PWorker] Batches in cache: 8.
+[00:27:14 - Sampler] Initializing sampler for consensus of region contig_43:2997000-3997000.
+[00:27:15 - Feature] Processed contig_43:2997000.0-3996999.0 (median depth 17.0)
+[00:27:15 - Sampler] Took 0.59s to make features.
+[00:27:24 - PWorker] Batches in cache: 8.
+[00:27:24 - PWorker] 33.9% Done (21.9/64.6 Mbases) in 504.4s
+[00:27:33 - PWorker] Batches in cache: 8.
+[00:27:42 - PWorker] Batches in cache: 8.
+[00:27:42 - PWorker] 35.2% Done (22.7/64.6 Mbases) in 522.5s
+[00:27:42 - Sampler] Initializing sampler for consensus of region contig_43:3996000-4996000.
+[00:27:42 - Feature] Processed contig_43:3996000.0-4995999.0 (median depth 16.0)
+[00:27:42 - Sampler] Took 0.63s to make features.
+[00:27:52 - PWorker] Batches in cache: 8.
+[00:27:52 - Sampler] Initializing sampler for consensus of region contig_43:4995000-5995000.
+[00:27:52 - Feature] Processed contig_43:4995000.0-5994999.0 (median depth 16.0)
+[00:27:52 - Sampler] Took 0.55s to make features.
+[00:28:01 - PWorker] Batches in cache: 8.
+[00:28:01 - PWorker] 36.5% Done (23.5/64.6 Mbases) in 541.5s
+[00:28:10 - PWorker] Batches in cache: 8.
+[00:28:19 - PWorker] Batches in cache: 8.
+[00:28:19 - PWorker] 37.7% Done (24.4/64.6 Mbases) in 559.3s
+[00:28:28 - PWorker] Batches in cache: 8.
+[00:28:28 - Sampler] Initializing sampler for consensus of region contig_43:5994000-6994000.
+[00:28:28 - Sampler] Initializing sampler for consensus of region contig_43:6993000-7993000.
+[00:28:28 - Feature] Processed contig_43:6993000.0-7992999.0 (median depth 16.0)
+[00:28:28 - Sampler] Took 0.90s to make features.
+[00:28:29 - Feature] Processed contig_43:5994000.0-6993999.0 (median depth 18.0)
+[00:28:29 - Sampler] Took 0.97s to make features.
+[00:28:38 - PWorker] Batches in cache: 8.
+[00:28:38 - PWorker] 39.0% Done (25.2/64.6 Mbases) in 578.3s
+[00:28:47 - PWorker] Batches in cache: 8.
+[00:28:56 - PWorker] Batches in cache: 8.
+[00:28:56 - PWorker] 40.2% Done (26.0/64.6 Mbases) in 597.1s
+[00:29:05 - PWorker] Batches in cache: 8.
+[00:29:05 - Sampler] Initializing sampler for consensus of region contig_43:7992000-8992000.
+[00:29:06 - Feature] Processed contig_43:7992000.0-8991999.0 (median depth 16.0)
+[00:29:06 - Sampler] Took 0.62s to make features.
+[00:29:14 - PWorker] Batches in cache: 8.
+[00:29:14 - PWorker] 41.5% Done (26.8/64.6 Mbases) in 615.2s
+[00:29:14 - Sampler] Initializing sampler for consensus of region contig_43:8991000-9991000.
+[00:29:15 - Feature] Processed contig_43:8991000.0-9990999.0 (median depth 17.0)
+[00:29:15 - Sampler] Took 0.59s to make features.
+[00:29:24 - PWorker] Batches in cache: 8.
+[00:29:33 - PWorker] Batches in cache: 8.
+[00:29:33 - PWorker] 42.7% Done (27.6/64.6 Mbases) in 633.9s
+[00:29:42 - PWorker] Batches in cache: 8.
+[00:29:52 - PWorker] Batches in cache: 8.
+[00:29:52 - PWorker] 44.0% Done (28.4/64.6 Mbases) in 652.4s
+[00:30:01 - PWorker] Batches in cache: 8.
+[00:30:01 - Sampler] Initializing sampler for consensus of region contig_43:9990000-10990000.
+[00:30:01 - Sampler] Initializing sampler for consensus of region contig_43:10989000-11989000.
+[00:30:01 - Feature] Processed contig_43:9990000.0-10989999.0 (median depth 17.0)
+[00:30:01 - Sampler] Took 0.83s to make features.
+[00:30:01 - Feature] Processed contig_43:10989000.0-11988999.0 (median depth 18.0)
+[00:30:01 - Sampler] Took 0.86s to make features.
+[00:30:10 - PWorker] Batches in cache: 8.
+[00:30:10 - PWorker] 45.3% Done (29.2/64.6 Mbases) in 671.0s
+[00:30:19 - PWorker] Batches in cache: 8.
+[00:30:29 - PWorker] Batches in cache: 8.
+[00:30:29 - PWorker] 46.5% Done (30.0/64.6 Mbases) in 689.4s
+[00:30:29 - Sampler] Initializing sampler for consensus of region contig_43:11988000-12101396.
+[00:30:29 - Feature] Pileup counts do not span requested region, requested contig_43:11988000-12101396, received 11988000-12101126.
+[00:30:29 - Feature] Processed contig_43:11988000.0-12101126.0 (median depth 20.0)
+[00:30:29 - Sampler] Took 0.18s to make features.
+[00:30:38 - PWorker] Batches in cache: 8.
+[00:30:38 - Sampler] Initializing sampler for consensus of region contig_40:0-76924.
+[00:30:38 - Feature] Pileup counts do not span requested region, requested contig_40:0-76924, received 1180-1380.
+[00:30:38 - Feature] Processed contig_40:1180.0-1380.0 (median depth 1.0)
+[00:30:38 - Feature] Pileup counts do not span requested region, requested contig_40:0-76924, received 2669-76923.
+[00:30:38 - Feature] Processed contig_40:2669.0-76923.0 (median depth 17.0)
+[00:30:38 - Sampler] Took 0.10s to make features.
+[00:30:38 - Sampler] Region contig_40:1180.0-1380.0 (201 positions) is smaller than inference chunk length 10000, quarantining.
+[00:30:47 - PWorker] Batches in cache: 8.
+[00:30:47 - PWorker] 47.8% Done (30.9/64.6 Mbases) in 707.9s
+[00:30:47 - Sampler] Initializing sampler for consensus of region contig_42:0-1000000.
+[00:30:48 - Feature] Processed contig_42:0.0-999999.1 (median depth 17.0)
+[00:30:48 - Sampler] Took 0.82s to make features.
+[00:30:57 - PWorker] Batches in cache: 8.
+[00:30:57 - Sampler] Initializing sampler for consensus of region contig_42:999000-1999000.
+[00:30:58 - Feature] Processed contig_42:999000.0-1998999.0 (median depth 19.0)
+[00:30:58 - Sampler] Took 0.67s to make features.
+[00:31:06 - PWorker] Batches in cache: 8.
+[00:31:06 - PWorker] 49.1% Done (31.7/64.6 Mbases) in 727.2s
+[00:31:15 - PWorker] Batches in cache: 8.
+[00:31:24 - PWorker] Batches in cache: 8.
+[00:31:24 - PWorker] 50.3% Done (32.5/64.6 Mbases) in 745.2s
+[00:31:33 - PWorker] Batches in cache: 8.
+[00:31:33 - Sampler] Initializing sampler for consensus of region contig_42:1998000-2998000.
+[00:31:34 - Feature] Processed contig_42:1998000.0-2997999.0 (median depth 18.0)
+[00:31:34 - Sampler] Took 0.66s to make features.
+[00:31:43 - PWorker] Batches in cache: 8.
+[00:31:43 - PWorker] 51.6% Done (33.3/64.6 Mbases) in 763.7s
+[00:31:43 - Sampler] Initializing sampler for consensus of region contig_42:2997000-3997000.
+[00:31:44 - Feature] Processed contig_42:2997000.0-3996999.0 (median depth 18.0)
+[00:31:44 - Sampler] Took 0.66s to make features.
+[00:31:53 - PWorker] Batches in cache: 8.
+[00:32:02 - PWorker] Batches in cache: 8.
+[00:32:02 - PWorker] 52.8% Done (34.1/64.6 Mbases) in 782.4s
+[00:32:11 - PWorker] Batches in cache: 8.
+[00:32:11 - Sampler] Initializing sampler for consensus of region contig_42:3996000-4595037.
+[00:32:11 - Feature] Pileup counts do not span requested region, requested contig_42:3996000-4595037, received 3996000-4594626.
+[00:32:11 - Feature] Processed contig_42:3996000.0-4594626.0 (median depth 17.0)
+[00:32:11 - Sampler] Took 0.42s to make features.
+[00:32:20 - PWorker] Batches in cache: 8.
+[00:32:20 - PWorker] 54.1% Done (34.9/64.6 Mbases) in 800.6s
+[00:32:29 - PWorker] Batches in cache: 8.
+[00:32:29 - Sampler] Initializing sampler for consensus of region contig_46:0-1000000.
+[00:32:29 - Feature] Pileup counts do not span requested region, requested contig_46:0-1000000, received 370-999999.
+[00:32:30 - Feature] Processed contig_46:370.0-999999.0 (median depth 18.0)
+[00:32:30 - Sampler] Took 0.67s to make features.
+[00:32:38 - PWorker] Batches in cache: 8.
+[00:32:38 - PWorker] 55.4% Done (35.8/64.6 Mbases) in 819.1s
+[00:32:48 - PWorker] Batches in cache: 8.
+[00:32:57 - PWorker] Batches in cache: 8.
+[00:32:57 - PWorker] 56.6% Done (36.6/64.6 Mbases) in 837.6s
+[00:32:57 - Sampler] Initializing sampler for consensus of region contig_46:999000-1999000.
+[00:32:57 - Feature] Processed contig_46:999000.0-1998999.0 (median depth 18.0)
+[00:32:57 - Sampler] Took 0.59s to make features.
+[00:33:06 - PWorker] Batches in cache: 8.
+[00:33:06 - Sampler] Initializing sampler for consensus of region contig_46:1998000-2998000.
+[00:33:07 - Feature] Processed contig_46:1998000.0-2997999.0 (median depth 18.0)
+[00:33:07 - Sampler] Took 0.66s to make features.
+[00:33:15 - PWorker] Batches in cache: 8.
+[00:33:15 - PWorker] 57.9% Done (37.4/64.6 Mbases) in 856.2s
+[00:33:24 - PWorker] Batches in cache: 8.
+[00:33:33 - PWorker] Batches in cache: 8.
+[00:33:33 - PWorker] 59.1% Done (38.2/64.6 Mbases) in 874.3s
+[00:33:33 - Sampler] Initializing sampler for consensus of region contig_46:2997000-3997000.
+[00:33:34 - Feature] Processed contig_46:2997000.0-3996999.0 (median depth 17.0)
+[00:33:34 - Sampler] Took 0.60s to make features.
+[00:33:43 - PWorker] Batches in cache: 8.
+[00:33:52 - PWorker] Batches in cache: 8.
+[00:33:52 - PWorker] 60.4% Done (39.0/64.6 Mbases) in 893.1s
+[00:34:01 - PWorker] Batches in cache: 8.
+[00:34:01 - Sampler] Initializing sampler for consensus of region contig_46:3996000-4996000.
+[00:34:02 - Feature] Processed contig_46:3996000.0-4995999.0 (median depth 18.0)
+[00:34:02 - Sampler] Took 0.59s to make features.
+[00:34:11 - PWorker] Batches in cache: 8.
+[00:34:11 - PWorker] 61.7% Done (39.8/64.6 Mbases) in 911.5s
+[00:34:11 - Sampler] Initializing sampler for consensus of region contig_46:4995000-5995000.
+[00:34:11 - Feature] Processed contig_46:4995000.0-5994999.0 (median depth 18.0)
+[00:34:11 - Sampler] Took 0.66s to make features.
+[00:34:20 - PWorker] Batches in cache: 8.
+[00:34:29 - PWorker] Batches in cache: 8.
+[00:34:29 - PWorker] 62.9% Done (40.6/64.6 Mbases) in 929.8s
+[00:34:38 - PWorker] Batches in cache: 8.
+[00:34:47 - PWorker] Batches in cache: 8.
+[00:34:47 - PWorker] 64.2% Done (41.4/64.6 Mbases) in 948.3s
+[00:34:47 - Sampler] Initializing sampler for consensus of region contig_46:5994000-6994000.
+[00:34:48 - Feature] Processed contig_46:5994000.0-6993999.0 (median depth 18.0)
+[00:34:48 - Sampler] Took 0.75s to make features.
+[00:34:57 - PWorker] Batches in cache: 8.
+[00:34:57 - Sampler] Initializing sampler for consensus of region contig_46:6993000-7662873.
+[00:34:58 - Feature] Pileup counts do not span requested region, requested contig_46:6993000-7662873, received 6993000-7662854.
+[00:34:58 - Feature] Processed contig_46:6993000.0-7662854.0 (median depth 17.0)
+[00:34:58 - Sampler] Took 0.47s to make features.
+[00:35:06 - PWorker] Batches in cache: 8.
+[00:35:06 - PWorker] 65.4% Done (42.3/64.6 Mbases) in 967.3s
+[00:35:16 - PWorker] Batches in cache: 8.
+[00:35:25 - PWorker] Batches in cache: 8.
+[00:35:25 - PWorker] 66.7% Done (43.1/64.6 Mbases) in 985.4s
+[00:35:25 - Sampler] Initializing sampler for consensus of region contig_39:0-1000000.
+[00:35:25 - Feature] Pileup counts do not span requested region, requested contig_39:0-1000000, received 1-999999.
+[00:35:25 - Feature] Processed contig_39:1.0-999999.0 (median depth 18.0)
+[00:35:25 - Sampler] Took 0.65s to make features.
+[00:35:34 - PWorker] Batches in cache: 8.
+[00:35:34 - Sampler] Initializing sampler for consensus of region contig_39:999000-1999000.
+[00:35:35 - Feature] Processed contig_39:999000.0-1998999.0 (median depth 17.0)
+[00:35:35 - Sampler] Took 0.60s to make features.
+[00:35:44 - PWorker] Batches in cache: 8.
+[00:35:44 - PWorker] 67.9% Done (43.9/64.6 Mbases) in 1004.7s
+[00:35:53 - PWorker] Batches in cache: 8.
+[00:36:03 - PWorker] Batches in cache: 8.
+[00:36:03 - PWorker] 69.2% Done (44.7/64.6 Mbases) in 1023.6s
+[00:36:03 - Sampler] Initializing sampler for consensus of region contig_39:1998000-2998000.
+[00:36:03 - Feature] Processed contig_39:1998000.0-2997999.0 (median depth 17.0)
+[00:36:03 - Sampler] Took 0.62s to make features.
+[00:36:12 - PWorker] Batches in cache: 8.
+[00:36:21 - PWorker] Batches in cache: 8.
+[00:36:21 - PWorker] 70.5% Done (45.5/64.6 Mbases) in 1041.7s
+[00:36:21 - Sampler] Initializing sampler for consensus of region contig_39:2997000-3997000.
+[00:36:22 - Feature] Processed contig_39:2997000.0-3996999.0 (median depth 17.0)
+[00:36:22 - Sampler] Took 0.60s to make features.
+[00:36:32 - PWorker] Batches in cache: 8.
+[00:36:32 - PWorker] 71.1% Done (45.9/64.6 Mbases) in 1052.4s
+[00:36:41 - PWorker] Batches in cache: 8.
+[00:36:50 - PWorker] Batches in cache: 8.
+[00:36:50 - PWorker] 72.4% Done (46.7/64.6 Mbases) in 1071.0s
+[00:36:50 - Sampler] Initializing sampler for consensus of region contig_39:3996000-4996000.
+[00:36:51 - Feature] Processed contig_39:3996000.0-4995999.0 (median depth 17.0)
+[00:36:51 - Sampler] Took 0.66s to make features.
+[00:37:00 - PWorker] Batches in cache: 8.
+[00:37:09 - PWorker] Batches in cache: 8.
+[00:37:09 - PWorker] 73.6% Done (47.5/64.6 Mbases) in 1089.4s
+[00:37:09 - Sampler] Initializing sampler for consensus of region contig_39:4995000-5995000.
+[00:37:09 - Feature] Processed contig_39:4995000.0-5994999.0 (median depth 17.0)
+[00:37:09 - Sampler] Took 0.63s to make features.
+[00:37:18 - PWorker] Batches in cache: 8.
+[00:37:27 - PWorker] Batches in cache: 8.
+[00:37:27 - PWorker] 74.9% Done (48.4/64.6 Mbases) in 1108.0s
+[00:37:36 - PWorker] Batches in cache: 8.
+[00:37:46 - PWorker] Batches in cache: 8.
+[00:37:46 - PWorker] 76.1% Done (49.2/64.6 Mbases) in 1126.6s
+[00:37:46 - Sampler] Initializing sampler for consensus of region contig_39:5994000-6685531.
+[00:37:46 - Feature] Pileup counts do not span requested region, requested contig_39:5994000-6685531, received 5994000-6685463.
+[00:37:46 - Feature] Processed contig_39:5994000.0-6685463.0 (median depth 18.0)
+[00:37:46 - Sampler] Took 0.61s to make features.
+[00:37:56 - PWorker] Batches in cache: 8.
+[00:37:56 - Sampler] Initializing sampler for consensus of region contig_11:0-1000000.
+[00:37:56 - Feature] Processed contig_11:0.0-999999.0 (median depth 18.0)
+[00:37:56 - Sampler] Took 0.60s to make features.
+[00:38:05 - PWorker] Batches in cache: 8.
+[00:38:05 - PWorker] 77.4% Done (50.0/64.6 Mbases) in 1146.0s
+[00:38:14 - PWorker] Batches in cache: 8.
+[00:38:14 - Sampler] Initializing sampler for consensus of region contig_11:999000-1999000.
+[00:38:15 - Feature] Processed contig_11:999000.0-1998999.0 (median depth 16.0)
+[00:38:15 - Sampler] Took 0.62s to make features.
+[00:38:23 - PWorker] Batches in cache: 8.
+[00:38:23 - PWorker] 78.6% Done (50.8/64.6 Mbases) in 1164.2s
+[00:38:32 - PWorker] Batches in cache: 8.
+[00:38:42 - PWorker] Batches in cache: 8.
+[00:38:42 - PWorker] 79.9% Done (51.6/64.6 Mbases) in 1182.5s
+[00:38:42 - Sampler] Initializing sampler for consensus of region contig_11:1998000-2998000.
+[00:38:42 - Feature] Processed contig_11:1998000.0-2997999.0 (median depth 18.0)
+[00:38:42 - Sampler] Took 0.60s to make features.
+[00:38:52 - PWorker] Batches in cache: 8.
+[00:38:52 - Sampler] Initializing sampler for consensus of region contig_11:2997000-3997000.
+[00:38:52 - Feature] Processed contig_11:2997000.0-3996999.0 (median depth 16.0)
+[00:38:52 - Sampler] Took 0.54s to make features.
+[00:39:01 - PWorker] Batches in cache: 8.
+[00:39:01 - PWorker] 81.2% Done (52.4/64.6 Mbases) in 1201.8s
+[00:39:10 - PWorker] Batches in cache: 8.
+[00:39:19 - PWorker] Batches in cache: 8.
+[00:39:19 - PWorker] 82.4% Done (53.2/64.6 Mbases) in 1219.8s
+[00:39:28 - PWorker] Batches in cache: 8.
+[00:39:28 - Sampler] Initializing sampler for consensus of region contig_11:3996000-4996000.
+[00:39:29 - Feature] Processed contig_11:3996000.0-4995999.0 (median depth 18.0)
+[00:39:29 - Sampler] Took 0.61s to make features.
+[00:39:38 - PWorker] Batches in cache: 8.
+[00:39:38 - PWorker] 83.7% Done (54.0/64.6 Mbases) in 1238.4s
+[00:39:38 - Sampler] Initializing sampler for consensus of region contig_11:4995000-5995000.
+[00:39:38 - Feature] Processed contig_11:4995000.0-5994999.0 (median depth 17.0)
+[00:39:38 - Sampler] Took 0.58s to make features.
+[00:39:49 - PWorker] Batches in cache: 8.
+[00:39:49 - PWorker] 84.3% Done (54.5/64.6 Mbases) in 1249.9s
+[00:39:59 - PWorker] Batches in cache: 8.
+[00:40:11 - PWorker] Batches in cache: 8.
+[00:40:11 - PWorker] 85.6% Done (55.3/64.6 Mbases) in 1272.1s
+[00:40:11 - Sampler] Initializing sampler for consensus of region contig_11:5994000-6994000.
+[00:40:12 - Feature] Processed contig_11:5994000.0-6993999.0 (median depth 15.0)
+[00:40:12 - Sampler] Took 0.71s to make features.
+[00:40:23 - PWorker] Batches in cache: 8.
+[00:40:23 - PWorker] 86.2% Done (55.7/64.6 Mbases) in 1284.1s
+[00:40:33 - PWorker] Batches in cache: 8.
+[00:40:33 - PWorker] 86.8% Done (56.1/64.6 Mbases) in 1294.3s
+[00:40:43 - PWorker] Batches in cache: 8.
+[00:40:43 - Sampler] Initializing sampler for consensus of region contig_11:6993000-7421671.
+[00:40:43 - Feature] Processed contig_11:6993000.0-7421670.0 (median depth 20.0)
+[00:40:43 - Sampler] Took 0.40s to make features.
+[00:40:53 - PWorker] Batches in cache: 8.
+[00:40:53 - PWorker] 88.1% Done (56.9/64.6 Mbases) in 1313.8s
+[00:41:02 - PWorker] Batches in cache: 8.
+[00:41:12 - PWorker] Batches in cache: 8.
+[00:41:12 - PWorker] 89.4% Done (57.7/64.6 Mbases) in 1332.4s
+[00:41:12 - Sampler] Initializing sampler for consensus of region contig_9:0-18981.
+[00:41:12 - Feature] Pileup counts do not span requested region, requested contig_9:0-18981, received 0-18860.
+[00:41:12 - Feature] Processed contig_9:0.0-18860.0 (median depth 19.0)
+[00:41:12 - Sampler] Took 0.04s to make features.
+[00:41:21 - PWorker] Batches in cache: 8.
+[00:41:30 - PWorker] Batches in cache: 8.
+[00:41:30 - PWorker] 90.6% Done (58.5/64.6 Mbases) in 1350.8s
+[00:41:39 - PWorker] Batches in cache: 8.
+[00:41:49 - PWorker] Batches in cache: 8.
+[00:41:49 - PWorker] 91.9% Done (59.3/64.6 Mbases) in 1370.1s
+[00:41:58 - PWorker] Batches in cache: 8.
+[00:42:08 - PWorker] Batches in cache: 8.
+[00:42:08 - PWorker] 93.1% Done (60.1/64.6 Mbases) in 1388.3s
+[00:42:17 - PWorker] Batches in cache: 8.
+[00:42:26 - PWorker] Batches in cache: 8.
+[00:42:26 - PWorker] 94.4% Done (61.0/64.6 Mbases) in 1406.5s
+[00:42:35 - PWorker] Batches in cache: 8.
+[00:42:44 - PWorker] Batches in cache: 8.
+[00:42:44 - PWorker] 95.6% Done (61.8/64.6 Mbases) in 1425.2s
+[00:42:54 - PWorker] Batches in cache: 8.
+[00:43:03 - PWorker] Batches in cache: 7.
+[00:43:03 - PWorker] 96.9% Done (62.6/64.6 Mbases) in 1443.7s
+[00:43:12 - PWorker] Batches in cache: 6.
+[00:43:21 - PWorker] Batches in cache: 5.
+[00:43:21 - PWorker] 98.2% Done (63.4/64.6 Mbases) in 1461.8s
+[00:43:30 - PWorker] Batches in cache: 4.
+[00:43:39 - PWorker] Batches in cache: 3.
+[00:43:39 - PWorker] 99.4% Done (64.2/64.6 Mbases) in 1480.2s
+[00:43:49 - PWorker] Batches in cache: 2.
+[00:43:54 - PWorker] Batches in cache: 1.
+[00:43:54 - PWorker] 100.0% Done (64.6/64.6 Mbases) in 1495.2s
+[00:43:55 - PWorker] Processed 160 batches
+[00:43:55 - PWorker] All done, 2 remainder regions.
+[00:43:55 - Predict] Processing 4 short region(s).
+[00:43:55 - Sampler] Initializing sampler for consensus of region contig_1:0-5153.
+[00:43:55 - Sampler] Initializing sampler for consensus of region contig_19:0-818.
+[00:43:55 - PWorker] Running inference for 0.0M draft bases.
+[00:43:55 - Sampler] Took 0.07s to make features.
+[00:43:55 - Sampler] Initializing sampler for consensus of region contig_14:1998000-2000667.
+[00:43:55 - Feature] Processed contig_14:1998000.0-2000666.0 (median depth 23.0)
+[00:43:55 - Sampler] Took 0.25s to make features.
+[00:43:55 - Feature] Processed contig_1:0.0-5152.0 (median depth 669.0)
+[00:43:55 - Sampler] Took 0.33s to make features.
+[00:43:55 - Sampler] Initializing sampler for consensus of region contig_40:1180-1381.
+[00:43:55 - Feature] Processed contig_40:1180.0-1380.0 (median depth 1.0)
+[00:43:55 - Sampler] Took 0.03s to make features.
+[00:43:57 - PWorker] Processed 3 batches
+[00:43:57 - PWorker] All done, 0 remainder regions.
+[00:43:57 - Predict] Finished processing all regions.
 Cannot import pyabpoa, some features may not be available.
-[21:25:46 - DataIndx] Loaded 1/1 (100.00%) sample files.
-[21:25:46 - Variants] Processing JACEHA010000001.1:0-.
-[21:25:50 - Variants] Processing JACEHA010000002.1:0-.
-[21:25:53 - Variants] Processing JACEHA010000003.1:0-.
-[21:25:58 - Variants] Processing JACEHA010000004.1:0-.
-[21:26:02 - Variants] Processing JACEHA010000005.1:0-.
-[21:26:07 - Variants] Processing JACEHA010000006.1:0-.
-[21:26:13 - Variants] Processing JACEHA010000007.1:0-.
-[21:26:19 - Variants] Processing JACEHA010000008.1:0-.
-[21:26:19 - TrimOlap] JACEHA010000008.1:4070.0-4614.0 and JACEHA010000008.1:5196.0-6396.0 cannot be concatenated as there is no overlap and they do not abut.
-[21:26:19 - TrimOlap] JACEHA010000008.1:5196.0-6396.0 and JACEHA010000008.1:6440.0-6993.0 cannot be concatenated as there is no overlap and they do not abut.
-[21:26:19 - TrimOlap] JACEHA010000008.1:6440.0-6993.0 and JACEHA010000008.1:9484.0-10106.0 cannot be concatenated as there is no overlap and they do not abut.
-[21:26:19 - TrimOlap] JACEHA010000008.1:9484.0-10106.0 and JACEHA010000008.1:11848.0-12111.0 cannot be concatenated as there is no overlap and they do not abut.
-[21:26:19 - TrimOlap] JACEHA010000008.1:11848.0-12111.0 and JACEHA010000008.1:12172.0-12364.0 cannot be concatenated as there is no overlap and they do not abut.
-[21:26:19 - TrimOlap] JACEHA010000008.1:12172.0-12364.0 and JACEHA010000008.1:14686.0-17474.0 cannot be concatenated as there is no overlap and they do not abut.
-[21:26:19 - TrimOlap] JACEHA010000008.1:14686.0-17474.0 and JACEHA010000008.1:19041.0-28879.0 cannot be concatenated as there is no overlap and they do not abut.
-[21:26:25 - Variants] Processing JACEHA010000009.1:0-.
-[21:26:25 - TrimOlap] JACEHA010000009.1:3944.0-9152.0 and JACEHA010000009.1:19464.0-24144.0 cannot be concatenated as there is no overlap and they do not abut.
-[21:26:25 - TrimOlap] JACEHA010000009.1:19464.0-24144.0 and JACEHA010000009.1:24431.0-24914.0 cannot be concatenated as there is no overlap and they do not abut.
-[21:26:25 - TrimOlap] JACEHA010000009.1:24431.0-24914.0 and JACEHA010000009.1:27586.0-32602.0 cannot be concatenated as there is no overlap and they do not abut.
-[21:26:25 - TrimOlap] JACEHA010000009.1:27586.0-32602.0 and JACEHA010000009.1:33406.0-35041.0 cannot be concatenated as there is no overlap and they do not abut.
-[21:26:25 - TrimOlap] JACEHA010000009.1:33406.0-35041.0 and JACEHA010000009.1:36606.0-38871.0 cannot be concatenated as there is no overlap and they do not abut.
-[21:26:25 - TrimOlap] JACEHA010000009.1:36606.0-38871.0 and JACEHA010000009.1:39034.0-47735.0 cannot be concatenated as there is no overlap and they do not abut.
-[21:26:25 - TrimOlap] JACEHA010000009.1:39034.0-47735.0 and JACEHA010000009.1:60885.0-61530.0 cannot be concatenated as there is no overlap and they do not abut.
-[21:26:25 - TrimOlap] JACEHA010000009.1:60885.0-61530.0 and JACEHA010000009.1:64679.0-65163.0 cannot be concatenated as there is no overlap and they do not abut.
-[21:26:25 - TrimOlap] JACEHA010000009.1:64679.0-65163.0 and JACEHA010000009.1:67186.0-68768.0 cannot be concatenated as there is no overlap and they do not abut.
-[21:26:25 - TrimOlap] JACEHA010000009.1:67186.0-68768.0 and JACEHA010000009.1:70722.0-72132.0 cannot be concatenated as there is no overlap and they do not abut.
-[21:26:25 - TrimOlap] JACEHA010000009.1:70722.0-72132.0 and JACEHA010000009.1:76194.0-77945.0 cannot be concatenated as there is no overlap and they do not abut.
-[21:26:25 - TrimOlap] JACEHA010000009.1:76194.0-77945.0 and JACEHA010000009.1:78073.0-78307.0 cannot be concatenated as there is no overlap and they do not abut.
-[21:26:25 - TrimOlap] JACEHA010000009.1:78073.0-78307.0 and JACEHA010000009.1:78844.0-88511.0 cannot be concatenated as there is no overlap and they do not abut.
-[21:26:27 - Variants] Processing JACEHA010000010.1:0-.
-[21:26:48 - Variants] Processing JACEHA010000011.1:0-.
-[21:26:50 - TrimOlap] JACEHA010000011.1:1498479.0-1508224.0 and JACEHA010000011.1:1515426.0-1524083.0 cannot be concatenated as there is no overlap and they do not abut.
-[21:26:59 - Variants] Processing JACEHA010000012.1:0-.
-[21:27:12 - Variants] Processing JACEHA010000013.1:0-.
-[21:27:23 - Variants] Processing JACEHA010000014.1:0-.
-[21:27:36 - Variants] Processing JACEHA010000015.1:0-.
-[21:27:36 - Variants] Processing JACEHA010000016.1:0-.
-[21:27:36 - Variants] Processing JACEHA010000019.1:0-.
-[21:27:36 - Variants] Processing JACEHA010000020.1:0-.
-[21:27:36 - Variants] Processing JACEHA010000021.1:0-.
-[21:27:36 - Variants] Processing JACEHA010000022.1:0-.
-[21:27:36 - Variants] Processing JACEHA010000023.1:0-.
-[21:27:36 - Variants] Processing JACEHA010000024.1:0-.
-[21:27:36 - Variants] Processing JACEHA010000025.1:0-.
-[21:27:36 - Variants] Processing JACEHA010000026.1:0-.
-[21:27:36 - Variants] Processing JACEHA010000027.1:0-.
-[21:27:36 - Variants] Processing JACEHA010000028.1:0-.
-[21:27:36 - Variants] Processing JACEHA010000029.1:0-.
-[21:27:36 - Variants] Processing JACEHA010000030.1:0-.
-[21:27:36 - Variants] Processing JACEHA010000031.1:0-.
-[21:27:36 - Variants] Processing JACEHA010000032.1:0-.
-[21:27:36 - Variants] Processing JACEHA010000033.1:0-.
-[21:27:36 - Variants] Processing JACEHA010000034.1:0-.
-[21:27:37 - Variants] Processing JACEHA010000035.1:0-.
-[21:27:37 - Variants] Processing JACEHA010000036.1:0-.
-Writing to /tmp/bcftools.IugzNa
+[00:44:00 - DataIndx] Loaded 1/1 (100.00%) sample files.
+[00:44:00 - Variants] Processing contig_1:0-.
+[00:44:00 - Variants] Processing contig_11:0-.
+[00:44:13 - Variants] Processing contig_13:0-.
+[00:44:22 - Variants] Processing contig_14:0-.
+[00:44:26 - Variants] Processing contig_2:0-.
+[00:44:32 - Variants] Processing contig_20:0-.
+[00:44:39 - Variants] Processing contig_22:0-.
+[00:44:39 - Variants] Processing contig_24:0-.
+[00:44:44 - Variants] Processing contig_25:0-.
+[00:44:44 - Variants] Processing contig_30:0-.
+[00:44:54 - Variants] Processing contig_35:0-.
+[00:44:58 - Variants] Processing contig_37:0-.
+[00:45:02 - Variants] Processing contig_39:0-.
+[00:45:18 - Variants] Processing contig_4:0-.
+[00:45:28 - Variants] Processing contig_40:0-.
+[00:45:28 - TrimOlap] contig_40:1180.0-1380.0 and contig_40:2669.0-11105.1 cannot be concatenated as there is no overlap and they do not abut.
+[00:45:28 - Variants] Processing contig_42:0-.
+[00:45:37 - Variants] Processing contig_43:0-.
+[00:46:00 - Variants] Processing contig_46:0-.
+[00:46:15 - Variants] Processing contig_5:0-.
+[00:46:15 - Variants] Processing contig_50:0-.
+[00:46:15 - Variants] Processing contig_9:0-.
+Writing to /tmp/bcftools.tAAQaO
 Merging 1 temporary files
 Cleaning
 Done
 Cannot import pyabpoa, some features may not be available.
-[21:27:37 - Annotate] Getting chrom coordinates
-[21:27:38 - Annotate] Processing chunk with coordinates: JACEHA010000001.1:36-500036
-[21:27:38 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:38 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:38 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:38 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:38 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:38 - Annotate] Processing chunk with coordinates: JACEHA010000001.1:500036-1000036
-[21:27:38 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:38 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:38 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:38 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:38 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:38 - Annotate] Processing chunk with coordinates: JACEHA010000001.1:1000036-1500036
-[21:27:38 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:38 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:38 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:38 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:38 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:39 - Annotate] Processing chunk with coordinates: JACEHA010000001.1:1496391-1996391
-[21:27:39 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:39 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:39 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:39 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:39 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:39 - Annotate] Processing chunk with coordinates: JACEHA010000002.1:25-500025
-[21:27:39 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:39 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:39 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:39 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:39 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:39 - Annotate] Processing chunk with coordinates: JACEHA010000002.1:500025-1000025
-[21:27:39 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:39 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:39 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:39 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:39 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:39 - Annotate] Processing chunk with coordinates: JACEHA010000002.1:1000025-1500025
-[21:27:39 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:39 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:39 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:39 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:39 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:39 - Annotate] Processing chunk with coordinates: JACEHA010000002.1:1482730-1982730
-[21:27:39 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:39 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:39 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:39 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:40 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:40 - Annotate] Processing chunk with coordinates: JACEHA010000003.1:4-500004
-[21:27:40 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:40 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:40 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:40 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:40 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:40 - Annotate] Processing chunk with coordinates: JACEHA010000003.1:500004-1000004
-[21:27:40 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:40 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:40 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:40 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:40 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:40 - Annotate] Processing chunk with coordinates: JACEHA010000003.1:1000004-1500004
-[21:27:40 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:40 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:40 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:40 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:40 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:40 - Annotate] Processing chunk with coordinates: JACEHA010000003.1:1500004-2000004
-[21:27:40 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:40 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:40 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:40 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:40 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:41 - Annotate] Processing chunk with coordinates: JACEHA010000003.1:1997142-2497142
-[21:27:41 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:41 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:41 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:41 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:41 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:41 - Annotate] Processing chunk with coordinates: JACEHA010000004.1:5-500005
-[21:27:41 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:41 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:41 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:41 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:41 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:41 - Annotate] Processing chunk with coordinates: JACEHA010000004.1:500005-1000005
-[21:27:41 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:41 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:41 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:41 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:41 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:41 - Annotate] Processing chunk with coordinates: JACEHA010000004.1:1000005-1500005
-[21:27:41 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:41 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:41 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:41 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:41 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:42 - Annotate] Processing chunk with coordinates: JACEHA010000004.1:1500005-2000005
-[21:27:42 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:42 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:42 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:42 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:42 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:42 - Annotate] Processing chunk with coordinates: JACEHA010000004.1:2000005-2500005
-[21:27:42 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:42 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:42 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:42 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:42 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:42 - Annotate] Processing chunk with coordinates: JACEHA010000004.1:2091251-2591251
-[21:27:42 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:42 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:42 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:42 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:42 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:42 - Annotate] Processing chunk with coordinates: JACEHA010000005.1:527-500527
-[21:27:42 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:42 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:42 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:42 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:42 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:43 - Annotate] Processing chunk with coordinates: JACEHA010000005.1:500527-1000527
-[21:27:43 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:43 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:43 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:43 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:43 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:43 - Annotate] Processing chunk with coordinates: JACEHA010000005.1:1000527-1500527
-[21:27:43 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:43 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:43 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:43 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:43 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:43 - Annotate] Processing chunk with coordinates: JACEHA010000005.1:1500527-2000527
-[21:27:43 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:43 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:43 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:43 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:43 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:43 - Annotate] Processing chunk with coordinates: JACEHA010000005.1:2000527-2500527
-[21:27:43 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:43 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:43 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:43 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:43 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:43 - Annotate] Processing chunk with coordinates: JACEHA010000005.1:2330509-2830509
-[21:27:44 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:44 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:44 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:44 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:44 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:44 - Annotate] Processing chunk with coordinates: JACEHA010000006.1:45-500045
-[21:27:44 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:44 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:44 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:44 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:44 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:44 - Annotate] Processing chunk with coordinates: JACEHA010000006.1:500045-1000045
-[21:27:44 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:44 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:44 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:44 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:44 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:44 - Annotate] Processing chunk with coordinates: JACEHA010000006.1:1000045-1500045
-[21:27:44 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:44 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:44 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:44 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:44 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:44 - Annotate] Processing chunk with coordinates: JACEHA010000006.1:1500045-2000045
-[21:27:44 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:44 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:44 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:44 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:44 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:45 - Annotate] Processing chunk with coordinates: JACEHA010000006.1:2000045-2500045
-[21:27:45 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:45 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:45 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:45 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:45 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:45 - Annotate] Processing chunk with coordinates: JACEHA010000006.1:2500045-3000045
-[21:27:45 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:45 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:45 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:45 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:45 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:45 - Annotate] Processing chunk with coordinates: JACEHA010000006.1:3000045-3500045
-[21:27:45 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:45 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:45 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:45 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:45 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:45 - Annotate] Processing chunk with coordinates: JACEHA010000006.1:3096183-3596183
-[21:27:45 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:45 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:45 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:45 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:45 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:46 - Annotate] Processing chunk with coordinates: JACEHA010000007.1:105-500105
-[21:27:46 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:46 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:46 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:46 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:46 - Annotate] Processing chunk with coordinates: JACEHA010000007.1:500105-1000105
-[21:27:46 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:46 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:46 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:46 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:46 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:46 - Annotate] Processing chunk with coordinates: JACEHA010000007.1:1000105-1500105
-[21:27:46 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:46 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:46 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:46 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:46 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:46 - Annotate] Processing chunk with coordinates: JACEHA010000007.1:1500105-2000105
-[21:27:46 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:46 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:46 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:46 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:46 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:46 - Annotate] Processing chunk with coordinates: JACEHA010000007.1:2000105-2500105
-[21:27:47 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:47 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:47 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:47 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:47 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:47 - Annotate] Processing chunk with coordinates: JACEHA010000007.1:2500105-3000105
-[21:27:47 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:47 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:47 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:47 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:47 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:47 - Annotate] Processing chunk with coordinates: JACEHA010000007.1:3000105-3500105
-[21:27:47 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:47 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:47 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:47 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:47 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:47 - Annotate] Processing chunk with coordinates: JACEHA010000007.1:3281458-3781458
-[21:27:47 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:47 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:47 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:47 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:47 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:47 - Annotate] Processing chunk with coordinates: JACEHA010000008.1:4363-504363
-[21:27:47 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:47 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:47 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:47 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:47 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:48 - Annotate] Processing chunk with coordinates: JACEHA010000008.1:504363-1004363
-[21:27:48 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:48 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:48 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:48 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:48 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:48 - Annotate] Processing chunk with coordinates: JACEHA010000008.1:1004363-1504363
-[21:27:48 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:48 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:48 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:48 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:48 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:48 - Annotate] Processing chunk with coordinates: JACEHA010000008.1:1504363-2004363
-[21:27:48 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:48 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:48 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:48 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:48 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:48 - Annotate] Processing chunk with coordinates: JACEHA010000008.1:2004363-2504363
-[21:27:48 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:48 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:48 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:48 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:48 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:49 - Annotate] Processing chunk with coordinates: JACEHA010000008.1:2504363-3004363
-[21:27:49 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:49 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:49 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:49 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:49 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:49 - Annotate] Processing chunk with coordinates: JACEHA010000008.1:2909722-3409722
-[21:27:49 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:49 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:49 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:49 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:49 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:49 - Annotate] Processing chunk with coordinates: JACEHA010000009.1:3973-503973
-[21:27:49 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:49 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:49 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:49 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:49 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:49 - Annotate] Processing chunk with coordinates: JACEHA010000009.1:503973-1003973
-[21:27:49 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:49 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:49 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:49 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:49 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:49 - Annotate] Processing chunk with coordinates: JACEHA010000009.1:895673-1395673
-[21:27:49 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:49 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:49 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:49 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:49 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:50 - Annotate] Processing chunk with coordinates: JACEHA010000010.1:5-500005
-[21:27:50 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:50 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:50 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:50 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:50 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:50 - Annotate] Processing chunk with coordinates: JACEHA010000010.1:500005-1000005
-[21:27:50 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:50 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:50 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:50 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:50 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:50 - Annotate] Processing chunk with coordinates: JACEHA010000010.1:1000005-1500005
-[21:27:50 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:50 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:50 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:50 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:50 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:50 - Annotate] Processing chunk with coordinates: JACEHA010000010.1:1500005-2000005
-[21:27:51 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:51 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:51 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:51 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:51 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:51 - Annotate] Processing chunk with coordinates: JACEHA010000010.1:2000005-2500005
-[21:27:51 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:51 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:51 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:51 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:51 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:51 - Annotate] Processing chunk with coordinates: JACEHA010000010.1:2500005-3000005
-[21:27:51 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:51 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:51 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:51 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:51 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:51 - Annotate] Processing chunk with coordinates: JACEHA010000010.1:3000005-3500005
-[21:27:51 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:51 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:51 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:51 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:51 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:52 - Annotate] Processing chunk with coordinates: JACEHA010000010.1:3500005-4000005
-[21:27:52 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:52 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:52 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:52 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:52 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:52 - Annotate] Processing chunk with coordinates: JACEHA010000010.1:4000005-4500005
-[21:27:52 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:52 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:52 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:52 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:52 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:52 - Annotate] Processing chunk with coordinates: JACEHA010000010.1:4500005-5000005
-[21:27:52 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:52 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:52 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:52 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:52 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:52 - Annotate] Processing chunk with coordinates: JACEHA010000010.1:5000005-5500005
-[21:27:52 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:52 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:52 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:52 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:53 - Annotate] Processing chunk with coordinates: JACEHA010000010.1:5500005-6000005
-[21:27:53 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:53 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:53 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:53 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:53 - Annotate] Processing chunk with coordinates: JACEHA010000010.1:6000005-6500005
-[21:27:53 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:53 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:53 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:53 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:53 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:53 - Annotate] Processing chunk with coordinates: JACEHA010000010.1:6500005-7000005
-[21:27:53 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:53 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:53 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:53 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:53 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:53 - Annotate] Processing chunk with coordinates: JACEHA010000010.1:7000005-7500005
-[21:27:53 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:53 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:53 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:53 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:53 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:54 - Annotate] Processing chunk with coordinates: JACEHA010000010.1:7500005-8000005
-[21:27:54 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:54 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:54 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:54 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:54 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:54 - Annotate] Processing chunk with coordinates: JACEHA010000010.1:8000005-8500005
-[21:27:54 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:54 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:54 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:54 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:54 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:54 - Annotate] Processing chunk with coordinates: JACEHA010000010.1:8500005-9000005
-[21:27:54 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:54 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:54 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:54 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:54 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:54 - Annotate] Processing chunk with coordinates: JACEHA010000010.1:9000005-9500005
-[21:27:55 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:55 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:55 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:55 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:55 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:55 - Annotate] Processing chunk with coordinates: JACEHA010000010.1:9500005-10000005
-[21:27:55 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:55 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:55 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:55 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:55 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:55 - Annotate] Processing chunk with coordinates: JACEHA010000010.1:10000005-10500005
-[21:27:55 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:55 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:55 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:55 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:55 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:55 - Annotate] Processing chunk with coordinates: JACEHA010000010.1:10500005-11000005
-[21:27:55 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:55 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:55 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:55 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:55 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:56 - Annotate] Processing chunk with coordinates: JACEHA010000010.1:11000005-11500005
-[21:27:56 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:56 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:56 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:56 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:56 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:56 - Annotate] Processing chunk with coordinates: JACEHA010000010.1:11500005-12000005
-[21:27:56 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:56 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:56 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:56 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:56 - Annotate] Processing chunk with coordinates: JACEHA010000010.1:11587464-12087464
-[21:27:56 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:56 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:56 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:56 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:56 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:56 - Annotate] Processing chunk with coordinates: JACEHA010000011.1:18-500018
-[21:27:56 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:56 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:56 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:56 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:56 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:56 - Annotate] Processing chunk with coordinates: JACEHA010000011.1:500018-1000018
-[21:27:57 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:57 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:57 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:57 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:57 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:57 - Annotate] Processing chunk with coordinates: JACEHA010000011.1:1000018-1500018
-[21:27:57 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:57 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:57 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:57 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:57 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:57 - Annotate] Processing chunk with coordinates: JACEHA010000011.1:1500018-2000018
-[21:27:57 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:57 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:57 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:57 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:57 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:57 - Annotate] Processing chunk with coordinates: JACEHA010000011.1:2000018-2500018
-[21:27:57 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:57 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:57 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:57 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:57 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:58 - Annotate] Processing chunk with coordinates: JACEHA010000011.1:2500018-3000018
-[21:27:58 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:58 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:58 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:58 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:58 - Annotate] Processing chunk with coordinates: JACEHA010000011.1:3000018-3500018
-[21:27:58 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:58 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:58 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:58 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:58 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:58 - Annotate] Processing chunk with coordinates: JACEHA010000011.1:3500018-4000018
-[21:27:58 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:58 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:58 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:58 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:58 - Annotate] Processing chunk with coordinates: JACEHA010000011.1:4000018-4500018
-[21:27:58 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:58 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:58 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:58 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:58 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:58 - Annotate] Processing chunk with coordinates: JACEHA010000011.1:4500018-5000018
-[21:27:58 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:58 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:58 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:58 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:58 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:59 - Annotate] Processing chunk with coordinates: JACEHA010000011.1:5000018-5500018
-[21:27:59 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:59 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:59 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:59 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:59 - Annotate] Processing chunk with coordinates: JACEHA010000011.1:5500018-6000018
-[21:27:59 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:59 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:59 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:59 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:59 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:59 - Annotate] Processing chunk with coordinates: JACEHA010000011.1:6000018-6500018
-[21:27:59 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:59 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:59 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:59 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:59 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:59 - Annotate] Processing chunk with coordinates: JACEHA010000011.1:6103456-6603456
-[21:27:59 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:59 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:59 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:59 - BAMFile] Creating pool of 16 BAM file sets.
-[21:27:59 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:00 - Annotate] Processing chunk with coordinates: JACEHA010000012.1:21-500021
-[21:28:00 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:00 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:00 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:00 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:00 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:00 - Annotate] Processing chunk with coordinates: JACEHA010000012.1:500021-1000021
-[21:28:00 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:00 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:00 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:00 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:00 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:00 - Annotate] Processing chunk with coordinates: JACEHA010000012.1:1000021-1500021
-[21:28:00 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:00 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:00 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:00 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:00 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:00 - Annotate] Processing chunk with coordinates: JACEHA010000012.1:1500021-2000021
-[21:28:00 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:00 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:00 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:00 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:00 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:01 - Annotate] Processing chunk with coordinates: JACEHA010000012.1:2000021-2500021
-[21:28:01 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:01 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:01 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:01 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:01 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:01 - Annotate] Processing chunk with coordinates: JACEHA010000012.1:2500021-3000021
-[21:28:01 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:01 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:01 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:01 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:01 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:01 - Annotate] Processing chunk with coordinates: JACEHA010000012.1:3000021-3500021
-[21:28:01 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:01 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:01 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:01 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:01 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:01 - Annotate] Processing chunk with coordinates: JACEHA010000012.1:3500021-4000021
-[21:28:02 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:02 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:02 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:02 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:02 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:02 - Annotate] Processing chunk with coordinates: JACEHA010000012.1:4000021-4500021
-[21:28:02 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:02 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:02 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:02 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:02 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:02 - Annotate] Processing chunk with coordinates: JACEHA010000012.1:4500021-5000021
-[21:28:02 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:02 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:02 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:02 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:02 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:02 - Annotate] Processing chunk with coordinates: JACEHA010000012.1:5000021-5500021
-[21:28:02 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:02 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:02 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:02 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:02 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:02 - Annotate] Processing chunk with coordinates: JACEHA010000012.1:5500021-6000021
-[21:28:02 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:02 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:02 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:02 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:02 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:03 - Annotate] Processing chunk with coordinates: JACEHA010000012.1:6000021-6500021
-[21:28:03 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:03 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:03 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:03 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:03 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:03 - Annotate] Processing chunk with coordinates: JACEHA010000012.1:6500021-7000021
-[21:28:03 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:03 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:03 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:03 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:03 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:03 - Annotate] Processing chunk with coordinates: JACEHA010000012.1:7000021-7500021
-[21:28:03 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:03 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:03 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:03 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:03 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:03 - Annotate] Processing chunk with coordinates: JACEHA010000012.1:7167072-7667072
-[21:28:03 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:03 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:03 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:03 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:03 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:04 - Annotate] Processing chunk with coordinates: JACEHA010000013.1:12-500012
-[21:28:04 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:04 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:04 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:04 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:04 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:04 - Annotate] Processing chunk with coordinates: JACEHA010000013.1:500012-1000012
-[21:28:04 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:04 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:04 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:04 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:04 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:04 - Annotate] Processing chunk with coordinates: JACEHA010000013.1:1000012-1500012
-[21:28:04 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:04 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:04 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:04 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:04 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:04 - Annotate] Processing chunk with coordinates: JACEHA010000013.1:1500012-2000012
-[21:28:04 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:04 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:04 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:04 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:04 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:04 - Annotate] Processing chunk with coordinates: JACEHA010000013.1:2000012-2500012
-[21:28:05 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:05 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:05 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:05 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:05 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:05 - Annotate] Processing chunk with coordinates: JACEHA010000013.1:2500012-3000012
-[21:28:05 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:05 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:05 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:05 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:05 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:05 - Annotate] Processing chunk with coordinates: JACEHA010000013.1:3000012-3500012
-[21:28:05 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:05 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:05 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:05 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:05 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:05 - Annotate] Processing chunk with coordinates: JACEHA010000013.1:3500012-4000012
-[21:28:05 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:05 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:05 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:05 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:05 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:05 - Annotate] Processing chunk with coordinates: JACEHA010000013.1:4000012-4500012
-[21:28:05 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:05 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:05 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:05 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:05 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:06 - Annotate] Processing chunk with coordinates: JACEHA010000013.1:4500012-5000012
-[21:28:06 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:06 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:06 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:06 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:06 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:06 - Annotate] Processing chunk with coordinates: JACEHA010000013.1:5000012-5500012
-[21:28:06 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:06 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:06 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:06 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:06 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:06 - Annotate] Processing chunk with coordinates: JACEHA010000013.1:5500012-6000012
-[21:28:06 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:06 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:06 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:06 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:06 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:06 - Annotate] Processing chunk with coordinates: JACEHA010000013.1:6000012-6500012
-[21:28:06 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:06 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:06 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:06 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:06 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:07 - Annotate] Processing chunk with coordinates: JACEHA010000013.1:6175115-6675115
-[21:28:07 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:07 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:07 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:07 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:07 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:07 - Annotate] Processing chunk with coordinates: JACEHA010000014.1:188-500188
-[21:28:07 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:07 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:07 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:07 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:07 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:07 - Annotate] Processing chunk with coordinates: JACEHA010000014.1:500188-1000188
-[21:28:07 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:07 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:07 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:07 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:07 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:08 - Annotate] Processing chunk with coordinates: JACEHA010000014.1:1000188-1500188
-[21:28:08 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:08 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:08 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:08 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:08 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:08 - Annotate] Processing chunk with coordinates: JACEHA010000014.1:1500188-2000188
-[21:28:08 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:08 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:08 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:08 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:08 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:08 - Annotate] Processing chunk with coordinates: JACEHA010000014.1:2000188-2500188
-[21:28:08 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:08 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:08 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:08 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:08 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:08 - Annotate] Processing chunk with coordinates: JACEHA010000014.1:2500188-3000188
-[21:28:08 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:08 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:08 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:08 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:08 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:08 - Annotate] Processing chunk with coordinates: JACEHA010000014.1:3000188-3500188
-[21:28:09 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:09 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:09 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:09 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:09 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:09 - Annotate] Processing chunk with coordinates: JACEHA010000014.1:3500188-4000188
-[21:28:09 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:09 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:09 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:09 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:09 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:09 - Annotate] Processing chunk with coordinates: JACEHA010000014.1:4000188-4500188
-[21:28:09 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:09 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:09 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:09 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:09 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:09 - Annotate] Processing chunk with coordinates: JACEHA010000014.1:4500188-5000188
-[21:28:09 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:09 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:09 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:09 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:09 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:09 - Annotate] Processing chunk with coordinates: JACEHA010000014.1:5000188-5500188
-[21:28:09 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:09 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:09 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:09 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:09 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:10 - Annotate] Processing chunk with coordinates: JACEHA010000014.1:5500188-6000188
-[21:28:10 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:10 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:10 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:10 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:10 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:10 - Annotate] Processing chunk with coordinates: JACEHA010000014.1:6000188-6500188
-[21:28:10 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:10 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:10 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:10 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:10 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:10 - Annotate] Processing chunk with coordinates: JACEHA010000014.1:6500188-7000188
-[21:28:10 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:10 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:10 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:10 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:10 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:10 - Annotate] Processing chunk with coordinates: JACEHA010000014.1:6923901-7423901
-[21:28:10 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:10 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:10 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:10 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:10 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:11 - Annotate] Processing chunk with coordinates: JACEHA010000015.1:210-12321
-[21:28:11 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:11 - Annotate] Processing chunk with coordinates: JACEHA010000016.1:191-34706
-[21:28:11 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:11 - Annotate] Processing chunk with coordinates: JACEHA010000019.1:70-5737
-[21:28:11 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:11 - Annotate] Processing chunk with coordinates: JACEHA010000020.1:101-10535
-[21:28:11 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:11 - Annotate] Processing chunk with coordinates: JACEHA010000021.1:28-13623
-[21:28:11 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:11 - Annotate] Processing chunk with coordinates: JACEHA010000022.1:15-6587
-[21:28:11 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:11 - Annotate] Processing chunk with coordinates: JACEHA010000023.1:297-6150
-[21:28:11 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:11 - Annotate] Processing chunk with coordinates: JACEHA010000024.1:166-7738
-[21:28:11 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:12 - Annotate] Processing chunk with coordinates: JACEHA010000025.1:4-18253
-[21:28:12 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:12 - Annotate] Processing chunk with coordinates: JACEHA010000026.1:97-9718
-[21:28:12 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:12 - Annotate] Processing chunk with coordinates: JACEHA010000027.1:9-9093
-[21:28:12 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:12 - Annotate] Processing chunk with coordinates: JACEHA010000028.1:17-8255
-[21:28:12 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:12 - Annotate] Processing chunk with coordinates: JACEHA010000029.1:22-9099
-[21:28:12 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:12 - Annotate] Processing chunk with coordinates: JACEHA010000030.1:105-2066
-[21:28:12 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:12 - Annotate] Processing chunk with coordinates: JACEHA010000031.1:10-1764
-[21:28:12 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:12 - Annotate] Processing chunk with coordinates: JACEHA010000032.1:4756-7472
-[21:28:12 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:12 - Annotate] Processing chunk with coordinates: JACEHA010000033.1:2564-3689
-[21:28:12 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:12 - Annotate] Processing chunk with coordinates: JACEHA010000034.1:2714-3842
-[21:28:12 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:12 - Annotate] Processing chunk with coordinates: JACEHA010000035.1:16-4773
-[21:28:12 - BAMFile] Creating pool of 16 BAM file sets.
-[21:28:12 - Annotate] Processing chunk with coordinates: JACEHA010000036.1:88-5398
-[21:28:12 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:17 - Annotate] Getting chrom coordinates
+[00:46:17 - Annotate] Processing chunk with coordinates: contig_11:93042-593042
+[00:46:18 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:18 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:18 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:18 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:18 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:18 - Annotate] Processing chunk with coordinates: contig_11:593042-1093042
+[00:46:18 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:18 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:18 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:18 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:18 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:18 - Annotate] Processing chunk with coordinates: contig_11:1093042-1593042
+[00:46:18 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:18 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:18 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:18 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:18 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:18 - Annotate] Processing chunk with coordinates: contig_11:1593042-2093042
+[00:46:18 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:18 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:18 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:18 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:18 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:18 - Annotate] Processing chunk with coordinates: contig_11:2093042-2593042
+[00:46:18 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:18 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:18 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:19 - Annotate] Processing chunk with coordinates: contig_11:2593042-3093042
+[00:46:19 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:19 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:19 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:19 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:19 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:19 - Annotate] Processing chunk with coordinates: contig_11:3093042-3593042
+[00:46:19 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:19 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:19 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:19 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:19 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:19 - Annotate] Processing chunk with coordinates: contig_11:3593042-4093042
+[00:46:19 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:19 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:19 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:19 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:19 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:19 - Annotate] Processing chunk with coordinates: contig_11:4093042-4593042
+[00:46:19 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:19 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:19 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:19 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:19 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:19 - Annotate] Processing chunk with coordinates: contig_11:4593042-5093042
+[00:46:20 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:20 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:20 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:20 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:20 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:20 - Annotate] Processing chunk with coordinates: contig_11:5093042-5593042
+[00:46:20 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:20 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:20 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:20 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:20 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:20 - Annotate] Processing chunk with coordinates: contig_11:5593042-6093042
+[00:46:20 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:20 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:20 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:20 - Annotate] Processing chunk with coordinates: contig_11:6093042-6593042
+[00:46:20 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:20 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:20 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:20 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:20 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:20 - Annotate] Processing chunk with coordinates: contig_11:6593042-7093042
+[00:46:20 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:20 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:20 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:20 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:20 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:21 - Annotate] Processing chunk with coordinates: contig_11:6707429-7207429
+[00:46:21 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:21 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:21 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:21 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:21 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:21 - Annotate] Processing chunk with coordinates: contig_13:70811-570811
+[00:46:21 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:21 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:21 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:21 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:21 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:21 - Annotate] Processing chunk with coordinates: contig_13:570811-1070811
+[00:46:21 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:21 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:21 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:21 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:21 - Annotate] Processing chunk with coordinates: contig_13:1070811-1570811
+[00:46:21 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:21 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:21 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:21 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:21 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:21 - Annotate] Processing chunk with coordinates: contig_13:1570811-2070811
+[00:46:21 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:21 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:21 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:21 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:21 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:22 - Annotate] Processing chunk with coordinates: contig_13:1914740-2414740
+[00:46:22 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:22 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:22 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:22 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:22 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:22 - Annotate] Processing chunk with coordinates: contig_14:53-500053
+[00:46:22 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:22 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:22 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:22 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:22 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:22 - Annotate] Processing chunk with coordinates: contig_14:500053-1000053
+[00:46:22 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:22 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:22 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:22 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:22 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:22 - Annotate] Processing chunk with coordinates: contig_14:1000053-1500053
+[00:46:22 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:22 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:22 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:22 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:22 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:22 - Annotate] Processing chunk with coordinates: contig_14:1499325-1999325
+[00:46:23 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:23 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:23 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:23 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:23 - Annotate] Processing chunk with coordinates: contig_2:242-500242
+[00:46:23 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:23 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:23 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:23 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:23 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:23 - Annotate] Processing chunk with coordinates: contig_2:500242-1000242
+[00:46:23 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:23 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:23 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:23 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:23 - Annotate] Processing chunk with coordinates: contig_2:1000242-1500242
+[00:46:23 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:23 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:23 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:23 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:23 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:23 - Annotate] Processing chunk with coordinates: contig_2:1500242-2000242
+[00:46:23 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:23 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:23 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:23 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:23 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:24 - Annotate] Processing chunk with coordinates: contig_2:2000242-2500242
+[00:46:24 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:24 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:24 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:24 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:24 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:24 - Annotate] Processing chunk with coordinates: contig_2:2381600-2881600
+[00:46:24 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:24 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:24 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:24 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:24 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:24 - Annotate] Processing chunk with coordinates: contig_20:1450-501450
+[00:46:24 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:24 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:24 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:24 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:24 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:25 - Annotate] Processing chunk with coordinates: contig_20:501450-1001450
+[00:46:25 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:25 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:25 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:25 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:25 - Annotate] Processing chunk with coordinates: contig_20:1001450-1501450
+[00:46:25 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:25 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:25 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:25 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:25 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:25 - Annotate] Processing chunk with coordinates: contig_20:1501450-2001450
+[00:46:25 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:25 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:25 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:25 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:25 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:26 - Annotate] Processing chunk with coordinates: contig_20:2001450-2501450
+[00:46:26 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:26 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:26 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:26 - Annotate] Processing chunk with coordinates: contig_20:2501450-3001450
+[00:46:26 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:26 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:26 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:26 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:26 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:26 - Annotate] Processing chunk with coordinates: contig_20:3001450-3501450
+[00:46:26 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:26 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:26 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:26 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:26 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:26 - Annotate] Processing chunk with coordinates: contig_20:3288694-3788694
+[00:46:26 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:26 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:26 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:26 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:26 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:26 - Annotate] Processing chunk with coordinates: contig_22:46567-53612
+[00:46:26 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:26 - Annotate] Processing chunk with coordinates: contig_24:742-500742
+[00:46:26 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:26 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:26 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:26 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:26 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:27 - Annotate] Processing chunk with coordinates: contig_24:500742-1000742
+[00:46:27 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:27 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:27 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:27 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:27 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:27 - Annotate] Processing chunk with coordinates: contig_24:1000742-1500742
+[00:46:27 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:27 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:27 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:27 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:27 - Annotate] Processing chunk with coordinates: contig_24:1500742-2000742
+[00:46:27 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:27 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:27 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:27 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:27 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:27 - Annotate] Processing chunk with coordinates: contig_24:2000742-2500742
+[00:46:27 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:27 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:27 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:27 - Annotate] Processing chunk with coordinates: contig_24:2095908-2595908
+[00:46:27 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:27 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:27 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:27 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:27 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:27 - Annotate] Processing chunk with coordinates: contig_25:240-11299
+[00:46:27 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:27 - Annotate] Processing chunk with coordinates: contig_30:3114-503114
+[00:46:28 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:28 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:28 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:28 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:28 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:28 - Annotate] Processing chunk with coordinates: contig_30:503114-1003114
+[00:46:28 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:28 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:28 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:28 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:28 - Annotate] Processing chunk with coordinates: contig_30:1003114-1503114
+[00:46:28 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:28 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:28 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:28 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:28 - Annotate] Processing chunk with coordinates: contig_30:1503114-2003114
+[00:46:28 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:28 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:28 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:28 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:28 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:28 - Annotate] Processing chunk with coordinates: contig_30:2003114-2503114
+[00:46:28 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:28 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:28 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:28 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:28 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:29 - Annotate] Processing chunk with coordinates: contig_30:2503114-3003114
+[00:46:29 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:29 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:29 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:29 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:29 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:29 - Annotate] Processing chunk with coordinates: contig_30:3003114-3503114
+[00:46:29 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:29 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:29 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:29 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:29 - Annotate] Processing chunk with coordinates: contig_30:3503114-4003114
+[00:46:29 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:29 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:29 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:29 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:29 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:29 - Annotate] Processing chunk with coordinates: contig_30:4003114-4503114
+[00:46:29 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:29 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:29 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:29 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:29 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:29 - Annotate] Processing chunk with coordinates: contig_30:4503114-5003114
+[00:46:29 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:29 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:29 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:29 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:30 - Annotate] Processing chunk with coordinates: contig_30:4719083-5219083
+[00:46:30 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:30 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:30 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:30 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:30 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:30 - Annotate] Processing chunk with coordinates: contig_35:217326-717326
+[00:46:30 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:30 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:30 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:30 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:30 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:30 - Annotate] Processing chunk with coordinates: contig_35:717326-1217326
+[00:46:30 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:30 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:30 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:30 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:30 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:30 - Annotate] Processing chunk with coordinates: contig_35:890195-1390195
+[00:46:30 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:30 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:30 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:30 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:30 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:31 - Annotate] Processing chunk with coordinates: contig_37:24-500024
+[00:46:31 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:31 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:31 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:31 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:31 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:31 - Annotate] Processing chunk with coordinates: contig_37:500024-1000024
+[00:46:31 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:31 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:31 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:31 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:31 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:31 - Annotate] Processing chunk with coordinates: contig_37:1000024-1500024
+[00:46:31 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:31 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:31 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:31 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:31 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:31 - Annotate] Processing chunk with coordinates: contig_37:1486118-1986118
+[00:46:31 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:31 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:31 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:31 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:31 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:31 - Annotate] Processing chunk with coordinates: contig_39:10-500010
+[00:46:32 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:32 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:32 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:32 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:32 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:32 - Annotate] Processing chunk with coordinates: contig_39:500010-1000010
+[00:46:32 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:32 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:32 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:32 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:32 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:32 - Annotate] Processing chunk with coordinates: contig_39:1000010-1500010
+[00:46:32 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:32 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:32 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:32 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:32 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:32 - Annotate] Processing chunk with coordinates: contig_39:1500010-2000010
+[00:46:32 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:32 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:32 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:32 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:32 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:32 - Annotate] Processing chunk with coordinates: contig_39:2000010-2500010
+[00:46:32 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:32 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:32 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:32 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:33 - Annotate] Processing chunk with coordinates: contig_39:2500010-3000010
+[00:46:33 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:33 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:33 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:33 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:33 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:33 - Annotate] Processing chunk with coordinates: contig_39:3000010-3500010
+[00:46:33 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:33 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:33 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:33 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:33 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:33 - Annotate] Processing chunk with coordinates: contig_39:3500010-4000010
+[00:46:33 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:33 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:33 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:33 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:33 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:33 - Annotate] Processing chunk with coordinates: contig_39:4000010-4500010
+[00:46:33 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:33 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:33 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:33 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:33 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:33 - Annotate] Processing chunk with coordinates: contig_39:4500010-5000010
+[00:46:33 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:33 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:33 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:33 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:33 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:34 - Annotate] Processing chunk with coordinates: contig_39:5000010-5500010
+[00:46:34 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:34 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:34 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:34 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:34 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:34 - Annotate] Processing chunk with coordinates: contig_39:5500010-6000010
+[00:46:34 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:34 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:34 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:34 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:34 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:34 - Annotate] Processing chunk with coordinates: contig_39:6000010-6500010
+[00:46:34 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:34 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:34 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:34 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:34 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:34 - Annotate] Processing chunk with coordinates: contig_39:6184215-6684215
+[00:46:34 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:34 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:34 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:34 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:34 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:35 - Annotate] Processing chunk with coordinates: contig_4:28-500028
+[00:46:35 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:35 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:35 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:35 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:35 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:35 - Annotate] Processing chunk with coordinates: contig_4:500028-1000028
+[00:46:35 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:35 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:35 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:35 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:35 - Annotate] Processing chunk with coordinates: contig_4:1000028-1500028
+[00:46:35 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:35 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:35 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:35 - Annotate] Processing chunk with coordinates: contig_4:1500028-2000028
+[00:46:35 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:35 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:35 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:35 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:35 - Annotate] Processing chunk with coordinates: contig_4:2000028-2500028
+[00:46:35 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:35 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:35 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:35 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:35 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:35 - Annotate] Processing chunk with coordinates: contig_4:2500028-3000028
+[00:46:35 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:35 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:35 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:35 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:36 - Annotate] Processing chunk with coordinates: contig_4:3000028-3500028
+[00:46:36 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:36 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:36 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:36 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:36 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:36 - Annotate] Processing chunk with coordinates: contig_4:3012789-3512789
+[00:46:36 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:36 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:36 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:36 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:36 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:36 - Annotate] Processing chunk with coordinates: contig_40:1186-13351
+[00:46:36 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:36 - Annotate] Processing chunk with coordinates: contig_42:42874-542874
+[00:46:36 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:36 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:36 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:36 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:36 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:36 - Annotate] Processing chunk with coordinates: contig_42:542874-1042874
+[00:46:36 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:36 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:36 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:36 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:36 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:36 - Annotate] Processing chunk with coordinates: contig_42:1042874-1542874
+[00:46:37 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:37 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:37 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:37 - Annotate] Processing chunk with coordinates: contig_42:1542874-2042874
+[00:46:37 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:37 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:37 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:37 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:37 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:37 - Annotate] Processing chunk with coordinates: contig_42:2042874-2542874
+[00:46:37 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:37 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:37 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:37 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:37 - Annotate] Processing chunk with coordinates: contig_42:2542874-3042874
+[00:46:37 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:37 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:37 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:37 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:37 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:37 - Annotate] Processing chunk with coordinates: contig_42:3042874-3542874
+[00:46:37 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:37 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:37 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:37 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:37 - Annotate] Processing chunk with coordinates: contig_42:3542874-4042874
+[00:46:38 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:38 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:38 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:38 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:38 - Annotate] Processing chunk with coordinates: contig_42:4042874-4542874
+[00:46:38 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:38 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:38 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:38 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:38 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:38 - Annotate] Processing chunk with coordinates: contig_42:4088582-4588582
+[00:46:38 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:38 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:38 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:38 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:38 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:38 - Annotate] Processing chunk with coordinates: contig_43:198-500198
+[00:46:38 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:38 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:38 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:38 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:38 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:38 - Annotate] Processing chunk with coordinates: contig_43:500198-1000198
+[00:46:38 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:38 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:38 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:38 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:39 - Annotate] Processing chunk with coordinates: contig_43:1000198-1500198
+[00:46:39 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:39 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:39 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:39 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:39 - Annotate] Processing chunk with coordinates: contig_43:1500198-2000198
+[00:46:39 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:39 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:39 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:39 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:39 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:39 - Annotate] Processing chunk with coordinates: contig_43:2000198-2500198
+[00:46:39 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:39 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:39 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:39 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:39 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:39 - Annotate] Processing chunk with coordinates: contig_43:2500198-3000198
+[00:46:39 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:39 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:39 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:39 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:40 - Annotate] Processing chunk with coordinates: contig_43:3000198-3500198
+[00:46:40 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:40 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:40 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:40 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:40 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:40 - Annotate] Processing chunk with coordinates: contig_43:3500198-4000198
+[00:46:40 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:40 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:40 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:40 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:40 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:40 - Annotate] Processing chunk with coordinates: contig_43:4000198-4500198
+[00:46:40 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:40 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:40 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:40 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:40 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:40 - Annotate] Processing chunk with coordinates: contig_43:4500198-5000198
+[00:46:40 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:40 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:40 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:40 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:40 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:41 - Annotate] Processing chunk with coordinates: contig_43:5000198-5500198
+[00:46:41 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:41 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:41 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:41 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:41 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:41 - Annotate] Processing chunk with coordinates: contig_43:5500198-6000198
+[00:46:41 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:41 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:41 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:41 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:41 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:41 - Annotate] Processing chunk with coordinates: contig_43:6000198-6500198
+[00:46:41 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:41 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:41 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:41 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:42 - Annotate] Processing chunk with coordinates: contig_43:6500198-7000198
+[00:46:42 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:42 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:42 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:42 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:42 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:42 - Annotate] Processing chunk with coordinates: contig_43:7000198-7500198
+[00:46:42 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:42 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:42 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:42 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:42 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:42 - Annotate] Processing chunk with coordinates: contig_43:7500198-8000198
+[00:46:42 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:42 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:42 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:42 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:42 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:42 - Annotate] Processing chunk with coordinates: contig_43:8000198-8500198
+[00:46:42 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:42 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:42 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:42 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:42 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:43 - Annotate] Processing chunk with coordinates: contig_43:8500198-9000198
+[00:46:43 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:43 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:43 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:43 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:43 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:43 - Annotate] Processing chunk with coordinates: contig_43:9000198-9500198
+[00:46:43 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:43 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:43 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:43 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:43 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:43 - Annotate] Processing chunk with coordinates: contig_43:9500198-10000198
+[00:46:43 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:43 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:43 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:43 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:43 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:43 - Annotate] Processing chunk with coordinates: contig_43:10000198-10500198
+[00:46:43 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:43 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:43 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:43 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:44 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:44 - Annotate] Processing chunk with coordinates: contig_43:10500198-11000198
+[00:46:44 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:44 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:44 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:44 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:44 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:44 - Annotate] Processing chunk with coordinates: contig_43:11000198-11500198
+[00:46:44 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:44 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:44 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:44 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:44 - Annotate] Processing chunk with coordinates: contig_43:11500198-12000198
+[00:46:44 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:44 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:44 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:44 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:44 - Annotate] Processing chunk with coordinates: contig_43:11601087-12101087
+[00:46:44 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:44 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:44 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:44 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:44 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:45 - Annotate] Processing chunk with coordinates: contig_46:578-500578
+[00:46:45 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:45 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:45 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:45 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:45 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:45 - Annotate] Processing chunk with coordinates: contig_46:500578-1000578
+[00:46:45 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:45 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:45 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:45 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:45 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:45 - Annotate] Processing chunk with coordinates: contig_46:1000578-1500578
+[00:46:45 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:45 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:45 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:45 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:45 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:45 - Annotate] Processing chunk with coordinates: contig_46:1500578-2000578
+[00:46:45 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:45 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:45 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:45 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:45 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:46 - Annotate] Processing chunk with coordinates: contig_46:2000578-2500578
+[00:46:46 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:46 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:46 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:46 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:46 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:46 - Annotate] Processing chunk with coordinates: contig_46:2500578-3000578
+[00:46:46 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:46 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:46 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:46 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:46 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:46 - Annotate] Processing chunk with coordinates: contig_46:3000578-3500578
+[00:46:46 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:46 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:46 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:46 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:46 - Annotate] Processing chunk with coordinates: contig_46:3500578-4000578
+[00:46:46 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:46 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:46 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:46 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:46 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:47 - Annotate] Processing chunk with coordinates: contig_46:4000578-4500578
+[00:46:47 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:47 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:47 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:47 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:47 - Annotate] Processing chunk with coordinates: contig_46:4500578-5000578
+[00:46:47 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:47 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:47 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:47 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:47 - Annotate] Processing chunk with coordinates: contig_46:5000578-5500578
+[00:46:47 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:47 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:47 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:47 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:47 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:47 - Annotate] Processing chunk with coordinates: contig_46:5500578-6000578
+[00:46:48 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:48 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:48 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:48 - Annotate] Processing chunk with coordinates: contig_46:6000578-6500578
+[00:46:48 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:48 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:48 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:48 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:48 - Annotate] Processing chunk with coordinates: contig_46:6500578-7000578
+[00:46:48 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:48 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:48 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:48 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:48 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:48 - Annotate] Processing chunk with coordinates: contig_46:7000578-7500578
+[00:46:48 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:48 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:48 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:48 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:48 - Annotate] Processing chunk with coordinates: contig_46:7109479-7609479
+[00:46:48 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:48 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:48 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:48 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:48 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:48 - Annotate] Processing chunk with coordinates: contig_5:261-35260
+[00:46:48 - BAMFile] Creating pool of 16 BAM file sets.
+[00:46:49 - Annotate] Processing chunk with coordinates: contig_9:17426-18853
+[00:46:49 - BAMFile] Creating pool of 16 BAM file sets.

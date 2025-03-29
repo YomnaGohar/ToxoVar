@@ -1,0 +1,3 @@
+WorkflowError in file /home/yomna/Desktop/PhD_Yomna_Gohar/graph_genome_project/ToxoVar/workflow/Snakefile, line 1:
+Workflow defines configfile ../config/config.yaml but it is not present or accessible (full checked path: /home/yomna/Desktop/PhD_Yomna_Gohar/graph_genome_project/config/config.yaml).
+  File "/home/yomna/Desktop/PhD_Yomna_Gohar/graph_genome_project/ToxoVar/workflow/Snakefile", line 1, in <module>

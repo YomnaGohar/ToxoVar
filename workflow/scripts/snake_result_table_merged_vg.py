@@ -57,7 +57,7 @@ def read_variantcalls_per_sample(vg_infile, sample,dict_pos, combi_dict):
                 alt=splitline[4] #altternative allele from the variant 
                 genotype=splitline[9].split(":")[0]
                 if (chrom, pos) in combi_dict.keys(): #if  variant is in the merged vcf dictionary 
-                    print(combi_dict[(chrom, pos)])
+                    #print(combi_dict[(chrom, pos)])
                     alt_allel_combi= combi_dict[(chrom, pos)][0][2] #get the different alt allele(s) called at this position after merging with Pangenie
                     
                     if "," in alt_allel_combi: # if there is more than one alt allele, get a list of those.
@@ -70,12 +70,12 @@ def read_variantcalls_per_sample(vg_infile, sample,dict_pos, combi_dict):
                             position=int(position[0]) 
                         else:
                             position="-"
-                            print("alt_allele", alt, "not found in", alt_list, "Variant: ",  chrom, pos)
+                            #print("alt_allele", alt, "not found in", alt_list, "Variant: ",  chrom, pos)
                             vg_called_diff_allele += 1
                     elif alt == alt_allel_combi: #if one alt allele at this variant: identical: set position to 1, if different set position to -1
                         position=1
                     else: 
-                        print("different ALT allele", alt," in concat compared to merged", alt_allel_combi, "Variant:", chrom, pos)
+                        #print("different ALT allele", alt," in concat compared to merged", alt_allel_combi, "Variant:", chrom, pos)
                         position="-"
                         vg_called_diff_allele += 1
                     #print(position)
@@ -83,7 +83,7 @@ def read_variantcalls_per_sample(vg_infile, sample,dict_pos, combi_dict):
                         position=genotype 
                     combi_dict[(chrom, pos)][dict_pos][sample]=position
                 else: 
-                    print("variant not in dictionary: ", chrom, pos, sample, "\n", alt)
+                    #print("variant not in dictionary: ", chrom, pos, sample, "\n", alt)
                     vg_called_not_in_dic += 1 
 
     print(" calls that are not in merged dictionary:", vg_called_not_in_dic)

@@ -10,9 +10,11 @@ import csv
 import numpy as np
 import matplotlib.pyplot as plt
 import os
-samples = int(sys.argv[1])
-input_file = sys.argv[2]
-#"/home/yomna/Desktop/PhD_Yomna_Gohar/graph_genome_project/ToxoVar/analysis/Graph/graph_construction/results/merged_vg_combined_table_placed_ref.txt"
+samples = 2
+#int(sys.argv[1])
+input_file = "/home/yomna/Desktop/PhD_Yomna_Gohar/graph_genome_project/ToxoVar/analysis/Graph/graph_construction/results/merged_vg_combined_table_placed_ref.vcf"
+#sys.argv[2]
+#
 output_dir=os.path.dirname(sys.argv[3])
 
 # Initialize counts
@@ -78,36 +80,44 @@ def update_counts(merged, vg, i, vtype):
 
 with open(input_file) as file:
    for r in file:
+       if r.startswith("#"):
+          continue
        genotype=[]
        for i in range(samples):
-           z = r.split('\t')
-           if "Chromosom" not in z:
-                merged = z[i + 6]
-                vg = z[i + 9 + samples]
-                genotype.append(vg)
-                if z[4] == "INS":
-                    if "," in z[3]: 
-                        if merged != "." and  merged != "-":
-                            vt_mod = z[3].split(",")[int(merged) - 1] 
-                        elif vg != ".":
-                              vt_mod = z[3].split(",")[int(vg) - 1] 
-                        else:
-                              vt_mod = z[3].split(",")[0]
+            z = r.strip().split('\t')
+            merged = z[i + 9]
+            vg = z[i + 9 + samples]
+            genotype.append(vg)
+            variant_type=[i.split("-")[-3] for i in z[2].split(",")]
+            if merged != "." and  merged != "-" and merged != "0":
+                variant_type_1 = variant_type[int(merged) - 1] 
+            elif vg != "." and vg != "0":
+                  variant_type_1 = variant_type[int(vg) - 1] 
+            else:
+                  variant_type_1 = variant_type[0]
+            if "INS" == variant_type_1:
+                if "," in z[4]: 
+                    if merged != "." and  merged != "-" and merged != "0":
+                        vt_mod = z[4].split(",")[int(merged) - 1] 
+                    elif vg != "." and vg != "0":
+                          vt_mod = z[4].split(",")[int(vg) - 1] 
                     else:
-                        vt_mod=z[3]
-                    if len(vt_mod) >= 50:
-                        vtype="INS"
-                    else: 
-                        vtype="sIns"
-                elif z[4] == "DEL":
-                    vt_mod = z[2] #if it's deletion then we look at the length of the reference
-                    if len(vt_mod) >= 50:
-                        vtype="DEL"
-                    else:
-                         vtype="sdel"
-                elif z[4] == "SNV":
-                    vtype="SNV"
-                update_counts( merged, vg, i, vtype)
+                          vt_mod = z[4].split(",")[0]
+                else:
+                    vt_mod=z[4]
+                if len(vt_mod) >= 50:
+                    vtype="INS"
+                else: 
+                    vtype="sIns"
+            elif  "DEL" in variant_type:
+                vt_mod = z[3] #if it's deletion then we look at the length of the reference
+                if len(vt_mod) >= 50:
+                    vtype="DEL"
+                else:
+                     vtype="sdel"
+            elif z[4] == "SNV":
+                vtype="SNV"
+            update_counts( merged, vg, i, vtype)
        if len(set(genotype)) == 1 and genotype[0] != "0" and  genotype[0] != "."  and genotype[0] != "-":
           vartype_overlap_vg[vtype] += 1
 # Convert counts to percentages

@@ -6,7 +6,6 @@ Created on Wed Jun  5 13:12:45 2024
 @author: yomna
 """
 import sys
-samples = 3
 #int(sys.argv[1])
 input_file = "/home/yomna/Desktop/PhD_Yomna_Gohar/graph_genome_project/ToxoVar/analysis/Graph/merge_concat_medaka_sniffles/merge_medaka_sniffles.vcf"
 #sys.argv[2]
