@@ -1,4 +1,5 @@
 workflow/.snakemake/
+workflow/rules/additional.smk
 data/
 analysis/
 config/config.yaml
