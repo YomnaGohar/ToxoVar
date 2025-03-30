@@ -218,7 +218,9 @@ rule make_result_table:
   output:
       out_table=temp("{out}/analysis/Graph/graph_construction/results/merged_vg_combined_table.vcf"),
       combined_table_out=temp("{out}/analysis/Graph/graph_construction/results/merged_vg_combined_table_placed_ref.vcf"),
-      for_igv="{out}/analysis/Graph/graph_construction/results/merged_vg_combined_table_placed_ref_for_igv.vcf"
+      for_igv="{out}/analysis/Graph/graph_construction/results/merged_vg_combined_table_placed_ref_for_igv.vcf",
+      compressed="{out}/analysis/Graph/graph_construction/results/merged_vg_combined_table_placed_ref_for_igv.vcf.gz",
+      idx="{out}/analysis/Graph/graph_construction/results/merged_vg_combined_table_placed_ref_for_igv.vcf.gz.tbi"
   params:
       num_samples = num_samples,
       samples = "\t".join(config["samples"].keys())       
@@ -227,4 +229,6 @@ rule make_result_table:
       python scripts/snake_result_table_merged_vg.py {input.merged} {input.vg_mod} {output.out_table}
       python3 scripts/snake_medaka_sniffles_reference_filtering.py {output.out_table} {params.num_samples} {params.samples} {input.medaka} {input.sniffles} {output.combined_table_out}
       awk 'BEGIN {{FS=OFS="\t"}} {{for (i=1; i<=NF; i++) if ($i == "-") $i="."; print}}' {output.combined_table_out} > {output.for_igv}
+      bgzip -c {output.for_igv} > {output.compressed}
+      tabix {output.compressed}
       """
