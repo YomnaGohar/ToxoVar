@@ -87,9 +87,9 @@ rule filtering_vcf_for_valid_variants:
     stat="{out}/analysis/medaka/medaka_{sample}/variant.statistics.txt"
   threads: 4  
   params:
-     depth=config["Files"]["depth"],
-     gq=config["Files"]["gq"],
-     snp_del_overlap=config["Files"]["snp_del_overlap"]
+     depth=config["filter"]["depth"],
+     gq=config["filter"]["gq"],
+     snp_del_overlap=config["filter"]["snp_del_overlap"]
   shell:
     """
     python3 scripts/2023.12.11_variants_counting_from_vcf_file.py {input.vcf} > {output.stat}

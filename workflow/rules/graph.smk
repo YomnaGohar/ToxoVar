@@ -180,8 +180,8 @@ rule filter_vg_calls:
     mod_filter_vcf="{out}/analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_filter_mod.vcf",
     total_filtered="{out}/analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_variants_MQ30_BQ20_vartype_total_filtered.vcf"
   params:
-     depth=config["Files"]["depth_graph"],
-     allele_freq=config["Files"]["allele_freq_graph"],
+     depth=config["filter"]["depth_graph"],
+     allele_freq=config["filter"]["allele_freq_graph"],
      exclude_contig=config["Files"]["sequences_to_exclude"] 
   shell:
     """
