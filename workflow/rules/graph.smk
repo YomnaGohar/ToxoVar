@@ -101,7 +101,7 @@ rule vg_index:
 rule graphAligner:
   input:
     graph="{out}/analysis/Graph/graph_construction/merged_graph.vg",
-    reads=lambda wildcards: config["graph_regenoyping_additional"][wildcards.sample]
+    reads=lambda wildcards: config["samples"][wildcards.sample]
   output:
     alignment="{out}/analysis/Graph/graph_construction/{sample}_graph_Alignment/{sample}_sequence_to_graph_alignment_newGA.gam"
   threads: 10

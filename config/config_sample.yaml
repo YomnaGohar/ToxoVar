@@ -1,0 +1,50 @@
+# config.yaml — Sample configuration file for ToxoVar Snakemake pipeline
+
+# Output directory
+output_dir: /path/to/output_directory/
+
+# Sample FASTQ files (non-mitochondrial Nanopore reads)
+samples:
+  2020T: /path/to/2020T_non_mit_reads.fastq
+  2000B: /path/to/2000B_non_mit_reads.fastq
+
+# Medaka models per sample
+models:
+  2000B: /path/to/r104_e81_sup_variant_g610_model.tar.gz
+  2020T: /path/to/r104_e81_sup_variant_g610_model.tar.gz
+
+# Reference files and annotations
+Files:
+  ref: /path/to/ME49_2015T_assembly.fasta
+  gff: /path/to/ME49_2015T_annotation.gff3.gz
+  sequences_to_exclude: contig_50,contig_1,JACEHA010000016.1 #to remove variants on apicoplast
+  positions_to_mask_small_variants_in: /path/to/positions_to_mask_variants_in.bed
+  NUMT: /path/to/numts.bed
+  homopolymer: /path/to/homopolymer.bed
+  TandemRepeat: /path/to/tandem_repeats.bed
+
+# Filtering parameters for variant calling
+filter:
+  depth: 10 #depth filter for medaka
+  gq: 10 #Genotype quality filter 
+  snp_del_overlap: 0.5 # SNPs overlapping deletions are filtered if deletions make up ≥50% of total read depth at that position
+  allele_freq_graph: 0 #allele frequency threshold for the graph
+  depth_graph: 0 #depth threshold for the graph
+
+# Tool paths 
+tools:
+  snpEff_path: /path/to/SnpSift.jar
+  samtools: /path/to/samtools
+
+# Manually filtered SVs and their VCF paths.
+manually_filtered_SV:
+  2000B: True
+  2020T: True
+
+manual_vcf_paths: #if manually_filtered_SV is true then specify the path to the vcf file 
+  2000B: /path/to/sniffles_2000B_manual_filtered.vcf
+  2020T: /path/to/sniffles_2020T_manual_filtered.vcf
+
+# Graph-based genotyping filtered VCF
+manually_filtered_after_graph: True
+manual_vcf_paths_after_graph: /path/to/merged_graph_filtered_variants.vcf.gz #if manually_filtered_after_graph is true the specify the path to the vcf file. it needs to be bgzip compressed and indexed with tabix 

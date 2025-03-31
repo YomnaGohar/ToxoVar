@@ -10,20 +10,30 @@ Key features and processes of the pipeline include:
     Outputting a set of high-quality variants for each sample.
 
 The goal is to provide a comprehensive framework for understanding the genetic diversity and evolutionary dynamics of T. gondii isolates, leveraging the power of graph genomes and long-read sequencing data to uncover detailed insights into genomic variations.
+## Resources
+
+The `resources/` directory contains essential reference files required by the pipeline:
+
+- `2015T_assembly.fa`: A high-quality genome assembly of the *T. gondii* ME49 2015T isolate. (variants are called against it.)
+- `annotation.gff3.gz`: Genome annotation file generated using **Companion**
+- `homo.bed`: Genomic positions of **homopolymeric regions**
+- `TR.bed`: Genomic positions of **tandem repeats (TRs)**
+- `numts.bed`: Genomic positions of **nuclear mitochondrial DNA segments (NUMTs)**
+- `positions_to_mask_variants_in.bed`: Genomic positions that expected to contain false positive variant calls
+
+These BED files are used for variant filtering and quality control steps within the workflow.
 
 # Dependencies
-    Medaka 1.11.3: This needs to be installed by the user.
-    Sniffles 2.2:  This will be automatically installed by the Snakemake pipeline.
-    Ensemble_vep:  This needs to be installed by the user. 
-    SnpEff:        This needs to be installed by the user.
-    GraphAligner:  This will be automatically installed by the Snakemake pipeline.
+    Medaka 1.11.3:
+    Sniffles 2.2:  
+    Ensemble_vep: 
+    SnpEff:       
+    GraphAligner:  
     
-Here's a proofread and refined version of the "Usage" section for better clarity and correctness:
-
 ---
 
 ### Usage
-To utilize the pipeline, users need to modify the `config.yaml` file located in the config directory. This modification includes specifying the directory path to the FASTQ files in `samples:`. It is crucial that the sample name in the `config.yaml` file matches other entries in `pileup:` and `models:`. Additionally, the paths to the reference and GFF files should also be included in the config file.
+To utilize the pipeline, users need to modify the `config.yaml` file located in the config directory. This modification includes specifying the directory path to the FASTQ files in `samples:`. It is crucial that the sample name in the `config.yaml` file matches other entries in `pileup:` and `models:`. Additionally, the paths to the reference, GFF and BED files should also be included in the config file. For information about each entry in the config.yaml file, a sample file (config_sample.yaml) is provided in the config/ directory
 
 #### To Call SNPs and Indels
 Execute the following command:
