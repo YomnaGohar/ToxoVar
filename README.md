@@ -43,12 +43,39 @@ Execute the following command:
 ```bash
 snakemake --profile profiles/ call_small_variations
 ```
+The final output for this step is a VCF file named medaka.annotated_with_VarType_valid.newHead.sorted.assignedID.vcf for each sample. It will be located in a subdirectory named medaka_<sample_name> within the specified output directory.
 
 #### To Call Structural Variations (SVs)
 Use this command:
 ```bash
-snakemake --profile profiles/ call_small_variations call_SVs
+snakemake --profile profiles/ call_SVs
 ```
+
+The final output of this step consists of two VCF files per sample:
+- `sniffles_<sample>_with_reference_corrected.vcf`: the raw VCF file after reference correction.
+- `sniffles_<sample>_with_reference_corrected.newHead_assignedID_sorted.vcf.gz`: the processed and sorted version used in downstream analysis.
+
+If manual filtering is necessary, the user should create a filtered VCF file using the same format as `sniffles_<sample>_with_reference_corrected.vcf`. This can be done by copying the content of the original file and removing the variants that should be excluded. All header and data fields must be preserved to maintain compatibility with the pipeline.
+
+#### Graph genotyping
+Use this command:
+```bash
+snakemake --profile profiles/ Graph
+```
+In the graph-based genotyping step, the final Medaka VCF files are further filtered using structural variant (SV) information—either automatically generated or manually curated SVs if provided—as well as genomic regions defined in BED files (see `config.yaml` for details). These filtered small variants and SVs are integrated into a variation graph, which is then used to genotype all samples. The final per-sample genotyping results are located in `Graph/graph_construction/<sample>_graph_Alignment/<sample>_variants_MQ30_BQ20_vartype_total_filtered.vcf` within the specified output directory. Additionally, all genotypes (before and after graph-based filtering) are merged into a single file: `Graph/graph_construction/results/merged_vg_combined_table_placed_ref_for_igv.vcf`, which is used for downstream analysis.
+
+#### Startify variants by genomic location and predict effect 
+Use this command:
+```bash
+snakemake --profile profiles/ vcf_analysis
+```
+The output of the graph step can be further filtered manually by the user. If manual filtering is performed, the path to the modified VCF file must be specified in the `config.yaml` file. This VCF will then be stratified by regions overlapping NUMTs, homopolymers, or tandem repeats, with each category written to a separate VCF file. Additionally, variant effect prediction will be performed on the final VCF using Ensembl VEP.
+
+
+
+
+
+
 
     
 
