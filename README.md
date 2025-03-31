@@ -31,7 +31,10 @@ These BED files are used for variant filtering and quality control steps within 
     GraphAligner:  
     
 ---
+# Pipeline Overview
+
 ![ToxoVar Pipeline Flowchart](FigS1.png)
+
 ### Usage
 To utilize the pipeline, users need to modify the `config.yaml` file located in the config directory. This modification includes specifying the directory path to the FASTQ files in `samples:`. It is crucial that the sample name in the `config.yaml` file matches other entries in `pileup:` and `models:`. Additionally, the paths to the reference, GFF and BED files should also be included in the config file. For information about each entry in the config.yaml file, a sample file (config_sample.yaml) is provided in the config/ directory
 
